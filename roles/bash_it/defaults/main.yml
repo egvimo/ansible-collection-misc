@@ -1,0 +1,6 @@
+---
+bash_it_user: "{{ ansible_user }}"
+bash_it_user_home: "/home/{{ bash_it_user }}"
+bash_it_repository: https://github.com/Bash-it/bash-it.git
+bash_it_version: master
+bash_it_theme: bobby
