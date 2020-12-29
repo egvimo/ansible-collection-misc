@@ -1,5 +1,7 @@
 # Ansible collection for miscellaneous roles
 
+![Molecule Test](https://github.com/egvimo/ansible-collection-general/workflows/Molecule%20Test/badge.svg)
+
 This collection contains the following roles:
 
 - [Bash-it](#bash-it)
