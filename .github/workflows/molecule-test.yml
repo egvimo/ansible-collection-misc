@@ -23,4 +23,4 @@ jobs:
         run: pip3 install -r requirements.txt
 
       - name: Run molecule tests
-        run: molecule test -s bash_it
+        run: molecule test --all
