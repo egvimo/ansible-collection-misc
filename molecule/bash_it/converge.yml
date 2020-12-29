@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: Include bash_it role
+      include_role:
+        name: bash_it
+      vars:
+        bash_it_user: root
