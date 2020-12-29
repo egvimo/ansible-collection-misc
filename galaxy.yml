@@ -1,0 +1,17 @@
+namespace: egvimo
+name: general
+version: 0.1.0
+readme: README.md
+authors:
+  - egvimo
+description: Collection of miscellaneous roles
+license_file: LICENSE
+tags:
+  - bash_it
+  - docker
+dependencies:
+  community.general: ">=1.0.0"
+repository: https://github.com/egvimo/ansible-collection-general
+documentation: https://github.com/egvimo/ansible-collection-general
+homepage: https://github.com/egvimo/ansible-collection-general
+issues: https://github.com/egvimo/ansible-collection-general/issues
