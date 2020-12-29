@@ -1,4 +1,14 @@
-# Ansible collection with several different roles
+# Ansible collection for miscellaneous roles
+
+This collection contains the following roles:
+
+- [Bash-it](#bash-it)
+
+## Installation
+
+```shell
+ansible-galaxy collection install egvimo.general
+```
 
 ## Bash-it
 
@@ -13,12 +23,6 @@ Ansible role to install the [Bash-it framework](https://github.com/Bash-it/bash-
 | bash_it_repository | <https://github.com/Bash-it/bash-it.git> | Git repository of Bash-it   |
 | bash_it_version    | master                                   | Git branch, tag or commit   |
 | bash_it_theme      | bobby                                    | Theme to be used            |
-
-### Installation
-
-```shell
-ansible-galaxy install egvimo.general.bash_it
-```
 
 ### Example Playbook
 
