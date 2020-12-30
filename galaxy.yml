@@ -1,16 +1,21 @@
 namespace: egvimo
 name: general
-version: 0.1.0
-readme: README.md
+version: 0.2.0
+description: Collection of miscellaneous roles
+
 authors:
   - egvimo
-description: Collection of miscellaneous roles
+
+readme: README.md
 license_file: LICENSE
+
 tags:
   - bash_it
   - docker
+
 dependencies:
   community.general: ">=1.0.0"
+
 repository: https://github.com/egvimo/ansible-collection-general
 documentation: https://github.com/egvimo/ansible-collection-general
 homepage: https://github.com/egvimo/ansible-collection-general
