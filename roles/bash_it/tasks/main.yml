@@ -1,6 +1,6 @@
 ---
 - name: Clone Bash-it repository
-  git:
+  ansible.builtin.git:
     repo: "{{ bash_it_repository }}"
     dest: "{{ bash_it_user_home }}/.bash_it"
     version: "{{ bash_it_version }}"
@@ -9,12 +9,12 @@
   become_user: "{{ bash_it_user }}"
 
 - name: Run installer
-  command:
+  ansible.builtin.command:
     cmd: "{{ bash_it_user_home }}/.bash_it/install.sh --silent --no-modify-config"
     creates: "{{ bash_it_user_home }}/.bash_it/enabled"
 
 - name: Add Bash-it configuration to .bashrc
-  lineinfile:
+  ansible.builtin.lineinfile:
     dest: "{{ bash_it_user_home }}/.bashrc"
     create: yes
     line: "{{ item.line }}"
@@ -27,7 +27,7 @@
     - { regexp: '^source \$BASH_IT', line: "source $BASH_IT/bash_it.sh" }
 
 - name: Ensure .bash_profile sources .bashrc
-  blockinfile:
+  ansible.builtin.blockinfile:
     dest: "{{ bash_it_user_home }}/.bash_profile"
     create: yes
     block: |
