@@ -6,6 +6,7 @@ This collection contains the following roles:
 
 - [Bash-it](docs/bash_it.md)
 - [Docker](docs/docker.md)
+- [Raspberry Pi](docs/raspberry.md)
 
 ## Installation
 
