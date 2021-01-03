@@ -24,8 +24,12 @@ jobs:
       - name: Install dependencies
         run: pip3 install -r requirements.txt
 
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
       - name: Run the Ansible Galaxy release playbook
-        run: ansible-playbook -i 'localhost,' release.yml -e "github_ref=${{ github.ref }}"
+        run: ansible-playbook -i 'localhost,' release.yml -e "version=${{ steps.get_version.outputs.VERSION }}"
 
       - name: Create Release
         id: create_release
@@ -33,18 +37,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ steps.get_version.outputs.VERSION }}
+          release_name: Release ${{ steps.get_version.outputs.VERSION }}
           draft: false
           prerelease: false
 
       - name: Upload Release Asset
-        id: upload_release_asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./egvimo-general-${{ github.ref }}.tar.gz
-          asset_name: egvimo-general-${{ github.ref }}.tar.gz
+          asset_path: ./egvimo-general-${{ steps.get_version.outputs.VERSION }}.tar.gz
+          asset_name: egvimo-general-${{ steps.get_version.outputs.VERSION }}.tar.gz
           asset_content_type: application/gzip

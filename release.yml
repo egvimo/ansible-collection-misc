@@ -2,8 +2,6 @@
 - hosts: localhost
   connection: local
   gather_facts: false
-  vars:
-    version: "{{ github_ref }}"
 
   pre_tasks:
     - name: Ensure the ANSIBLE_GALAXY_API_KEY environment variable is set
