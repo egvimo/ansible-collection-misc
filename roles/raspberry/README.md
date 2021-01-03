@@ -1,4 +1,4 @@
-# Docker
+# Raspberry Pi
 
 Ansible role to configure a Raspberry Pi via `raspi-config`.
 
