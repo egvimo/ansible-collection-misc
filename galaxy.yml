@@ -1,6 +1,6 @@
 namespace: egvimo
 name: general
-version: "{{ version }}"
+version: "0.1.0"
 description: Collection of miscellaneous roles
 
 authors:
