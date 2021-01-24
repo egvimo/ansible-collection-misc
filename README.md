@@ -7,6 +7,7 @@ This collection contains the following roles:
 - [Bash-it](roles/bash_it/README.md)
 - [Docker](roles/docker/README.md)
 - [Raspberry Pi](roles/raspberry/README.md)
+- [User](roles/user/README.md) (Helper)
 
 ## Installation
 

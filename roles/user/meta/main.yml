@@ -1,0 +1,29 @@
+galaxy_info:
+  role_name: user
+  author: egvimo
+  description: Creates a new user
+
+  license: MIT
+
+  min_ansible_version: 2.10
+
+  platforms:
+    - name: Fedora
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: GenericUNIX
+      versions:
+        - all
+
+  galaxy_tags:
+    - linux
+    - unix
+    - user
+
+dependencies: []

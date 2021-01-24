@@ -1,0 +1,4 @@
+---
+user_id: "{{ ansible_user }}"
+user_name: "{{ ansible_user }}"
+user_add_ansible_user_to_group: false
