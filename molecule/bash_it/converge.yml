@@ -2,7 +2,7 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: Include bash_it role
+    - name: Include role
       include_role:
         name: bash_it
       vars:

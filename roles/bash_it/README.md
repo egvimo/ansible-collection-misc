@@ -14,7 +14,7 @@ Ansible role to install the [Bash-it framework](https://github.com/Bash-it/bash-
 
 ## Example Playbook
 
-Use Bash-it role with default settings:
+Use the role with default settings:
 
 ```yml
 - hosts: servers

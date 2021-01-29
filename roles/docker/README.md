@@ -10,7 +10,7 @@ Ansible role to install the Docker via package manager.
 
 ## Example Playbook
 
-Use Docker role with default settings:
+Use the role with default settings:
 
 ```yml
 - hosts: servers

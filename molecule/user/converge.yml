@@ -2,13 +2,13 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: Include user role
+    - name: Include role
       include_role:
         name: user
       vars:
         user_id: alice
         user_name: Alice
-    - name: Include user role
+    - name: Include role
       include_role:
         name: user
       vars:
