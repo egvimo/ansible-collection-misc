@@ -1,0 +1,30 @@
+galaxy_info:
+  role_name: minidlna
+  author: egvimo
+  description: Installation of ReadyMedia (formerly known as MiniDLNA) as Docker container
+
+  license: MIT
+
+  min_ansible_version: 2.10
+
+  platforms:
+    - name: Fedora
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: GenericUNIX
+      versions:
+        - all
+
+  galaxy_tags:
+    - linux
+    - unix
+    - readymedia
+    - minidlna
+
+dependencies: []

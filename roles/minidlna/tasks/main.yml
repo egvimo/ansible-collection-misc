@@ -1,0 +1,31 @@
+---
+- name: Include user role
+  include_role:
+    name: user
+  vars:
+    user_id: "{{ minidlna_user_id }}"
+    user_name: "{{ minidlna_user_name }}"
+
+- name: Ensure media directory exists
+  file:
+    path: "{{ minidlna_media_path }}"
+    state: directory
+    owner: "{{ minidlna_user_id }}"
+    group: "{{ minidlna_user_id }}"
+    mode: '0775'
+  become: yes
+
+- name: Start the container
+  community.general.docker_container:
+    name: minidlna
+    image: vladgh/minidlna
+    pull: true
+    container_default_behavior: compatibility
+    user: "{{ user_uid }}:{{ user_gid }}"
+    restart_policy: always
+    network_mode: host
+    env:
+      MINIDLNA_MEDIA_DIR: /media
+      MINIDLNA_FRIENDLY_NAME: Raspberry
+    volumes:
+      "{{ minidlna_media_path }}:/media"
