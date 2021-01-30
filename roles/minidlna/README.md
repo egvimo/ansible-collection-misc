@@ -20,6 +20,7 @@ Use the role with default settings:
 - hosts: servers
   roles:
     - role: egvimo.general.minidlna
+      minidlna_media_path: /opt/media
 ```
 
 Customize usage:
@@ -28,6 +29,6 @@ Customize usage:
 - hosts: servers
   roles:
     - role: egvimo.general.minidlna
-      bash_it_user: bob
-      bash_it_theme: atomic
+      minidlna_user_id: bob
+      minidlna_media_path: /opt/media
 ```
