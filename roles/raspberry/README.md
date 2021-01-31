@@ -10,22 +10,3 @@ Ansible role to configure a Raspberry Pi via `raspi-config`.
 | raspberry_timezone        | Europe/London | Timezone configuration        |
 | raspberry_keyboard_layout | de            | Keyboard layout configuration |
 | raspberry_wlan_country    | DE            | WLAN country configuration    |
-
-## Example Playbook
-
-Use the role with default settings:
-
-```yml
-- hosts: servers
-  roles:
-    - role: egvimo.general.raspberry
-```
-
-Customize usage:
-
-```yml
-- hosts: servers
-  roles:
-    - role: egvimo.general.raspberry
-      raspberry_locale: en_GB.UTF-8
-```

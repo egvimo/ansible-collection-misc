@@ -30,6 +30,26 @@ collections:
     version: main # Or any other Git branch, tag or commit
 ```
 
+## Usage
+
+The usage of the roles includes explained based on the Bash-it role. Use the role with default settings:
+
+```yml
+- hosts: servers
+  roles:
+    - role: egvimo.general.bash_it
+```
+
+Customize usage:
+
+```yml
+- hosts: servers
+  roles:
+    - role: egvimo.general.bash_it
+      bash_it_user: bob
+      bash_it_theme: atomic
+```
+
 ## License
 
 Copyright © 2020 egvimo.

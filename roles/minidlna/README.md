@@ -11,24 +11,3 @@ Ansible role to install ReadyMedia (formerly known as MiniDLNA) as Docker contai
 | minidlna_media_path |               | Media directory                |
 
 See [user role](../user/README.md) for the user variables.
-
-## Example Playbook
-
-Use the role with default settings:
-
-```yml
-- hosts: servers
-  roles:
-    - role: egvimo.general.minidlna
-      minidlna_media_path: /opt/media
-```
-
-Customize usage:
-
-```yml
-- hosts: servers
-  roles:
-    - role: egvimo.general.minidlna
-      minidlna_user_id: bob
-      minidlna_media_path: /opt/media
-```
