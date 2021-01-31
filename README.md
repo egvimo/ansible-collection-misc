@@ -4,11 +4,14 @@
 
 This collection contains the following roles:
 
-- [Bash-it](roles/bash_it/README.md)
-- [Docker](roles/docker/README.md)
-- [Raspberry Pi](roles/raspberry/README.md)
-- [ReadyMedia (MiniDLNA)](roles/minidlna/README.md)
-- [User](roles/user/README.md) (Helper)
+| Role         | Name        | Documentation                         |
+| ------------ | ----------- | ------------------------------------- |
+| Bash-it      | bash_it     | [Readme](roles/bash_it/README.md)     |
+| Docker       | docker      | [Readme](roles/docker/README.md)      |
+| JDownloader  | jdownloader | [Readme](roles/jdownloader/README.md) |
+| Raspberry Pi | raspberry   | [Readme](roles/raspberry/README.md)   |
+| ReadyMedia   | minidlna    | [Readme](roles/minidlna/README.md)    |
+| User         | user        | [Readme](roles/user/README.md)        |
 
 ## Installation
 
