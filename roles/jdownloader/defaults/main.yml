@@ -1,0 +1,6 @@
+---
+jdownloader_user_id: jd
+jdownloader_user_name: JDownloader
+jdownloader_cfg_path: /opt/jdownloader/cfg
+jdownloader_download_path: /opt/jdownloader/download
+jdownloader_update_myjd_credentials: false

@@ -1,0 +1,61 @@
+---
+- name: Include user role
+  include_role:
+    name: user
+  vars:
+    user_id: "{{ jdownloader_user_id }}"
+    user_name: "{{ jdownloader_user_name }}"
+
+- name: Create JDownloader directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ jdownloader_user_id }}"
+    group: "{{ jdownloader_user_id }}"
+    mode: "0775"
+  loop:
+    - "{{ jdownloader_cfg_path }}"
+    - "{{ jdownloader_download_path }}"
+  become: yes
+
+- name: Start the container
+  community.general.docker_container:
+    name: jdownloader
+    image: jaymoulin/jdownloader
+    pull: true
+    container_default_behavior: compatibility
+    user: "{{ user_uid }}:{{ user_gid }}"
+    restart_policy: always
+    init: yes
+    env:
+      MYJD_DEVICE_NAME: Docker@Raspberry
+      UMASK: "0002"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - "{{ jdownloader_cfg_path }}:/opt/JDownloader/cfg"
+      - "{{ jdownloader_download_path }}:/opt/JDownloader/Downloads"
+
+- name: Check if MyJDownloader credentials are already configured
+  lineinfile:
+    path: "{{ jdownloader_cfg_path }}/org.jdownloader.api.myjdownloader.MyJDownloaderSettings.json"
+    regexp: "{{ jdownloader_myjd_username }}"
+    state: absent
+  check_mode: yes
+  changed_when: false
+  register: check
+  when:
+    - jdownloader_myjd_username is defined
+    - jdownloader_myjd_password is defined
+
+- debug: var=check
+
+- name: Configure MyJDownloader account
+  command: "docker exec jdownloader configure {{ jdownloader_myjd_username }} {{ jdownloader_myjd_password }}"
+  register: result
+  retries: 3
+  delay: 5
+  until: result is not failed
+  when:
+    - jdownloader_myjd_username is defined
+    - jdownloader_myjd_password is defined
+    - jdownloader_update_myjd_credentials or (check.found is defined and not check.found)

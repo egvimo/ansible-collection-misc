@@ -1,0 +1,13 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: Include role
+      include_role:
+        name: jdownloader
+    - name: Include role
+      include_role:
+        name: jdownloader
+      vars:
+        jdownloader_myjd_username: test@mail
+        jdownloader_myjd_password: test.pass
