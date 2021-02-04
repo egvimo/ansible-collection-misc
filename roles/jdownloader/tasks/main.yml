@@ -47,8 +47,6 @@
     - jdownloader_myjd_username is defined
     - jdownloader_myjd_password is defined
 
-- debug: var=check
-
 - name: Configure MyJDownloader account
   command: "docker exec jdownloader configure {{ jdownloader_myjd_username }} {{ jdownloader_myjd_password }}"
   register: result
