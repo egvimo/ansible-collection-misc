@@ -11,7 +11,9 @@
     groups: "{{ user_id }}"
     append: yes
   become: yes
-  when: user_add_ansible_user_to_group
+  when:
+    - ansible_user is defined
+    - user_add_ansible_user_to_group
 
 - name: "Get '{{ user_id }}' user info"
   getent:
