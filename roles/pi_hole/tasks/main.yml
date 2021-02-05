@@ -32,7 +32,7 @@
       - "{{ pi_hole_additional_dns_server }}"
     init: yes
     env:
-      TZ: Europe/Berlin
+      TZ: "{{ pi_hole_timezone }}"
       VIRTUAL_HOST: pi.hole
       PROXY_LOCATION: pi.hole
       ServerIP: 192.168.178.33
