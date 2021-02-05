@@ -9,6 +9,7 @@ This collection contains the following roles:
 | Bash-it      | bash_it     | [Readme](roles/bash_it/README.md)     |
 | Docker       | docker      | [Readme](roles/docker/README.md)      |
 | JDownloader  | jdownloader | [Readme](roles/jdownloader/README.md) |
+| Pi-hole      | pi_hole     | [Readme](roles/pi_hole/README.md)     |
 | Raspberry Pi | raspberry   | [Readme](roles/raspberry/README.md)   |
 | ReadyMedia   | minidlna    | [Readme](roles/minidlna/README.md)    |
 | User         | user        | [Readme](roles/user/README.md)        |

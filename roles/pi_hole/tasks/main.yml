@@ -1,0 +1,41 @@
+---
+- name: Include user role
+  include_role:
+    name: user
+  vars:
+    user_id: "{{ pi_hole_user_id }}"
+    user_name: "{{ pi_hole_user_name }}"
+
+- name: Create Pi-hole directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ pi_hole_user_id }}"
+    group: "{{ pi_hole_user_id }}"
+    mode: "0775"
+  loop:
+    - "{{ pi_hole_base_path }}/etc/pihole/"
+    - "{{ pi_hole_base_path }}/etc/dnsmasq.d/"
+  become: yes
+
+- name: Start the container
+  community.general.docker_container:
+    name: pihole
+    image: pihole/pihole
+    pull: true
+    container_default_behavior: compatibility
+    # user: "{{ user_uid }}:{{ user_gid }}"
+    restart_policy: unless-stopped
+    network_mode: host
+    dns_servers:
+      - 127.0.0.1
+      - "{{ pi_hole_additional_dns_server }}"
+    init: yes
+    env:
+      TZ: Europe/Berlin
+      VIRTUAL_HOST: pi.hole
+      PROXY_LOCATION: pi.hole
+      ServerIP: 192.168.178.33
+    volumes:
+      - "{{ pi_hole_base_path }}/etc/pihole/:/etc/pihole/"
+      - "{{ pi_hole_base_path }}/etc/dnsmasq.d/:/etc/dnsmasq.d/"

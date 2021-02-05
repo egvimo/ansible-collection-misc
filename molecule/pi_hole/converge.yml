@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: Include role
+      include_role:
+        name: pi_hole
+      vars:
+        pi_hole_server_ip: 127.0.0.1

@@ -13,6 +13,9 @@ tags:
   - bash_it
   - docker
   - raspberry
+  - minidlna
+  - jdownloader
+  - pi-hole
 
 dependencies:
   community.general: ">=1.0.0"
