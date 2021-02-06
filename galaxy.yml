@@ -12,10 +12,11 @@ license_file: LICENSE
 tags:
   - bash_it
   - docker
-  - raspberry
-  - minidlna
   - jdownloader
+  - minidlna
   - pi-hole
+  - raspberry
+  - vs-code
 
 dependencies:
   community.general: ">=1.0.0"
