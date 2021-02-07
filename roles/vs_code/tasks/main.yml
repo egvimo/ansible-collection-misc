@@ -1,15 +1,18 @@
 ---
+- name: Gather package facts
+  package_facts:
+    manager: auto
+
 - name: Install dependencies
   apt:
     name: gpg
     update_cache: yes
     state: present
   become: yes
+  when: "'code' not in ansible_facts.packages"
 
-- include_role:
-    name: apt_installer
-  vars:
-    key_url: https://packages.microsoft.com/keys/microsoft.asc
-    repository: deb [arch=amd64] https://packages.microsoft.com/repos/code stable main
-    repository_name: vscode
-    package_name: code
+- name: Install Visual Studio Code
+  apt:
+    deb: https://go.microsoft.com/fwlink/?LinkID=760868
+  become: yes
+  when: "'code' not in ansible_facts.packages"
