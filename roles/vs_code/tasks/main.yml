@@ -3,16 +3,9 @@
   package_facts:
     manager: auto
 
-- name: Install dependencies
-  apt:
-    name: gpg
-    update_cache: yes
-    state: present
-  become: yes
-  when: "'code' not in ansible_facts.packages"
-
 - name: Install Visual Studio Code
   apt:
     deb: https://go.microsoft.com/fwlink/?LinkID=760868
+    update_cache: yes
   become: yes
   when: "'code' not in ansible_facts.packages"
