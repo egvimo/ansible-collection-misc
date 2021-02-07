@@ -1,0 +1,19 @@
+---
+- block:
+    - name: Add key
+      apt_key:
+        url: "{{ key_url }}"
+        state: present
+
+    - name: Add repository
+      apt_repository:
+        repo: "{{ repository }}"
+        filename: "{{ repository_name }}"
+        update_cache: yes
+        state: present
+
+    - name: "Install {{ package_name }}"
+      apt:
+        name: "{{ package_name }}"
+        state: present
+  become: yes

@@ -1,25 +1,15 @@
 ---
-- block:
-    - name: Install dependencies
-      apt:
-        name: gpg
-        update_cache: yes
-        state: present
-
-    - name: Add key
-      apt_key:
-        url: https://packages.microsoft.com/keys/microsoft.asc
-        state: present
-
-    - name: Add repository
-      apt_repository:
-        repo: deb [arch=amd64] https://packages.microsoft.com/repos/code stable main
-        filename: vscode
-        state: present
-
-    - name: Install Visual Studio Code
-      apt:
-        name: code
-        update_cache: yes
-        state: present
+- name: Install dependencies
+  apt:
+    name: gpg
+    update_cache: yes
+    state: present
   become: yes
+
+- include_role:
+    name: apt_installer
+  vars:
+    key_url: https://packages.microsoft.com/keys/microsoft.asc
+    repository: deb [arch=amd64] https://packages.microsoft.com/repos/code stable main
+    repository_name: vscode
+    package_name: code
