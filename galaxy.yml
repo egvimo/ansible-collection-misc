@@ -11,6 +11,7 @@ license_file: LICENSE
 
 tags:
   - bash_it
+  - chrome
   - docker
   - jdownloader
   - minidlna

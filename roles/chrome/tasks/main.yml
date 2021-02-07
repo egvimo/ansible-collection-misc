@@ -1,0 +1,11 @@
+---
+- name: Gather package facts
+  package_facts:
+    manager: auto
+
+- name: Install Google Chrome
+  apt:
+    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    update_cache: yes
+  become: yes
+  when: "'google-chrome-stable' not in ansible_facts.packages"
