@@ -19,7 +19,8 @@ galaxy_info:
         - all
 
   galaxy_tags:
-    - pi-hole
+    - pi_hole
 
 dependencies:
-  - community.general
+  - community.general.docker_container
+  - egvimo.general.user

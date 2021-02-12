@@ -23,4 +23,5 @@ galaxy_info:
     - minidlna
 
 dependencies:
-  - community.general
+  - community.general.docker_container
+  - egvimo.general.user

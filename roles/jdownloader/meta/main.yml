@@ -22,4 +22,5 @@ galaxy_info:
     - jdownloader
 
 dependencies:
-  - community.general
+  - community.general.docker_container
+  - egvimo.general.user
