@@ -1,0 +1,24 @@
+galaxy_info:
+  role_name: gitea
+  author: egvimo
+  description: Installation of Gitea as Docker container
+
+  license: MIT
+
+  min_ansible_version: 2.10
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: GenericUNIX
+      versions:
+        - all
+
+  galaxy_tags:
+    - gitea
+
+dependencies: []
