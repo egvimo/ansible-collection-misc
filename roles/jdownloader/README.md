@@ -7,7 +7,7 @@ Ansible role to install [JDownloader](https://my.jdownloader.org/) as Docker con
 | Variable                            | Default value             | Description                                                  |
 | ----------------------------------- | ------------------------- | ------------------------------------------------------------ |
 | jdownloader_user_id                 | jd                        | User to run the container with                               |
-| jdownloader_user_name               | JDownloader               | User to run the container with                               |
+| jdownloader_user_name               | JDownloader               | Username to run the container with                           |
 | jdownloader_cfg_path                | /opt/jdownloader/cfg      | Configuration directory                                      |
 | jdownloader_download_path           | /opt/jdownloader/download | Download directory                                           |
 | jdownloader_myjd_username           |                           | Username for My JDownloader                                  |
