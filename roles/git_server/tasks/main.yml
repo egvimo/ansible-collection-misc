@@ -1,0 +1,40 @@
+---
+- name: Install Git
+  ansible.builtin.apt:
+    name: git
+    update_cache: yes
+    state: present
+  become: true
+
+- name: Add Git user
+  ansible.builtin.user:
+    name: "{{ git_server_user }}"
+    comment: Git
+    create_home: yes
+    state: present
+
+- name: Create SSH directory
+  ansible.builtin.file:
+    path: "{{ git_server_user_home }}/.ssh"
+    state: directory
+    owner: "{{ git_server_user }}"
+    group: "{{ git_server_user }}"
+    mode: "0700"
+
+- name: Create authorized keys file
+  ansible.builtin.file:
+    path: "{{ git_server_user_home }}/.ssh/authorized_keys"
+    state: touch
+    access_time: preserve
+    modification_time: preserve
+    owner: "{{ git_server_user }}"
+    group: "{{ git_server_user }}"
+    mode: '0600'
+
+- name: Create Git repository directory
+  ansible.builtin.file:
+    path: "{{ git_server_repository_directory }}"
+    state: directory
+    owner: "{{ git_server_user }}"
+    group: "{{ git_server_user }}"
+    mode: "0700"

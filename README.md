@@ -9,6 +9,7 @@ This collection contains the following roles:
 | Bash-it            | bash_it     | [Readme](roles/bash_it/README.md)     |
 | Google Chrome      | chrome      | [Readme](roles/chrome/README.md)      |
 | Docker             | docker      | [Readme](roles/docker/README.md)      |
+| Git Server         | git_server  | [Readme](roles/git_server/README.md)  |
 | Gitea              | gitea       | [Readme](roles/gitea/README.md)       |
 | JDownloader        | jdownloader | [Readme](roles/jdownloader/README.md) |
 | ReadyMedia         | minidlna    | [Readme](roles/minidlna/README.md)    |

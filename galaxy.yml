@@ -1,6 +1,6 @@
 namespace: egvimo
 name: general
-version: "0.5.0"
+version: "0.5.1"
 description: Collection of miscellaneous roles
 
 authors:
@@ -13,7 +13,7 @@ tags:
   - bash_it
   - chrome
   - docker
-  - gitea
+  - git_server
   - jdownloader
   - minidlna
   - pi_hole
