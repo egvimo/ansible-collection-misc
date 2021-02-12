@@ -22,4 +22,5 @@ galaxy_info:
     - readymedia
     - minidlna
 
-dependencies: []
+dependencies:
+  - community.general
