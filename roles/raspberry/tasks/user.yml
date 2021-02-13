@@ -1,0 +1,29 @@
+---
+- block:
+    - name: "Add new user {{ raspberry_user }} with same privileges as pi"
+      ansible.builtin.user:
+        name: "{{ raspberry_user }}"
+        comment: "{{ raspberry_username }}"
+        password: "{{ raspberry_pi_password | password_hash('sha512') }}"
+        update_password: always
+        create_home: yes
+        shell: /bin/bash
+        groups:
+          - pi
+          - adm
+          - dialout
+          - cdrom
+          - sudo
+          - audio
+          - video
+          - plugdev
+          - games
+          - users
+          - input
+          - netdev
+          - gpio
+          - i2c
+          - spi
+        append: yes
+        state: present
+  tags: raspberry_user
