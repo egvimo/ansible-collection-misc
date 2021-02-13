@@ -4,7 +4,7 @@
       ansible.builtin.user:
         name: "{{ raspberry_user }}"
         comment: "{{ raspberry_username }}"
-        password: "{{ raspberry_pi_password | password_hash('sha512') }}"
+        password: "{{ raspberry_password | password_hash('sha512') }}"
         update_password: always
         create_home: yes
         shell: /bin/bash
