@@ -12,3 +12,4 @@
         groups: docker
         append: true
   become: yes
+  tags: docker

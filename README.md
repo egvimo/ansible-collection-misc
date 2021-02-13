@@ -55,6 +55,10 @@ Customize usage:
       bash_it_theme: atomic
 ```
 
+## Tags
+
+Every role has tags, which can be used to control the role. The default tag of each role is the role name itself, so within a large playbook the role can be run separately. Some roles have more tags to allow finer control over it. If this is the case, the tags are described in the particular readme.
+
 ## License
 
 Copyright © 2020 egvimo.
