@@ -1,3 +1,2 @@
 ---
 ansible_user: pi
-ansible_password: raspberry
