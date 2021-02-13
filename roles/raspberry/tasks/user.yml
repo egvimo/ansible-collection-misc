@@ -26,4 +26,5 @@
           - spi
         append: yes
         state: present
+  become: yes
   tags: raspberry_user
