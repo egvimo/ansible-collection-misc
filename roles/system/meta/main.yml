@@ -1,0 +1,22 @@
+galaxy_info:
+  role_name: system
+  author: egvimo
+  description: General system related tasks
+
+  license: MIT
+
+  min_ansible_version: 2.10
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+
+  galaxy_tags:
+    - linux
+    - system
+
+dependencies: []

@@ -1,0 +1,20 @@
+---
+- block:
+    - name: Run 'apt update'
+      ansible.builtin.apt:
+        update_cache: yes
+        cache_valid_time: 3600
+      register: update
+
+    - name: Update all packages to their latest version
+      ansible.builtin.apt:
+        name: "*"
+        state: latest
+      when: update.cache_updated
+
+    - name: Upgrade the OS
+      ansible.builtin.apt:
+        upgrade: full
+      when: update.cache_updated
+  become: yes
+  tags: system_update

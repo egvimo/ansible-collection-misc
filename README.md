@@ -15,6 +15,7 @@ This collection contains the following roles:
 | ReadyMedia         | minidlna    | [Readme](roles/minidlna/README.md)    |
 | Pi-hole            | pi_hole     | [Readme](roles/pi_hole/README.md)     |
 | Raspberry Pi       | raspberry   | [Readme](roles/raspberry/README.md)   |
+| System             | system      | [Readme](roles/system/README.md)      |
 | User               | user        | [Readme](roles/user/README.md)        |
 | Visual Studio Code | vs_code     | [Readme](roles/vs_code/README.md)     |
 
