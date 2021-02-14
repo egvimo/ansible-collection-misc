@@ -1,0 +1,13 @@
+---
+- block:
+    - name: Remove packages
+      apt:
+        pkg: "{{ system_packages_to_remove }}"
+        state: absent
+
+    - name: Install packages
+      apt:
+        pkg: "{{ system_packages_to_install }}"
+        state: present
+  become: yes
+  tags: system_packages

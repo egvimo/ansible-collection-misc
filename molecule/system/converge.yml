@@ -5,3 +5,13 @@
     - name: Include role
       include_role:
         name: system
+
+    - name: Include role
+      include_role:
+        name: system
+      vars:
+        system_packages_to_remove:
+          - git
+          - gnupg
+        system_packages_to_install:
+          - screen

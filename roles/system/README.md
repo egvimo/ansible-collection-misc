@@ -4,11 +4,13 @@ Ansible role to perform general system related tasks like updateing or installin
 
 ## Role Variables
 
-| Variable | Default value | Description |
-| -------- | ------------- | ----------- |
-| -        | -             | -           |
+| Variable                   | Default value | Description         |
+| -------------------------- | ------------- | ------------------- |
+| system_packages_to_remove  | []            | Packages to remove  |
+| system_packages_to_install | []            | Packages to install |
 
 ## Tags
 
 - `system`
 - `system_update`
+- `system_packages`
