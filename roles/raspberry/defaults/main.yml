@@ -3,3 +3,4 @@ raspberry_locale: en_US.UTF-8
 raspberry_timezone: Europe/Berlin
 raspberry_keyboard_layout: de
 raspberry_wlan_country: DE
+raspberry_default_user: pi
