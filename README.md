@@ -12,6 +12,7 @@ This collection contains the following roles:
 | Git Server         | git_server  | [Readme](roles/git_server/README.md)  |
 | Gitea              | gitea       | [Readme](roles/gitea/README.md)       |
 | JDownloader        | jdownloader | [Readme](roles/jdownloader/README.md) |
+| K3s                | k3s         | [Readme](roles/k3s/README.md)         |
 | ReadyMedia         | minidlna    | [Readme](roles/minidlna/README.md)    |
 | Pi-hole            | pi_hole     | [Readme](roles/pi_hole/README.md)     |
 | Raspberry Pi       | raspberry   | [Readme](roles/raspberry/README.md)   |
