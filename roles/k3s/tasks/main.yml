@@ -54,4 +54,5 @@
         src: /usr/local/bin/k3s
         dest: /usr/local/bin/kubectl
         state: link
+  become: yes
   tags: k3s
