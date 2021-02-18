@@ -25,7 +25,7 @@
 
 - name: Create directory .kube
   ansible.builtin.file:
-    path: ~/.kube
+    path: "/home/{{ ansible_user }}/.kube"
     state: directory
     owner: "{{ ansible_user }}"
     mode: "0750"
@@ -33,7 +33,7 @@
 - name: Copy config file to user home directory
   ansible.builtin.copy:
     src: /etc/rancher/k3s/k3s.yaml
-    dest: ~/.kube/config
+    dest: "/home/{{ ansible_user }}/.kube/config"
     remote_src: yes
     owner: "{{ ansible_user }}"
     mode: "0600"
