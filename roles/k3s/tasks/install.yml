@@ -38,14 +38,20 @@
     owner: "{{ ansible_user }}"
     mode: "0600"
 
-- name: Create kubectl symlink
-  file:
-    src: /usr/local/bin/k3s
-    dest: /usr/local/bin/kubectl
-    state: link
+- name: Replace https://localhost:6443 by https://<k3s_master_ip>:6443
+  command: >-
+    k3s kubectl config set-cluster default
+      --server=https://{{ k3s_master_ip }}:6443
+      --kubeconfig /home/{{ ansible_user }}/.kube/config
+  changed_when: true
+  when: k3s_master_ip is defined
 
-- name: Create crictl symlink
+- name: Create symlinks
   file:
     src: /usr/local/bin/k3s
-    dest: /usr/local/bin/crictl
+    dest: "/usr/local/bin/{{ item }}"
     state: link
+  loop:
+    - kubectl
+    - crictl
+    - ctr
