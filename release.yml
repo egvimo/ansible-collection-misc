@@ -30,4 +30,4 @@
       command: ansible-galaxy collection build
 
     - name: Publish the collection
-      command: ansible-galaxy collection publish ./egvimo-general-{{ version }}.tar.gz
+      command: ansible-galaxy collection publish ./egvimo-misc-{{ version }}.tar.gz

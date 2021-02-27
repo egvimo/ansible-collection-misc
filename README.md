@@ -1,6 +1,6 @@
 # Ansible collection of miscellaneous roles
 
-![Molecule Test](https://github.com/egvimo/ansible-collection-general/workflows/Molecule%20Test/badge.svg)
+![Molecule Test](https://github.com/egvimo/ansible-collection-misc/workflows/Molecule%20Test/badge.svg)
 
 This collection contains the following roles:
 
@@ -25,14 +25,14 @@ This collection contains the following roles:
 The latest version of the collection can be installed via Ansible Galaxy:
 
 ```shell
-ansible-galaxy collection install egvimo.general
+ansible-galaxy collection install egvimo.misc
 ```
 
 Or directly from the repository via `requirements.yml`:
 
 ```yml
 collections:
-  - name: https://github.com/egvimo/ansible-collection-general.git
+  - name: https://github.com/egvimo/ansible-collection-misc.git
     type: git
     version: main # Or any other Git branch, tag or commit
 ```
@@ -44,7 +44,7 @@ The usage of the roles includes explained based on the Bash-it role. Use the rol
 ```yml
 - hosts: servers
   roles:
-    - role: egvimo.general.bash_it
+    - role: egvimo.misc.bash_it
 ```
 
 Customize usage:
@@ -52,7 +52,7 @@ Customize usage:
 ```yml
 - hosts: servers
   roles:
-    - role: egvimo.general.bash_it
+    - role: egvimo.misc.bash_it
       bash_it_user: bob
       bash_it_theme: atomic
 ```

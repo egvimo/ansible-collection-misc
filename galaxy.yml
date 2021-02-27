@@ -1,5 +1,5 @@
 namespace: egvimo
-name: general
+name: misc
 version: "0.7.0"
 description: Collection of miscellaneous roles
 
@@ -25,7 +25,7 @@ tags:
 dependencies:
   community.general: ">=1.0.0"
 
-repository: https://github.com/egvimo/ansible-collection-general
-documentation: https://github.com/egvimo/ansible-collection-general
-homepage: https://github.com/egvimo/ansible-collection-general
-issues: https://github.com/egvimo/ansible-collection-general/issues
+repository: https://github.com/egvimo/ansible-collection-misc
+documentation: https://github.com/egvimo/ansible-collection-misc
+homepage: https://github.com/egvimo/ansible-collection-misc
+issues: https://github.com/egvimo/ansible-collection-misc/issues
