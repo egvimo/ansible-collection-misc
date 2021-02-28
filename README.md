@@ -2,6 +2,8 @@
 
 ![Molecule Test](https://github.com/egvimo/ansible-collection-misc/workflows/Molecule%20Test/badge.svg)
 
+> This collection includes roles for my personal preferences and systems. Don’t blindly use them unless you know what that entails. Take anything you want, but at your own risk.
+
 This collection contains the following roles:
 
 | Role               | Name        | Documentation                         |
