@@ -6,7 +6,6 @@ Ansible role to configure a Raspberry Pi via `raspi-config`.
 
 | Variable                  | Default value                | Description                    |
 | ------------------------- | ---------------------------- | ------------------------------ |
-| ansible_user              | {{ raspberry_default_user }} | User to run the tasks with     |
 | raspberry_locale          | en_US.UTF-8                  | Locale configuration           |
 | raspberry_timezone        | Europe/Berlin                | Timezone configuration         |
 | raspberry_keyboard_layout | de                           | Keyboard layout configuration  |
