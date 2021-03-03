@@ -1,0 +1,9 @@
+[username]
+format = "[$user]($style)@"
+
+[custom.temp]
+command = "vcgencmd measure_temp | egrep -o '[0-9]*\\.[0-9]*'"
+when = "test -f /usr/bin/vcgencmd"
+shell = ["bash", "--noprofile", "--norc"]
+symbol = "🌡"
+format = "[$symbol ($output )]($style)"

@@ -1,0 +1,29 @@
+galaxy_info:
+  role_name: dotfiles
+  author: egvimo
+  description: Configuration of dotfiles
+
+  license: MIT
+
+  min_ansible_version: 2.10
+
+  platforms:
+    - name: Fedora
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: GenericUNIX
+      versions:
+        - all
+
+  galaxy_tags:
+    - linux
+    - unix
+    - bash
+
+dependencies: []
