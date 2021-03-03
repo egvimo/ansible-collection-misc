@@ -14,11 +14,13 @@ tags:
   - chrome
   - docker
   - git_server
+  - gitea
   - jdownloader
   - k3s
   - minidlna
   - pi_hole
   - raspberry
+  - starship
   - system
   - vs_code
 
