@@ -1,37 +1,6 @@
 ---
-- block:
-    - name: Create temporary directory
-      ansible.builtin.tempfile:
-        state: directory
-        suffix: starship
-      register: temporary_directory
-
-    - name: "Download Starship installer to {{ temporary_directory.path }}"
-      ansible.builtin.get_url:
-        url: https://starship.rs/install.sh
-        dest: "{{ temporary_directory.path }}/install.sh"
-        mode: "0755"
-
-    - name: Run Starship installer
-      ansible.builtin.shell: install.sh -f
-      args:
-        chdir: "{{ temporary_directory.path }}"
-        executable: /bin/bash
-      become: yes
-      become_user: "{{ starship_user }}"
-
-    - name: Add Starship configuration to .bashrc
-      ansible.builtin.lineinfile:
-        dest: "{{ starship_user_home }}/.bashrc"
-        create: yes
-        line: 'eval "$(starship init bash)"'
-        regexp: '^eval "$(starship init bash)'
-        owner: "{{ starship_user }}"
-        mode: "644"
-  always:
-    - name: Remove the temporary directory
-      ansible.builtin.file:
-        path: "{{ temporary_directory.path }}"
-        state: absent
-      when: temporary_directory.path is defined
+- include_tasks:
+    file: "{{ ansible_os_family | lower }}.yml"
+    apply:
+      tags: starship
   tags: starship

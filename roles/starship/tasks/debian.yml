@@ -1,0 +1,31 @@
+---
+- name: Get checksum for Starship archive
+  ansible.builtin.uri:
+    url: "https://github.com/starship/starship/releases/latest/download/starship-{{ ansible_architecture }}-unknown-linux-musl.tar.gz.sha256"
+    return_content: true
+  register: starship_checksum
+
+- name: Download Starship archive
+  ansible.builtin.get_url:
+    url: "https://github.com/starship/starship/releases/latest/download/starship-{{ ansible_architecture }}-unknown-linux-musl.tar.gz"
+    checksum: "sha256:{{ starship_checksum.content }}"
+    dest: /tmp/starship.tar.gz
+    mode: "0755"
+
+- name: Extract
+  ansible.builtin.unarchive:
+    src: /tmp/starship.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
+    creates: /usr/local/bin/starship
+  become: yes
+
+- name: "Add Starship configuration to .bashrc for user {{ starship_user }}"
+  ansible.builtin.lineinfile:
+    dest: "{{ starship_user_home }}/.bashrc"
+    create: yes
+    line: 'eval "$(starship init bash)"'
+    regexp: '^eval "$(starship init bash)'
+    owner: "{{ starship_user }}"
+    group: "{{ starship_user }}"
+    mode: "644"
