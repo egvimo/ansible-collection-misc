@@ -1,6 +1,7 @@
 # Ansible collection of miscellaneous roles
 
-![Molecule Test](https://github.com/egvimo/ansible-collection-misc/workflows/Molecule%20Test/badge.svg)
+[![Ansible Lint](https://github.com/egvimo/ansible-collection-misc/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/egvimo/ansible-collection-misc/actions/workflows/ansible-lint.yml)
+[![Molecule Test](https://github.com/egvimo/ansible-collection-misc/actions/workflows/molecule-test.yml/badge.svg)](https://github.com/egvimo/ansible-collection-misc/actions/workflows/molecule-test.yml)
 
 > This collection includes roles for my personal preferences and systems. Don’t blindly use them unless you know what that entails. Take anything you want, but at your own risk.
 
