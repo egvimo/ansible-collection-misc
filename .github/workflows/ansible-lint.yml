@@ -25,5 +25,8 @@ jobs:
       - name: Install dependencies
         run: pip3 install -r requirements.txt
 
+      - name: Create vault password file
+        run: touch vault_password_file
+
       - name: Run Ansible lint
         run: ansible-lint
