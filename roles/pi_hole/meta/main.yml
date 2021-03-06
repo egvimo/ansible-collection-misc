@@ -20,3 +20,6 @@ galaxy_info:
 
   galaxy_tags:
     - pihole
+
+dependencies:
+  - community.general.docker_container

@@ -21,3 +21,6 @@ galaxy_info:
   galaxy_tags:
     - readymedia
     - minidlna
+
+dependencies:
+  - community.general.docker_container
