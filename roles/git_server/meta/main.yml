@@ -25,6 +25,5 @@ galaxy_info:
     - linux
     - unix
     - git
-    - git_server
 
 dependencies: []

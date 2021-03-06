@@ -1,0 +1,29 @@
+name: Ansible Lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      ANSIBLE_FORCE_COLOR: 1
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python 3
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip3 install -r requirements.txt
+
+      - name: Run Ansible lint
+        run: ansible-lint

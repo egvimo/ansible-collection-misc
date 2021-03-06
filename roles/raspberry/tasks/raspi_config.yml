@@ -1,24 +1,24 @@
 ---
 - block:
     - name: Change locale
-      shell: "raspi-config nonint do_change_locale {{ raspberry_locale }}"
+      command: "raspi-config nonint do_change_locale {{ raspberry_locale }}"
 
     - name: Change timezone
-      shell: "raspi-config nonint do_change_timezone {{ raspberry_timezone }}"
+      command: "raspi-config nonint do_change_timezone {{ raspberry_timezone }}"
 
     - name: Change keyboard layout
-      shell: "raspi-config nonint do_configure_keyboard {{ raspberry_keyboard_layout }}"
+      command: "raspi-config nonint do_configure_keyboard {{ raspberry_keyboard_layout }}"
 
     - name: Set WLAN country
-      shell: "raspi-config nonint do_wifi_country {{ raspberry_wlan_country }}"
+      command: "raspi-config nonint do_wifi_country {{ raspberry_wlan_country }}"
 
     - name: Check if FS is expandable
-      shell: raspi-config nonint get_can_expand
+      command: raspi-config nonint get_can_expand
       register: can_expand_fs
       changed_when: False
 
     - name: Expand Filesystem
-      shell: raspi-config nonint do_expand_rootfs
+      command: raspi-config nonint do_expand_rootfs
       when: can_expand_fs.stdout == '0'
       notify: Reboot
   become: yes

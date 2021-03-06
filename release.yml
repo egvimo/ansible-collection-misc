@@ -12,6 +12,7 @@
     - name: Ensure the ~/.ansible directory exists.
       file:
         path: ~/.ansible
+        mode: "0644"
         state: directory
 
     - name: Write the Ansible Galaxy API key to ~/.ansible/galaxy_token
@@ -19,15 +20,21 @@
         content: |
           token: {{ lookup('env', 'ANSIBLE_GALAXY_API_KEY') }}
         dest: ~/.ansible/galaxy_token
+        mode: "0644"
 
   tasks:
     - name: Template out the galaxy.yml file
       template:
         src: galaxy.yml.j2
         dest: galaxy.yml
+        mode: "0644"
 
     - name: Build the collection
       command: ansible-galaxy collection build
+      args:
+        creates: "egvimo-misc-{{ version }}.tar.gz"
 
     - name: Publish the collection
-      command: ansible-galaxy collection publish ./egvimo-misc-{{ version }}.tar.gz
+      command: "ansible-galaxy collection publish egvimo-misc-{{ version }}.tar.gz"
+      register: publish_result
+      changed_when: "publish_result.rc == 0"
