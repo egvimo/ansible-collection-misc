@@ -1,7 +1,4 @@
 ---
-dependencies:
-  - community.general.docker_container
-
 galaxy_info:
   role_name: gitea
   author: egvimo
