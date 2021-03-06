@@ -1,3 +1,6 @@
+---
+dependencies: []
+
 galaxy_info:
   role_name: system
   author: egvimo
@@ -18,5 +21,3 @@ galaxy_info:
   galaxy_tags:
     - linux
     - system
-
-dependencies: []

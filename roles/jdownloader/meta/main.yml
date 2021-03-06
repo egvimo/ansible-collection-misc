@@ -1,3 +1,7 @@
+---
+dependencies:
+  - community.general.docker_container
+
 galaxy_info:
   role_name: jdownloader
   author: egvimo
@@ -20,6 +24,3 @@ galaxy_info:
 
   galaxy_tags:
     - jdownloader
-
-dependencies:
-  - community.general.docker_container

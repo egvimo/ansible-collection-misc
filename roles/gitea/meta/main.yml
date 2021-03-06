@@ -1,3 +1,7 @@
+---
+dependencies:
+  - community.general.docker_container
+
 galaxy_info:
   role_name: gitea
   author: egvimo
@@ -5,7 +9,7 @@ galaxy_info:
 
   license: MIT
 
-  min_ansible_version: 2.10
+  min_ansible_version: "2.10"
 
   platforms:
     - name: Ubuntu
@@ -20,6 +24,3 @@ galaxy_info:
 
   galaxy_tags:
     - gitea
-
-dependencies:
-  - community.general.docker_container
