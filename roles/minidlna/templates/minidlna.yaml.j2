@@ -5,7 +5,7 @@ metadata:
   name: minidlna-volume
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadOnlyMany
   capacity:
     storage: 30Gi
   hostPath:
@@ -20,7 +20,7 @@ metadata:
   name: minidlna-claim
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadOnlyMany
   resources:
     requests:
       storage: 30Gi
@@ -50,19 +50,19 @@ spec:
               value: /media
             - name: MINIDLNA_FRIENDLY_NAME
               value: Raspberry
-            - name: PUID
-              value: "{{ user_uid }}"
-            - name: PGID
-              value: "{{ user_gid }}"
+            #- name: PUID
+            #  value: "{{ user_uid }}"
+            #- name: PGID
+            #  value: "{{ user_gid }}"
           image: vladgh/minidlna
           name: minidlna
           volumeMounts:
             - mountPath: /media
               name: minidlna-volume
       restartPolicy: Always
-      securityContext:
-        runAsUser: {{ user_uid }}
-        runAsGroup: {{ user_gid }}
+      #securityContext:
+      #  runAsUser: {{ user_uid }}
+      #  runAsGroup: {{ user_gid }}
       volumes:
         - name: minidlna-volume
           persistentVolumeClaim:
