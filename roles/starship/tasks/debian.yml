@@ -25,7 +25,7 @@
     dest: "{{ starship_user_home }}/.bashrc"
     create: yes
     line: 'eval "$(starship init bash)"'
-    regexp: '^eval "$(starship init bash)'
+    regexp: '^eval "$(starship init bash)"'
     owner: "{{ starship_user }}"
     group: "{{ starship_user }}"
     mode: "644"
