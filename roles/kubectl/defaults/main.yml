@@ -1,0 +1,2 @@
+---
+kubectl_user: "{{ ansible_user }}"

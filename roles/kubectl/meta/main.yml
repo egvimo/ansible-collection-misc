@@ -1,8 +1,8 @@
 ---
 galaxy_info:
-  role_name: starship
+  role_name: kubectl
   author: egvimo
-  description: Installation of Starship shell prompt
+  description: Installation of kubectl command-line tool
 
   license: MIT
 
@@ -26,7 +26,5 @@ galaxy_info:
         - all
 
   galaxy_tags:
-    - linux
-    - unix
-    - bash
-    - shell
+    - kubernetes
+    - kubectl
