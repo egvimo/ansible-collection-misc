@@ -1,0 +1,8 @@
+---
+- include_role:
+    name: apt_installer
+  vars:
+    key_url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    repository: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    repository_name: kubernetes
+    package_name: kubectl
