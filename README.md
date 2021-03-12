@@ -9,7 +9,6 @@ This collection contains the following roles:
 
 | Role               | Name        | Documentation                         |
 | ------------------ | ----------- | ------------------------------------- |
-| Bash-it            | bash_it     | [Readme](roles/bash_it/README.md)     |
 | Google Chrome      | chrome      | [Readme](roles/chrome/README.md)      |
 | Docker             | docker      | [Readme](roles/docker/README.md)      |
 | Git Server         | git_server  | [Readme](roles/git_server/README.md)  |
