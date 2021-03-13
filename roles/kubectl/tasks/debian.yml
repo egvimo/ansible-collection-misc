@@ -1,10 +1,11 @@
 ---
 - include_role:
-    name: apt_installer
+    name: hepler
+    tasks_from: apt_installer
   vars:
-    key_url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-    repository: deb https://apt.kubernetes.io/ kubernetes-xenial main
-    repository_name: kubernetes
-    package_name: kubectl
+    apt_key_url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    apt_repository: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    apt_repository_name: kubernetes
+    apt_package_name: kubectl
 
 - include_tasks: bash_completion.yml

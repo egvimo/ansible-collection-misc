@@ -1,8 +1,8 @@
 ---
 - block:
-    - name: Include user role
-      include_role:
-        name: user
+    - include_role:
+        name: helper
+        tasks_from: create_user
       vars:
         user_id: "{{ pi_hole_user_id }}"
         user_name: "{{ pi_hole_user_name }}"

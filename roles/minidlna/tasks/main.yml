@@ -1,11 +1,17 @@
 ---
 - block:
-    - name: Include user role
-      include_role:
-        name: user
+    - include_role:
+        name: helper
+        tasks_from: create_user
       vars:
         user_id: "{{ minidlna_user_id }}"
         user_name: "{{ minidlna_user_name }}"
+
+    - include_role:
+        name: helper
+        tasks_from: user_info
+      vars:
+        user_id: "{{ minidlna_user_id }}"
 
     - name: Ensure media directory exists
       file:

@@ -1,0 +1,7 @@
+---
+- name: "Add '{{ user_to_be_added }}' to '{{ user_group }}' group"
+  ansible.builtin.user:
+    name: "{{ user_to_be_added }}"
+    groups: "{{ user_group }}"
+    append: yes
+  become: yes

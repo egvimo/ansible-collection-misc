@@ -1,11 +1,17 @@
 ---
 - block:
-    - name: Include user role
-      include_role:
-        name: user
+    - include_role:
+        name: helper
+        tasks_from: create_user
       vars:
         user_id: "{{ gitea_user_id }}"
         user_name: "{{ gitea_user_name }}"
+
+    - include_role:
+        name: helper
+        tasks_from: user_info
+      vars:
+        user_id: "{{ gitea_user_id }}"
 
     - name: Ensure data directory exists
       file:

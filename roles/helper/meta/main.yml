@@ -1,8 +1,8 @@
 ---
 galaxy_info:
-  role_name: user
+  role_name: helper
   author: egvimo
-  description: Creates a new user
+  description: Helper role
 
   license: MIT
 
@@ -23,6 +23,4 @@ galaxy_info:
         - all
 
   galaxy_tags:
-    - linux
-    - unix
-    - user
+    - helper

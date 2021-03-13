@@ -1,0 +1,24 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: Include role
+      include_role:
+        name: helper
+        tasks_from: create_user
+      vars:
+        user_id: alice
+        user_name: Alice
+    - name: Include role
+      include_role:
+        name: helper
+        tasks_from: user_info
+      vars:
+        user_id: alice
+    - name: Include role
+      include_role:
+        name: helper
+        tasks_from: add_user_to_group
+      vars:
+        user_to_be_added: alice
+        user_group: alice

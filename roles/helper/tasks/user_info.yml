@@ -1,0 +1,11 @@
+---
+- name: "Get '{{ user_id }}' user info"
+  ansible.builtin.getent:
+    database: passwd
+    key: "{{ user_id }}"
+
+- name: "Set uid, gid and home for user '{{ user_id }}'"
+  ansible.builtin.set_fact:
+    user_info_uid: "{{ getent_passwd[user_id].1 }}"
+    user_info_gid: "{{ getent_passwd[user_id].2 }}"
+    user_info_home: "{{ getent_passwd[user_id].4 }}"
