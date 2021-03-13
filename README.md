@@ -20,7 +20,6 @@ This collection contains the following roles:
 | Raspberry Pi       | raspberry   | [Readme](roles/raspberry/README.md)   |
 | Starship           | starship    | [Readme](roles/starship/README.md)    |
 | System             | system      | [Readme](roles/system/README.md)      |
-| User               | user        | [Readme](roles/user/README.md)        |
 | Visual Studio Code | vs_code     | [Readme](roles/vs_code/README.md)     |
 
 ## Installation
@@ -42,12 +41,12 @@ collections:
 
 ## Usage
 
-The usage of the roles includes explained based on the Bash-it role. Use the role with default settings:
+The usage of the roles includes explained based on the Starship role. Use the role with default settings:
 
 ```yml
 - hosts: servers
   roles:
-    - role: egvimo.misc.bash_it
+    - role: egvimo.misc.starship
 ```
 
 Customize usage:
@@ -55,9 +54,8 @@ Customize usage:
 ```yml
 - hosts: servers
   roles:
-    - role: egvimo.misc.bash_it
-      bash_it_user: bob
-      bash_it_theme: atomic
+    - role: egvimo.misc.starship
+      starship_user: bob
 ```
 
 ## Tags
