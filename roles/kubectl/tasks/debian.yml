@@ -6,3 +6,5 @@
     repository: deb https://apt.kubernetes.io/ kubernetes-xenial main
     repository_name: kubernetes
     package_name: kubectl
+
+- include_tasks: bash_completion.yml
