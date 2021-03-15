@@ -3,25 +3,6 @@
   connection: local
   gather_facts: false
 
-  pre_tasks:
-    - name: Ensure the ANSIBLE_GALAXY_API_KEY environment variable is set
-      fail:
-        msg: ANSIBLE_GALAXY_API_KEY is not set
-      when: "lookup('env', 'ANSIBLE_GALAXY_API_KEY') | length == 0"
-
-    - name: Ensure the ~/.ansible directory exists.
-      file:
-        path: ~/.ansible
-        mode: "0644"
-        state: directory
-
-    - name: Write the Ansible Galaxy API key to ~/.ansible/galaxy_token
-      copy:
-        content: |
-          token: {{ lookup('env', 'ANSIBLE_GALAXY_API_KEY') }}
-        dest: ~/.ansible/galaxy_token
-        mode: "0644"
-
   tasks:
     - name: Template out the galaxy.yml file
       template:
@@ -35,6 +16,6 @@
         creates: "egvimo-misc-{{ version }}.tar.gz"
 
     - name: Publish the collection
-      command: "ansible-galaxy collection publish egvimo-misc-{{ version }}.tar.gz"
+      command: "ansible-galaxy collection publish egvimo-misc-{{ version }}.tar.gz --token=lookup('env', 'ANSIBLE_GALAXY_API_KEY')"
       register: publish_result
       changed_when: "publish_result.rc == 0"
