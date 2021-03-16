@@ -1,5 +1,11 @@
 ---
 - block:
+    - name: Install required packages
+      apt:
+        pkg:
+          - gnupg
+        update_cache: yes
+
     - name: Add key
       apt_key:
         url: "{{ apt_key_url }}"

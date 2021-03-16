@@ -10,6 +10,7 @@ readme: README.md
 license_file: LICENSE
 
 tags:
+  - brave
   - chrome
   - docker
   - git_server

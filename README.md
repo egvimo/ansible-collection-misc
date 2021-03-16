@@ -9,6 +9,7 @@ This collection contains the following roles:
 
 | Role               | Name        | Documentation                         |
 | ------------------ | ----------- | ------------------------------------- |
+| Brave Browser      | brave       | [Readme](roles/brave/README.md)       |
 | Google Chrome      | chrome      | [Readme](roles/chrome/README.md)      |
 | Docker             | docker      | [Readme](roles/docker/README.md)      |
 | Git Server         | git_server  | [Readme](roles/git_server/README.md)  |
