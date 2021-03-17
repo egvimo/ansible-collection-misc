@@ -1,6 +1,7 @@
 ---
 - block:
-    - include_role:
+    - name: Include create user helper
+      include_role:
         name: helper
         tasks_from: create_user
       vars:

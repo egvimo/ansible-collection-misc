@@ -1,5 +1,6 @@
 ---
-- include_role:
+- name: Include APT installer helper
+  include_role:
     name: helper
     tasks_from: apt_installer
   vars:

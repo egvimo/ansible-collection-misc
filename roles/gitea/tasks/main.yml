@@ -1,13 +1,15 @@
 ---
 - block:
-    - include_role:
+    - name: Include create user helper
+      include_role:
         name: helper
         tasks_from: create_user
       vars:
         user_id: "{{ gitea_user_id }}"
         user_name: "{{ gitea_user_name }}"
 
-    - include_role:
+    - name: Include user info helper
+      include_role:
         name: helper
         tasks_from: user_info
       vars:
