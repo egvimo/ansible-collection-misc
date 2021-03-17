@@ -18,7 +18,7 @@
         update_cache: yes
         state: present
 
-    - name: "Install {{ apt_package_name }}"
+    - name: "Install '{{ apt_package_name }}'"
       apt:
         name: "{{ apt_package_name }}"
         state: present
