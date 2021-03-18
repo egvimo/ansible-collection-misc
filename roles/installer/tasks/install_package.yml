@@ -1,6 +1,8 @@
 ---
 - name: "Check for separate tasks for '{{ installer_package }}'"
-  local_action: ansible.builtin.stat path="{{ role_path }}/tasks/{{ installer_package }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ installer_package }}"
+  delegate_to: localhost
   register: task_path
 
 - name: "Include custom installer tasks for '{{ installer_package }}'"
