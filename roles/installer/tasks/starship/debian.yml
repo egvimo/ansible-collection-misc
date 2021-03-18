@@ -20,12 +20,12 @@
     creates: /usr/local/bin/starship
   become: yes
 
-- name: "Add Starship configuration to .bashrc for user {{ starship_user }}"
+- name: "Add Starship configuration to .bashrc for user {{ ansible_user }}"
   ansible.builtin.lineinfile:
-    dest: "{{ starship_user_home }}/.bashrc"
+    dest: "{{ ansible_user_dir }}/.bashrc"
     create: yes
     line: 'eval "$(starship init bash)"'
     regexp: '^eval "$(starship init bash)"'
-    owner: "{{ starship_user }}"
-    group: "{{ starship_user }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
     mode: "644"

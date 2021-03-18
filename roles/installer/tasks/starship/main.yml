@@ -1,0 +1,2 @@
+---
+- include_tasks: "starship/{{ ansible_os_family | lower }}.yml"

@@ -6,6 +6,8 @@
       include_role:
         name: installer
       vars:
+        ansible_user: root
         installer_packages:
           - kubectl
           - screen
+          - starship

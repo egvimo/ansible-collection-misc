@@ -1,3 +1,0 @@
----
-starship_user: "{{ ansible_user }}"
-starship_user_home: "/home/{{ starship_user }}"

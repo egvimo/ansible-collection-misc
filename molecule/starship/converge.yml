@@ -1,9 +1,0 @@
----
-- name: Converge
-  hosts: all
-  tasks:
-    - name: Include role
-      include_role:
-        name: starship
-      vars:
-        starship_user: root
