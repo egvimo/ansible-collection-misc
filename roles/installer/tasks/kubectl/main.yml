@@ -1,2 +1,0 @@
----
-- include_tasks: "kubectl/{{ ansible_os_family | lower }}.yml"
