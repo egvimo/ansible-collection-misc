@@ -8,6 +8,7 @@
       vars:
         ansible_user: root
         installer_packages:
+          - brave
           - kubectl
           - screen
           - starship
