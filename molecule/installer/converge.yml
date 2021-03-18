@@ -9,6 +9,7 @@
         ansible_user: root
         installer_packages:
           - brave
+          - chrome
           - kubectl
           - screen
           - starship
