@@ -13,3 +13,4 @@
           - kubectl
           - screen
           - starship
+          - vscode

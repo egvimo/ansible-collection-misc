@@ -1,0 +1,11 @@
+---
+- name: Gather package facts
+  package_facts:
+    manager: auto
+
+- name: Install Visual Studio Code
+  apt:
+    deb: https://go.microsoft.com/fwlink/?LinkID=760868
+    update_cache: yes
+  become: yes
+  when: "'code' not in ansible_facts.packages"
