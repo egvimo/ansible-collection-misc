@@ -7,21 +7,18 @@
 
 This collection contains the following roles:
 
-| Role               | Name        | Documentation                         |
-| ------------------ | ----------- | ------------------------------------- |
-| Brave Browser      | brave       | [Readme](roles/brave/README.md)       |
-| Google Chrome      | chrome      | [Readme](roles/chrome/README.md)      |
-| Docker             | docker      | [Readme](roles/docker/README.md)      |
-| Git Server         | git_server  | [Readme](roles/git_server/README.md)  |
-| Gitea              | gitea       | [Readme](roles/gitea/README.md)       |
-| JDownloader        | jdownloader | [Readme](roles/jdownloader/README.md) |
-| K3s                | k3s         | [Readme](roles/k3s/README.md)         |
-| ReadyMedia         | minidlna    | [Readme](roles/minidlna/README.md)    |
-| Pi-hole            | pi_hole     | [Readme](roles/pi_hole/README.md)     |
-| Raspberry Pi       | raspberry   | [Readme](roles/raspberry/README.md)   |
-| Starship           | starship    | [Readme](roles/starship/README.md)    |
-| System             | system      | [Readme](roles/system/README.md)      |
-| Visual Studio Code | vs_code     | [Readme](roles/vs_code/README.md)     |
+| Role              | Name        | Documentation                         |
+| ----------------- | ----------- | ------------------------------------- |
+| Docker            | docker      | [Readme](roles/docker/README.md)      |
+| Git Server        | git_server  | [Readme](roles/git_server/README.md)  |
+| Gitea             | gitea       | [Readme](roles/gitea/README.md)       |
+| Dynamic Installer | installer   | [Readme](roles/installer/README.md)   |
+| JDownloader       | jdownloader | [Readme](roles/jdownloader/README.md) |
+| K3s               | k3s         | [Readme](roles/k3s/README.md)         |
+| ReadyMedia        | minidlna    | [Readme](roles/minidlna/README.md)    |
+| Pi-hole           | pi_hole     | [Readme](roles/pi_hole/README.md)     |
+| Raspberry Pi      | raspberry   | [Readme](roles/raspberry/README.md)   |
+| System            | system      | [Readme](roles/system/README.md)      |
 
 ## Installation
 
@@ -42,21 +39,15 @@ collections:
 
 ## Usage
 
-The usage of the roles includes explained based on the Starship role. Use the role with default settings:
-
 ```yml
 - hosts: servers
   roles:
-    - role: egvimo.misc.starship
-```
-
-Customize usage:
-
-```yml
-- hosts: servers
-  roles:
-    - role: egvimo.misc.starship
-      starship_user: bob
+    - role: egvimo.misc.installer
+      vars:
+        installer_packages:
+          - kubectl
+          - screen
+          - starship
 ```
 
 ## Tags

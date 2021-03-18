@@ -10,22 +10,16 @@ readme: README.md
 license_file: LICENSE
 
 tags:
-  - brave
-  - chrome
   - docker
   - git_server
   - gitea
+  - installer
   - jdownloader
   - k3s
   - minidlna
   - pi_hole
   - raspberry
-  - starship
   - system
-  - vs_code
-
-dependencies:
-  community.general: ">=1.0.0"
 
 repository: https://github.com/egvimo/ansible-collection-misc
 documentation: https://github.com/egvimo/ansible-collection-misc
