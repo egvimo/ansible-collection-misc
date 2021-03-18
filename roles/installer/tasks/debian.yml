@@ -1,0 +1,5 @@
+---
+- name: "Install '{{ installer_package }}' via APT"
+  apt:
+    name: "{{ installer_package }}"
+    state: present
