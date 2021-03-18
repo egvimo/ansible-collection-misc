@@ -12,7 +12,6 @@ This collection contains the following roles:
 | Docker            | docker      | [Readme](roles/docker/README.md)      |
 | Git Server        | git_server  | [Readme](roles/git_server/README.md)  |
 | Gitea             | gitea       | [Readme](roles/gitea/README.md)       |
-| Dynamic Installer | installer   | [Readme](roles/installer/README.md)   |
 | JDownloader       | jdownloader | [Readme](roles/jdownloader/README.md) |
 | K3s               | k3s         | [Readme](roles/k3s/README.md)         |
 | ReadyMedia        | minidlna    | [Readme](roles/minidlna/README.md)    |
@@ -42,12 +41,9 @@ collections:
 ```yml
 - hosts: servers
   roles:
-    - role: egvimo.misc.installer
+    - role: egvimo.misc.k3s
       vars:
-        installer_packages:
-          - kubectl
-          - screen
-          - starship
+        k3s_server_args: '--docker'
 ```
 
 ## Tags
