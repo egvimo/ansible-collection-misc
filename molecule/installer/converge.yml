@@ -7,4 +7,5 @@
         name: installer
       vars:
         installer_packages:
+          - kubectl
           - screen

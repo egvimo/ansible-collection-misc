@@ -6,6 +6,15 @@
     state: present
   become: true
 
+- name: Ensure bash-completion directory exists
+  ansible.builtin.file:
+    path: /etc/bash_completion.d
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+  become: true
+
 - name: Create kubectl completion file
   ansible.builtin.shell: kubectl completion bash > kubectl
   args:
