@@ -1,8 +1,8 @@
 ---
 galaxy_info:
-  role_name: dotfiles
+  role_name: gnome
   author: egvimo
-  description: Configuration of dotfiles
+  description: Configuration of Gnome
 
   license: MIT
 
@@ -22,4 +22,4 @@ galaxy_info:
   galaxy_tags:
     - linux
     - unix
-    - bash
+    - gnome

@@ -1,0 +1,23 @@
+---
+- block:
+    - name: Ensure required packages for dconf module are installed
+      ansible.builtin.apt:
+        name: python3-psutil
+        state: present
+      become: true
+
+    - name: Copy picture to background directory
+      ansible.builtin.copy:
+        src: wood.png
+        dest: /usr/share/backgrounds/wood.png
+        owner: root
+        group: root
+        mode: "0644"
+      become: true
+
+    - name: Set background picture
+      community.general.dconf:
+        key: "/org/gnome/desktop/background/picture-uri"
+        value: "'file:///usr/share/backgrounds/wood.png'"
+        state: present
+  tags: gnome_background
