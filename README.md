@@ -3,7 +3,7 @@
 [![Ansible Lint](https://github.com/egvimo/ansible-collection-misc/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/egvimo/ansible-collection-misc/actions/workflows/ansible-lint.yml)
 [![Molecule Test](https://github.com/egvimo/ansible-collection-misc/actions/workflows/molecule-test.yml/badge.svg)](https://github.com/egvimo/ansible-collection-misc/actions/workflows/molecule-test.yml)
 
-> This collection includes roles for my personal preferences and systems. Don’t blindly use them unless you know what that entails. Take anything you want, but at your own risk.
+> This collection includes roles to setup my personal systems and is designed according to my preferences. It's not meant to be a universal tool, but you can use it as inspiration for your own playbooks.
 
 This collection contains the following roles:
 
