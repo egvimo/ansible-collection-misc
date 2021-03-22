@@ -16,7 +16,7 @@
         user_id: "{{ gitea_user_id }}"
 
     - name: Ensure data directory exists
-      file:
+      ansible.builtin.file:
         path: "{{ gitea_data_path }}"
         state: directory
         owner: "{{ gitea_user_id }}"

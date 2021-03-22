@@ -9,7 +9,7 @@
         user_name: "{{ pi_hole_user_name }}"
 
     - name: Create Pi-hole directories
-      file:
+      ansible.builtin.file:
         path: "{{ item }}"
         state: directory
         owner: "{{ pi_hole_user_id }}"

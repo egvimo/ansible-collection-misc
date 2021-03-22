@@ -1,12 +1,12 @@
 ---
 - block:
     - name: Remove packages
-      apt:
+      ansible.builtin.apt:
         pkg: "{{ system_packages_to_remove }}"
         state: absent
 
     - name: Install packages
-      apt:
+      ansible.builtin.apt:
         pkg: "{{ system_packages_to_install }}"
         state: present
   become: yes

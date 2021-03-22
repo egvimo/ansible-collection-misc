@@ -16,7 +16,7 @@
         user_id: "{{ jdownloader_user_id }}"
 
     - name: Create JDownloader directories
-      file:
+      ansible.builtin.file:
         path: "{{ item }}"
         state: directory
         owner: "{{ jdownloader_user_id }}"
@@ -45,7 +45,7 @@
           - "{{ jdownloader_download_path }}:/opt/JDownloader/Downloads"
 
     - name: Check if MyJDownloader credentials are already configured
-      lineinfile:
+      ansible.builtin.lineinfile:
         path: "{{ jdownloader_cfg_path }}/org.jdownloader.api.myjdownloader.MyJDownloaderSettings.json"
         regexp: "{{ jdownloader_myjd_username }}"
         state: absent
@@ -57,7 +57,7 @@
         - jdownloader_myjd_password is defined
 
     - name: Configure MyJDownloader account
-      command: "docker exec jdownloader configure {{ jdownloader_myjd_username }} {{ jdownloader_myjd_password }}"
+      ansible.builtin.command: "docker exec jdownloader configure {{ jdownloader_myjd_username }} {{ jdownloader_myjd_password }}"
       register: result
       retries: 3
       delay: 5

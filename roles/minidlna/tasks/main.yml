@@ -16,7 +16,7 @@
         user_id: "{{ minidlna_user_id }}"
 
     - name: Ensure media directory exists
-      file:
+      ansible.builtin.file:
         path: "{{ minidlna_media_path }}"
         state: directory
         owner: "{{ minidlna_user_id }}"

@@ -1,6 +1,6 @@
 ---
 - name: Activating cgroup support
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /boot/cmdline.txt
     regexp: '^((?!.*\bcgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory\b).*)$'
     line: '\1 cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory'
@@ -11,32 +11,32 @@
   meta: flush_handlers
 
 - name: Enable IPv4 forwarding
-  sysctl:
+  ansible.builtin.sysctl:
     name: net.ipv4.ip_forward
     value: "1"
     reload: yes
     state: present
 
 - name: Enable IPv6 forwarding
-  sysctl:
+  ansible.builtin.sysctl:
     name: net.ipv6.conf.all.forwarding
     value: "1"
     reload: yes
     state: present
 
 - name: Flush iptables before changing to iptables-legacy
-  iptables:
+  ansible.builtin.iptables:
     flush: true
   changed_when: false
 
 - name: Changing to iptables-legacy
-  alternatives:
+  ansible.builtin.alternatives:
     path: /usr/sbin/iptables-legacy
     name: iptables
   register: ip4_legacy
 
 - name: Changing to ip6tables-legacy
-  alternatives:
+  ansible.builtin.alternatives:
     path: /usr/sbin/ip6tables-legacy
     name: ip6tables
   register: ip6_legacy
