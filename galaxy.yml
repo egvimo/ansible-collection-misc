@@ -10,7 +10,6 @@ readme: README.md
 license_file: LICENSE
 
 tags:
-  - docker
   - git_server
   - gitea
   - jdownloader

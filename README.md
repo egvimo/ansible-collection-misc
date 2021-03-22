@@ -9,7 +9,6 @@ This collection contains the following roles:
 
 | Role              | Name        | Documentation                         |
 | ----------------- | ----------- | ------------------------------------- |
-| Docker            | docker      | [Readme](roles/docker/README.md)      |
 | Git Server        | git_server  | [Readme](roles/git_server/README.md)  |
 | Gitea             | gitea       | [Readme](roles/gitea/README.md)       |
 | JDownloader       | jdownloader | [Readme](roles/jdownloader/README.md) |
