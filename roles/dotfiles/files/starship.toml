@@ -4,10 +4,20 @@ when = "test -f /usr/bin/vcgencmd"
 shell = ["bash", "--noprofile", "--norc"]
 symbol = "🌡"
 format = "[$symbol ($output )]($style)"
+#disabled = true
 
+[custom.screen]
+command = 'echo "$STY"'
+when = 'test "$STY"'
+shell = ["bash", "--noprofile", "--norc"]
+symbol = "🖵"
+format = "[$symbol ($output )]($style)"
+#disabled = true
+
+# Windows
 [custom.git_email]
 command = "git config user.email"
-when = "git rev-parse --git-dir 2> /dev/null"
+when = "git rev-parse --is-inside-work-tree 2> $null"
 format = "by [$output]($style) "
 style = "bright-yellow bold"
 disabled = true
