@@ -22,11 +22,8 @@ jobs:
         with:
           python-version: "3.x"
 
-      # TODO Remove six after dependencies fix
       - name: Install dependencies
-        run: |
-          pip3 install -r requirements.txt
-          pip3 install six
+        run: pip3 install -r requirements.txt
 
       - name: Run molecule tests
         run: molecule test --all
