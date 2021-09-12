@@ -5,7 +5,15 @@
 
 > This collection includes roles to setup my personal systems and is designed according to my preferences. It's not meant to be a universal tool, but you can use it as inspiration for your own playbooks.
 
-This collection contains the following roles:
+## Roles
+
+This collection contains the following roles.
+
+### Installer
+
+Ansible role to dynamically install different software from different sources (see [Readme](roles/installer/README.md)).
+
+### Miscellaneous
 
 | Role              | Name        | Documentation                         |
 | ----------------- | ----------- | ------------------------------------- |
@@ -40,9 +48,12 @@ collections:
 ```yml
 - hosts: servers
   roles:
-    - role: egvimo.misc.k3s
+    - role: egvimo.misc.installer
       vars:
-        k3s_server_args: '--docker'
+        installer_packages:
+          - kubectl
+          - screen
+          - starship
 ```
 
 ## Tags

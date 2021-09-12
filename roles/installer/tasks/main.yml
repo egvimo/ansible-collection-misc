@@ -1,0 +1,15 @@
+---
+- block:
+    - name: Prepare packages list
+      set_fact:
+        packages_to_be_installed: "{{ installer_packages.split(',') if installer_packages is string else installer_packages }}"
+
+    - name: Install packages
+      include_tasks:
+        file: install_package.yml
+        apply:
+          tags: installer
+      loop: "{{ packages_to_be_installed }}"
+      loop_control:
+        loop_var: installer_package
+  tags: installer

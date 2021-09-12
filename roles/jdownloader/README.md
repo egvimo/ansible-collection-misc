@@ -1,4 +1,4 @@
-# Bash-it
+# JDownloader
 
 Ansible role to install [JDownloader](https://my.jdownloader.org/) as Docker container.
 

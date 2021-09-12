@@ -1,0 +1,21 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: Include role
+      include_role:
+        name: installer
+      vars:
+        ansible_user: root
+        installer_packages:
+          - bat
+          - brave
+          - chrome
+          - docker
+          - helm
+          - kubectl
+          - screen
+          - starship
+          - syncthing
+          - vagrant
+          - vscode

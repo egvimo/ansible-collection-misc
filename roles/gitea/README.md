@@ -1,4 +1,4 @@
-# Bash-it
+# Gitea
 
 Ansible role to install [Gitea](https://gitea.io/) as Docker container.
 

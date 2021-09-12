@@ -1,0 +1,14 @@
+---
+# TODO Run this only once for a play
+- name: Ensure additional buckets are present
+  community.windows.win_scoop_bucket:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - extras
+    - java
+
+- name: "Install '{{ installer_package }}' via Scoop"
+  community.windows.win_scoop:
+    name: "{{ installer_package }}"
+    state: present

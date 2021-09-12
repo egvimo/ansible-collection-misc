@@ -1,0 +1,25 @@
+---
+- block:
+    - name: Install required packages
+      ansible.builtin.apt:
+        pkg:
+          - gnupg
+        update_cache: true
+
+    - name: Add key
+      ansible.builtin.apt_key:
+        url: "{{ apt_key_url }}"
+        state: present
+
+    - name: Add repository
+      ansible.builtin.apt_repository:
+        repo: "{{ apt_repository }}"
+        filename: "{{ apt_repository_name }}"
+        update_cache: true
+        state: present
+
+    - name: "Install '{{ apt_package_name }}'"
+      ansible.builtin.apt:
+        name: "{{ apt_package_name }}"
+        state: present
+  become: true

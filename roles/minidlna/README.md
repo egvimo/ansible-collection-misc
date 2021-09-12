@@ -1,4 +1,4 @@
-# Bash-it
+# ReadyMedia
 
 Ansible role to install ReadyMedia (formerly known as MiniDLNA) as Docker container.
 

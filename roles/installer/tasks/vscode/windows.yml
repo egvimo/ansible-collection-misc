@@ -1,0 +1,7 @@
+---
+- name: Install Visual Studio Code
+  ansible.windows.win_package:
+    path: https://go.microsoft.com/fwlink/?LinkID=534107
+    arguments: /VERYSILENT /NORESTART /MERGETASKS=!runcode
+    creates_path: "{{ ansible_user_dir }}\\AppData\\Local\\Programs\\Microsoft VS Code"
+    state: present

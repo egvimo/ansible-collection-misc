@@ -1,0 +1,13 @@
+---
+- name: Gather package facts
+  ansible.builtin.package_facts:
+    manager: auto
+
+- name: Install Vagrant
+  ansible.builtin.apt:
+    deb: "https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.deb"
+    update_cache: true
+  become: true
+  when: "'vagrant' not in ansible_facts.packages"
+  vars:
+    vagrant_version: "2.2.14"
