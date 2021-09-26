@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      ANSIBLE_GALAXY_API_KEY: ${{ secrets.ANSIBLE_GALAXY_API_KEY }}
       ANSIBLE_FORCE_COLOR: 1
 
     steps:
@@ -28,8 +27,10 @@ jobs:
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
-      - name: Run the Ansible Galaxy release playbook
-        run: ansible-playbook -i 'localhost,' release.yml -e "version=${{ steps.get_version.outputs.VERSION }}"
+      - name: Release to Ansible Galaxy
+        run: |
+          ansible-galaxy collection build
+          ansible-galaxy collection publish egvimo-misc-${{ steps.get_version.outputs.VERSION }}.tar.gz --token=${{ secrets.ANSIBLE_GALAXY_API_KEY }}
 
       - name: Create Release
         id: create_release
