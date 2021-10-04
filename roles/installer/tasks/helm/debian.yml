@@ -1,8 +1,13 @@
 ---
 - name: Include APT installer helper
-  include_tasks: apt_installer.yml
+  include_tasks: common/apt_installer.yml
   vars:
     apt_key_url: https://baltocdn.com/helm/signing.asc
     apt_repository: deb https://baltocdn.com/helm/stable/debian/ all main
     apt_repository_name: helm
     apt_package_name: helm
+
+- include_tasks: common/bash_completion.yml
+  vars:
+    name: helm
+    command: helm completion bash
