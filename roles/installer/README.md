@@ -9,6 +9,7 @@ This role contains the following custom install tasks:
 - Google Chrome
 - Docker
 - Helm
+- K3s
 - kubectl
 - Starship
 - Syncthing
@@ -17,8 +18,16 @@ This role contains the following custom install tasks:
 
 If the package is not one of the above, then the `apt` package manager (`scoop` for Windows hosts) is used to install the package.
 
-If the role is defined in the playbook it is also possible to pass the packages (or override them) via command line:
+To dynamically pass the packages to the role (or override them) via command line, use the following command:
 
 ```shell
 ansible-playbook playbook.yml -t installer -e "installer_packages=kubectl,starship"
 ```
+
+## Role Variables
+
+### K3s
+
+| Variable                  | Default value | Description                 |
+| ------------------------- | ------------- | --------------------------- |
+| installer_k3s_server_args |               | Server arguments (optional) |

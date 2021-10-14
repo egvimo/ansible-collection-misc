@@ -1,8 +1,0 @@
----
-# TODO: Add Molecule test
-
-- block:
-    - import_tasks: prerequisites.yml
-    - import_tasks: install.yml
-  become: yes
-  tags: k3s
