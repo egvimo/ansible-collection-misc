@@ -1,6 +1,0 @@
----
-pi_hole_user_id: pihole
-pi_hole_user_name: Pi-hole
-pi_hole_base_path: /opt/pihole
-pi_hole_timezone: Europe/Berlin
-pi_hole_additional_dns_server: 8.8.8.8

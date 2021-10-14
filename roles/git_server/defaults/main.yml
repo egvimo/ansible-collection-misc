@@ -1,4 +1,0 @@
----
-git_server_user: git
-git_server_user_home: "/home/{{ git_server_user }}"
-git_server_repository_directory: /srv/git
