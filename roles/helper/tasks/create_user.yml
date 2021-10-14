@@ -1,6 +1,0 @@
----
-- name: "Add '{{ user_name }}' user"
-  ansible.builtin.user:
-    name: "{{ user_id }}"
-    comment: "{{ user_name }}"
-  become: yes

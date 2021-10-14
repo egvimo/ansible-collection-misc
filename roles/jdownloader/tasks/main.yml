@@ -1,19 +1,21 @@
 ---
 - block:
-    - name: Include create user helper
-      include_role:
-        name: helper
-        tasks_from: create_user
-      vars:
-        user_id: "{{ jdownloader_user_id }}"
-        user_name: "{{ jdownloader_user_name }}"
+    - name: "Create '{{ jdownloader_user_name }}' user"
+      ansible.builtin.user:
+        name: "{{ jdownloader_user_id }}"
+        comment: "{{ jdownloader_user_name }}"
+      become: yes
 
-    - name: Include user info helper
-      include_role:
-        name: helper
-        tasks_from: user_info
-      vars:
-        user_id: "{{ jdownloader_user_id }}"
+    - name: "Get '{{ jdownloader_user_id }}' user info"
+      ansible.builtin.getent:
+        database: passwd
+        key: "{{ jdownloader_user_id }}"
+
+    - name: "Set uid, gid and home for user '{{ jdownloader_user_id }}'"
+      ansible.builtin.set_fact:
+        user_uid: "{{ getent_passwd[jdownloader_user_id].1 }}"
+        user_gid: "{{ getent_passwd[jdownloader_user_id].2 }}"
+        user_home: "{{ getent_passwd[jdownloader_user_id].4 }}"
 
     - name: Create JDownloader directories
       ansible.builtin.file:
