@@ -1,12 +1,14 @@
 ---
 - name: Download K3s binary
   ansible.builtin.get_url:
-    url: https://github.com/k3s-io/k3s/releases/latest/download/k3s-arm64
-    checksum: sha256:https://github.com/k3s-io/k3s/releases/latest/download/sha256sum-arm64.txt
+    url: "{{ k3s_releases_url }}/k3s-arm64"
+    checksum: "sha256:{{ k3s_releases_url }}/sha256sum-arm64.txt"
     dest: /usr/local/bin/k3s
     owner: root
     group: root
     mode: "0755"
+  vars:
+    k3s_releases_url: "https://github.com/k3s-io/k3s/releases/{{ 'download/' + installer_k3s_version if installer_k3s_version is defined else 'latest/download' }}"
 
 - name: Copy K3s service file
   ansible.builtin.template:

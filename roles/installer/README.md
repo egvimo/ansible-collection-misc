@@ -30,4 +30,5 @@ ansible-playbook playbook.yml -t installer -e "installer_packages=kubectl,starsh
 
 | Variable                  | Default value | Description                 |
 | ------------------------- | ------------- | --------------------------- |
+| installer_k3s_version     | latest        | Version to install          |
 | installer_k3s_server_args |               | Server arguments (optional) |
