@@ -1,8 +1,8 @@
 ---
 - name: Download K3s binary
   ansible.builtin.get_url:
-    url: "{{ k3s_releases_url }}/k3s-arm64"
-    checksum: "sha256:{{ k3s_releases_url }}/sha256sum-arm64.txt"
+    url: "{{ k3s_releases_url }}/k3s{{ '-arm64' if ansible_architecture == 'aarch64' }}"
+    checksum: "sha256:{{ k3s_releases_url }}/sha256sum-{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' }}.txt"
     dest: /usr/local/bin/k3s
     owner: root
     group: root

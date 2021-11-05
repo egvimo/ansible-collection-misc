@@ -1,6 +1,4 @@
 ---
-# TODO: Add Molecule test
-
 - block:
     - include_tasks: prerequisites.yml
     - include_tasks: install.yml

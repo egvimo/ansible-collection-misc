@@ -17,7 +17,6 @@ Ansible role to dynamically install different software from different sources (s
 | Role         | Name        | Documentation                         |
 | ------------ | ----------- | ------------------------------------- |
 | JDownloader  | jdownloader | [Readme](roles/jdownloader/README.md) |
-| K3s          | k3s         | [Readme](roles/k3s/README.md)         |
 | Raspberry Pi | raspberry   | [Readme](roles/raspberry/README.md)   |
 | System       | system      | [Readme](roles/system/README.md)      |
 
