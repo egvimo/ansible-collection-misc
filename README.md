@@ -8,17 +8,14 @@
 
 This collection contains the following roles.
 
-### Installer
-
-Ansible role to dynamically install different software from different sources (see [Readme](roles/installer/README.md)).
-
-### Miscellaneous
-
-| Role         | Name        | Documentation                         |
-| ------------ | ----------- | ------------------------------------- |
-| JDownloader  | jdownloader | [Readme](roles/jdownloader/README.md) |
-| Raspberry Pi | raspberry   | [Readme](roles/raspberry/README.md)   |
-| System       | system      | [Readme](roles/system/README.md)      |
+| Name                                       | Description                                                   |
+| ------------------------------------------ | ------------------------------------------------------------- |
+| [dotfiles](roles/dotfiles/README.md)       | Dynamically install various dotfiles                          |
+| [gnome](roles/gnome/README.md)             | Configure Gnome                                               |
+| [installer](roles/installer/README.md)     | Dynamically install different software from different sources |
+| [jdownloader](roles/jdownloader/README.md) | Install JDownloader as Docker container                       |
+| [raspberry](roles/raspberry/README.md)     | Configure a Raspberry Pi via `raspi-config`                   |
+| [system](roles/system/README.md)           | Perform general system related tasks                          |
 
 ## Installation
 

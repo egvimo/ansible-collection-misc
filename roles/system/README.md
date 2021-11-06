@@ -1,6 +1,6 @@
 # System
 
-Ansible role to perform general system related tasks like updateing or installing packages.
+Ansible role to perform general system related tasks like updating or installing packages.
 
 ## Role Variables
 
