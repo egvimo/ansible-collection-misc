@@ -2,7 +2,7 @@
 galaxy_info:
   role_name: dotfiles
   author: egvimo
-  description: Configuration of dotfiles
+  description: Dynamically configure various dotfiles
 
   license: MIT
 
@@ -23,3 +23,5 @@ galaxy_info:
     - linux
     - unix
     - bash
+    - windows
+    - dotfiles

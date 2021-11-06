@@ -2,7 +2,7 @@
 galaxy_info:
   role_name: installer
   author: egvimo
-  description: Role to install different software from different sources
+  description: Install different software from different sources
 
   license: MIT
 
@@ -28,6 +28,7 @@ galaxy_info:
     - chrome
     - docker
     - helm
+    - k3s
     - kubectl
     - starship
     - syncthing
