@@ -1,9 +1,9 @@
 ---
-- name: Gather package facts
+- name: "[{{ installer_package }}] Gather package facts"
   ansible.builtin.package_facts:
     manager: auto
 
-- name: Install Visual Studio Code
+- name: "[{{ installer_package }}] Install"
   ansible.builtin.apt:
     deb: https://go.microsoft.com/fwlink/?LinkID=760868
     update_cache: true

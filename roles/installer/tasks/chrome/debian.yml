@@ -1,9 +1,9 @@
 ---
-- name: Gather package facts
+- name: "[{{ installer_package }}] Gather package facts"
   ansible.builtin.package_facts:
     manager: auto
 
-- name: Install Google Chrome
+- name: "[{{ installer_package }}] Install"
   ansible.builtin.apt:
     deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     update_cache: true

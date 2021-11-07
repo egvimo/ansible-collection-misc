@@ -1,12 +1,12 @@
 ---
 - block:
-    - name: Install Docker
+    - name: "[{{ installer_package }}] Install"
       ansible.builtin.apt:
         name: docker.io
         state: present
         update_cache: yes
 
-    - name: Add user to Docker group
+    - name: "[{{ installer_package }}] Add user to docker group"
       ansible.builtin.user:
         name: "{{ ansible_user }}"
         groups: docker

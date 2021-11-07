@@ -1,14 +1,14 @@
 ---
-- name: "Check for separate tasks for '{{ installer_package }}'"
+- name: "[{{ installer_package }}] Check for separate tasks"
   ansible.builtin.stat:
     path: "{{ role_path }}/tasks/{{ installer_package }}/{{ ansible_os_family | lower }}.yml"
   delegate_to: localhost
   register: task_path
 
-- name: "Include custom installer tasks for '{{ installer_package }}'"
+- name: "[{{ installer_package }}] Include custom installer tasks"
   include_tasks: "{{ installer_package }}/{{ ansible_os_family | lower }}.yml"
   when: task_path.stat.exists
 
-- name: "Include OS specific tasks for '{{ installer_package }}'"
+- name: "[{{ installer_package }}] Include OS specific tasks"
   include_tasks: "{{ ansible_os_family | lower }}.yml"
   when: not task_path.stat.exists

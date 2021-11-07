@@ -1,16 +1,16 @@
 ---
-- name: Install Starship via Scoop
+- name: "[{{ installer_package }}] Install via Scoop"
   community.windows.win_scoop:
     name: starship
     state: present
 
-- name: Get profile path
+- name: "[{{ installer_package }}] Get profile path"
   ansible.windows.win_shell: $PROFILE
   changed_when: false
   check_mode: false
   register: profile_path
 
-- name: "Add Starship configuration to {{ profile_path.stdout | trim }}"
+- name: "[{{ installer_package }}] Add configuration to {{ profile_path.stdout | trim }}"
   community.windows.win_lineinfile:
     path: "{{ profile_path.stdout | trim }}"
     create: true

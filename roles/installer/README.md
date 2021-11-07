@@ -18,6 +18,19 @@ This role contains the following custom install tasks:
 
 If the package is not one of the above, then the `apt` package manager (`scoop` for Windows hosts) is used to install the package.
 
+## Usage
+
+```yml
+- hosts: servers
+  roles:
+    - role: egvimo.misc.installer
+      vars:
+        installer_packages:
+          - kubectl
+          - screen
+          - starship
+```
+
 To dynamically pass the packages to the role (or override them) via command line, use the following command:
 
 ```shell

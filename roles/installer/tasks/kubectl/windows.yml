@@ -1,16 +1,16 @@
 ---
-- name: Install kubectl via Scoop
+- name: "[{{ installer_package }}] Install via Scoop"
   community.windows.win_scoop:
     name: kubectl
     state: present
 
-- name: Get profile path
+- name: "[{{ installer_package }}] Get profile path"
   ansible.windows.win_shell: $ENV:USERPROFILE
   changed_when: false
   check_mode: false
   register: userprofile_path
 
-- name: "Ensure .kube directory exists in {{ userprofile_path.stdout | trim }}"
+- name: "[{{ installer_package }}] Ensure .kube directory exists in {{ userprofile_path.stdout | trim }}"
   ansible.windows.win_file:
     path: "{{ userprofile_path.stdout | trim }}\\.kube"
     state: directory

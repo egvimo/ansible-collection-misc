@@ -1,14 +1,14 @@
 ---
-- name: Gather package facts
+- name: "[{{ installer_package }}] Gather package facts"
   ansible.builtin.package_facts:
     manager: auto
 
-- name: Set architecture
+- name: "[{{ installer_package }}] Set architecture"
   set_fact:
     architecture: "{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' if ansible_architecture == 'x86_64' else ansible_architecture }}"
 
 # TODO Migrate to APT repository, when available
-- name: Install bat
+- name: "[{{ installer_package }}] Install"
   ansible.builtin.apt:
     deb: "https://github.com/sharkdp/bat/releases/download/v{{ bat_version }}/bat_{{ bat_version }}_{{ architecture }}.deb"
     update_cache: true
