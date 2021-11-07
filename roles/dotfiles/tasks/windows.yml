@@ -5,7 +5,7 @@
   register: destination_directory
 
 - name: "[{{ dotfile }}] Create directory if missing"
-  ansible.builtin.file:
+  ansible.builtin.win_file:
     path: "{{ dotfile_config.destination | dirname }}"
     state: directory
   when: not destination_directory.stat.exists
