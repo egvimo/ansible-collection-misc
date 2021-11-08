@@ -1,6 +1,9 @@
 [username]
 format = "[$user]($style)@"
 
+[kubernetes]
+disabled = {{ 'false' if (dotfiles_starship_kubernetes is defined and dotfiles_starship_kubernetes) else 'true' }}
+
 [custom.cpu_temp]
 command = "vcgencmd measure_temp | egrep -o '[0-9]*\\.[0-9]*'"
 when = "test -f /usr/bin/vcgencmd"
@@ -19,9 +22,14 @@ disabled = {{ 'false' if (dotfiles_starship_screen is defined and dotfiles_stars
 
 [custom.git_email]
 command = "git config user.email"
-when = "git rev-parse --is-inside-work-tree 2> $null"
+when = "git rev-parse --is-inside-work-tree 2> /dev/null"
+{% if (ansible_os_family | lower) == 'windows' %}
+shell = ["C:\Program Files\Git\bin\sh.exe"]
+{% else %}
+shell = ["bash", "--noprofile", "--norc"]
+{% endif %}
 format = "by [$output]($style) "
-style = "bright-yellow bold"
+style = "bright-yellow"
 disabled = {{ 'false' if (dotfiles_starship_git_email is defined and dotfiles_starship_git_email) else 'true' }}
 
 [directory.substitutions]
