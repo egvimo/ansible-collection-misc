@@ -22,4 +22,4 @@
       when: can_expand_fs.stdout == '0'
       notify: Reboot
   become: yes
-  tags: raspberry_raspi_config
+  tags: [raspberry_raspi_config, never]

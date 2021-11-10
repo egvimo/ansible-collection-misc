@@ -4,4 +4,5 @@
 - block:
     - import_tasks: raspi_config.yml
     - import_tasks: user.yml
-  tags: raspberry
+    - import_tasks: password.yml
+  tags: [raspberry, never]
