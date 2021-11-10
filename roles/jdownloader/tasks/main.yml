@@ -1,5 +1,13 @@
 ---
 - block:
+    - name: Ensure required packages for docker module are installed
+      ansible.builtin.apt:
+        name: python3-docker
+        state: present
+        update_cache: true
+        cache_valid_time: 3600
+      become: true
+
     - name: "Create '{{ jdownloader_user_name }}' user"
       ansible.builtin.user:
         name: "{{ jdownloader_user_id }}"
