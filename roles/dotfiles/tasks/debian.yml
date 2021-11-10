@@ -8,7 +8,7 @@
   ansible.builtin.file:
     path: "{{ dotfile_config.destination | dirname }}"
     state: directory
-    mode: "{{ dotfile_config.mode | default('0644') }}"
+    mode: '0755' # TODO Use mode from config +x
   when: not destination_directory.stat.exists
 
 - name: "[{{ dotfile }}] Template dotfile"
