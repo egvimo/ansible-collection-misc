@@ -4,7 +4,6 @@ Ansible role to dynamically install different software from different sources.
 
 This role contains the following custom install tasks:
 
-- bat
 - Brave Browser
 - Google Chrome
 - Docker

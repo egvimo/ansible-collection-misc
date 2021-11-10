@@ -23,7 +23,6 @@ galaxy_info:
     - installer
     - apt
     - scoop
-    - bat
     - brave
     - chrome
     - docker
