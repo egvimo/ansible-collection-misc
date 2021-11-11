@@ -1,3 +1,4 @@
 alias ll='ls -alh'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias bat='batcat'
