@@ -8,6 +8,7 @@ This role contains the following custom install tasks:
 - Google Chrome
 - Docker
 - Helm
+- K3d
 - K3s
 - kubectl
 - Starship
@@ -37,6 +38,12 @@ ansible-playbook playbook.yml -t installer -e "installer_packages=kubectl,starsh
 ```
 
 ## Role Variables
+
+### K3d
+
+| Variable                  | Default value | Description                 |
+| ------------------------- | ------------- | --------------------------- |
+| installer_k3d_version     | latest        | Version to install          |
 
 ### K3s
 
