@@ -5,7 +5,7 @@
         name: raspi-config
         update_cache: true
         cache_valid_time: 3600
-        state: latest
+        state: latest # noqa package-latest
 
     - name: Change locale
       ansible.builtin.command: "raspi-config nonint do_change_locale {{ raspberry_locale }}"
