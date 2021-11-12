@@ -1,8 +1,0 @@
----
-- name: "[{{ installer_package }}] Install via APT"
-  ansible.builtin.apt:
-    name: "{{ installer_package }}"
-    state: present
-    update_cache: true
-    cache_valid_time: 3600
-  become: true

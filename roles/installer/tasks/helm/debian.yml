@@ -6,6 +6,7 @@
     apt_repository: deb https://baltocdn.com/helm/stable/debian/ all main
     apt_repository_name: helm
     apt_package_name: helm
+    apt_install: true
 
 - name: "[{{ installer_package }}] Include bash completion helper"
   include_tasks: common/bash_completion.yml

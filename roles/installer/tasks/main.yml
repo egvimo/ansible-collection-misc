@@ -1,15 +1,63 @@
 ---
 - block:
-    - name: Prepare packages list
+    - name: Prepare packages lists
       set_fact:
-        packages_to_be_installed: "{{ installer_packages.split(',') if installer_packages is string else installer_packages }}"
+        packages_to_be_installed: "{{ installer_packages.split(',') if installer_packages is string else installer_packages | default([]) }}"
+        packages_to_be_installed_custom: []
+        packages_to_be_installed_apt: "{{ installer_packages_apt.split(',') if installer_packages_apt is string else installer_packages_apt | default([]) }}"
+        packages_to_be_installed_scoop: "{{ installer_packages_scoop.split(',') if installer_packages_scoop is string else installer_packages_scoop | default([]) }}"
 
-    - name: Install packages
+    - name: Sort packages
       include_tasks:
-        file: install_package.yml
+        file: sort_package.yml
         apply:
           tags: installer
       loop: "{{ packages_to_be_installed }}"
       loop_control:
         loop_var: installer_package
+
+    - name: Install custom packages
+      include_tasks:
+        file: "{{ installer_package }}/{{ ansible_os_family | lower }}.yml"
+        apply:
+          tags: installer
+      loop: "{{ packages_to_be_installed_custom }}"
+      loop_control:
+        loop_var: installer_package
+      when: packages_to_be_installed_custom | length
+
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: yes
+      become: true
+      when: packages_to_be_installed_apt | length
+
+    - name: "Install via apt"
+      ansible.builtin.apt:
+        name: "{{ installer_package }}"
+        state: present
+      loop: "{{ packages_to_be_installed_apt }}"
+      loop_control:
+        loop_var: installer_package
+      become: true
+      when: packages_to_be_installed_apt | length
+
+    - name: Prepare Scoop buckets
+      community.windows.win_scoop_bucket:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - extras
+        - java
+      when: packages_to_be_installed_scoop | length
+
+    - name: "Install via Scoop"
+      community.windows.win_scoop:
+        name: "{{ installer_package }}"
+        state: present
+      loop: "{{ packages_to_be_installed_scoop }}"
+      loop_control:
+        loop_var: installer_package
+      when: packages_to_be_installed_scoop | length
+
   tags: installer

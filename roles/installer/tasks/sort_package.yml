@@ -1,0 +1,25 @@
+---
+- name: "[{{ installer_package }}] Check for separate tasks"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ installer_package }}/{{ ansible_os_family | lower }}.yml"
+  delegate_to: localhost
+  register: task_path
+
+- name: "[{{ installer_package }}] Append to custom packages"
+  ansible.builtin.set_fact:
+    packages_to_be_installed_custom: "{{ packages_to_be_installed_custom + [installer_package] }}"
+  when: task_path.stat.exists
+
+- name: "[{{ installer_package }}] Append to apt packages"
+  ansible.builtin.set_fact:
+    packages_to_be_installed_apt: "{{ packages_to_be_installed_apt + [installer_package] }}"
+  when:
+    - not task_path.stat.exists
+    - ansible_os_family | lower == 'debian'
+
+- name: "[{{ installer_package }}] Append to scoop packages"
+  ansible.builtin.set_fact:
+    packages_to_be_installed_scoop: "{{ packages_to_be_installed_scoop + [installer_package] }}"
+  when:
+    - not task_path.stat.exists
+    - ansible_os_family | lower == 'windows'

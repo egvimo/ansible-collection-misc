@@ -6,6 +6,7 @@
     apt_repository: deb https://apt.kubernetes.io/ kubernetes-xenial main
     apt_repository_name: kubernetes
     apt_package_name: kubectl
+    apt_install: true
 
 - name: "[{{ installer_package }}] Include bash completion helper"
   include_tasks: common/bash_completion.yml
