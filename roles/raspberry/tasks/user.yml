@@ -1,10 +1,10 @@
 ---
 - block:
-    - name: "Add new user {{ raspberry_user }} with same privileges as pi"
+    - name: "Add new user {{ raspberry_new_user }} with same privileges as pi"
       ansible.builtin.user:
-        name: "{{ raspberry_user }}"
-        comment: "{{ raspberry_username }}"
-        password: "{{ raspberry_password | password_hash('sha512') }}"
+        name: "{{ raspberry_new_user }}"
+        comment: "{{ raspberry_new_user_name }}"
+        password: "{{ raspberry_new_user_password | password_hash('sha512') }}"
         update_password: on_create
         create_home: yes
         shell: /bin/bash
