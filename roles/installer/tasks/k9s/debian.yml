@@ -1,0 +1,37 @@
+---
+- block:
+    - name: "[{{ installer_package }}] Get checksums for archive"
+      ansible.builtin.uri:
+        url: "{{ k9s_releases_url }}/checksums.txt"
+        return_content: true
+      check_mode: false
+      register: k9s_checksums
+
+    - name: "[{{ installer_package }}] Extract checksum for archive"
+      ansible.builtin.set_fact:
+        k9s_checksum: "{{ k9s_checksums.content | regex_search(k9s_checksum_regex, '\\1', multiline=true) }}"
+      vars:
+        k9s_checksum_regex: "^([a-z0-9]+).+?{{ k9s_archive_name }}\\.tar\\.gz$"
+
+    - name: "[{{ installer_package }}] Download archive"
+      ansible.builtin.get_url:
+        url: "{{ k9s_releases_url }}/{{ k9s_archive_name }}.tar.gz"
+        checksum: "sha256:{{ k9s_checksum }}"
+        dest: /tmp/k9s.tar.gz
+        mode: "0666"
+      become: true
+      register: k9s_archive
+  vars:
+    k9s_releases_url: https://github.com/derailed/k9s/releases/latest/download/
+    k9s_archive_name: "k9s_Linux_{{ 'arm64' if ansible_architecture == 'aarch64' else 'x86_64' }}"
+
+- name: "[{{ installer_package }}] Extract archive"
+  ansible.builtin.unarchive:
+    src: /tmp/k9s.tar.gz
+    dest: /usr/local/bin
+    remote_src: true
+    owner: root
+    group: root
+    mode: "0755"
+  become: true
+  when: k9s_archive.changed # noqa no-handler

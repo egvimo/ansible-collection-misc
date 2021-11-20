@@ -20,6 +20,9 @@
     src: /tmp/starship.tar.gz
     dest: /usr/local/bin
     remote_src: true
+    owner: root
+    group: root
+    mode: "0755"
   become: true
   when: starship_archive.changed # noqa no-handler
 

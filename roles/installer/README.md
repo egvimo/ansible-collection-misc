@@ -11,6 +11,7 @@ This role contains the following custom install tasks:
 - Helm
 - K3d
 - K3s
+- K9s
 - kubectl
 - Starship
 - Syncthing

@@ -8,12 +8,14 @@
       vars:
         ansible_user: root
         installer_packages:
+          - bat
           - brave
           - chrome
           - docker
           - helm
           - k3d
           #- k3s
+          - k9s
           - kubectl
           - screen
           - starship

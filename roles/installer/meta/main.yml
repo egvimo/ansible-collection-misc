@@ -30,6 +30,7 @@ galaxy_info:
     - helm
     - k3d
     - k3s
+    - k9s
     - kubectl
     - starship
     - syncthing
