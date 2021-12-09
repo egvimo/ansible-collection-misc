@@ -1,5 +1,5 @@
 ---
-- name: "[{{ installer_package }}] Install"
+- name: "[{{ _package }}] Install"
   ansible.windows.win_package:
     path: https://desktop.docker.com/win/stable/Docker%20Desktop%20Installer.exe
     arguments: install --quiet

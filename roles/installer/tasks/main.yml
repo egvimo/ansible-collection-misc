@@ -2,45 +2,45 @@
 - block:
     - name: Prepare packages lists
       set_fact:
-        packages_to_be_installed: "{{ installer_packages.split(',') if installer_packages is string else installer_packages | default([]) }}"
-        packages_to_be_installed_custom: []
-        packages_to_be_installed_apt: "{{ installer_packages_apt.split(',') if installer_packages_apt is string else installer_packages_apt | default([]) }}"
-        packages_to_be_installed_scoop: "{{ installer_packages_scoop.split(',') if installer_packages_scoop is string else installer_packages_scoop | default([]) }}"
+        _packages: "{{ installer_packages.split(',') if installer_packages is string else installer_packages | default([]) }}"
+        _packages_custom: []
+        _packages_apt: "{{ installer_packages_apt.split(',') if installer_packages_apt is string else installer_packages_apt | default([]) }}"
+        _packages_scoop: "{{ installer_packages_scoop.split(',') if installer_packages_scoop is string else installer_packages_scoop | default([]) }}"
 
     - name: Sort packages
       include_tasks:
         file: sort_package.yml
         apply:
           tags: installer
-      loop: "{{ packages_to_be_installed }}"
+      loop: "{{ _packages }}"
       loop_control:
-        loop_var: installer_package
+        loop_var: _package
 
     - name: Install custom packages
       include_tasks:
-        file: "{{ installer_package }}/{{ ansible_os_family | lower }}.yml"
+        file: "{{ _package }}/{{ ansible_os_family | lower }}.yml"
         apply:
           tags: installer
-      loop: "{{ packages_to_be_installed_custom }}"
+      loop: "{{ _packages_custom }}"
       loop_control:
-        loop_var: installer_package
-      when: packages_to_be_installed_custom | length
+        loop_var: _package
+      when: _packages_custom | length
 
     - name: Update apt cache
       ansible.builtin.apt:
         update_cache: yes
       become: true
-      when: packages_to_be_installed_apt | length
+      when: _packages_apt | length
 
     - name: "Install via apt"
       ansible.builtin.apt:
-        name: "{{ installer_package }}"
+        name: "{{ _package }}"
         state: present
-      loop: "{{ packages_to_be_installed_apt }}"
+      loop: "{{ _packages_apt }}"
       loop_control:
-        loop_var: installer_package
+        loop_var: _package
       become: true
-      when: packages_to_be_installed_apt | length
+      when: _packages_apt | length
 
     - name: Prepare Scoop buckets
       community.windows.win_scoop_bucket:
@@ -49,15 +49,15 @@
       loop:
         - extras
         - java
-      when: packages_to_be_installed_scoop | length
+      when: _packages_scoop | length
 
     - name: "Install via Scoop"
       community.windows.win_scoop:
-        name: "{{ installer_package }}"
+        name: "{{ _package }}"
         state: present
-      loop: "{{ packages_to_be_installed_scoop }}"
+      loop: "{{ _packages_scoop }}"
       loop_control:
-        loop_var: installer_package
-      when: packages_to_be_installed_scoop | length
+        loop_var: _package
+      when: _packages_scoop | length
 
   tags: installer

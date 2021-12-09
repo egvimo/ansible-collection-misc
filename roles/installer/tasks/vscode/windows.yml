@@ -1,5 +1,5 @@
 ---
-- name: "[{{ installer_package }}] Install"
+- name: "[{{ _package }}] Install"
   ansible.windows.win_package:
     path: https://go.microsoft.com/fwlink/?LinkID=534107
     arguments: /VERYSILENT /NORESTART /MERGETASKS=!runcode

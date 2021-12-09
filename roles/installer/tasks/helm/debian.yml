@@ -1,5 +1,5 @@
 ---
-- name: "[{{ installer_package }}] Include APT installer helper"
+- name: "[{{ _package }}] Include APT installer helper"
   include_tasks: common/apt_installer.yml
   vars:
     apt_key_url: https://baltocdn.com/helm/signing.asc
@@ -8,7 +8,7 @@
     apt_package_name: helm
     apt_install: true
 
-- name: "[{{ installer_package }}] Include bash completion helper"
+- name: "[{{ _package }}] Include bash completion helper"
   include_tasks: common/bash_completion.yml
   vars:
     name: helm

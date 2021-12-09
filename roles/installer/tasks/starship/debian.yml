@@ -1,12 +1,12 @@
 ---
-- name: "[{{ installer_package }}] Get checksum for archive"
+- name: "[{{ _package }}] Get checksum for archive"
   ansible.builtin.uri:
     url: "https://github.com/starship/starship/releases/latest/download/starship-{{ ansible_architecture }}-unknown-linux-musl.tar.gz.sha256"
     return_content: true
   check_mode: false
   register: starship_checksum
 
-- name: "[{{ installer_package }}] Download archive"
+- name: "[{{ _package }}] Download archive"
   ansible.builtin.get_url:
     url: "https://github.com/starship/starship/releases/latest/download/starship-{{ ansible_architecture }}-unknown-linux-musl.tar.gz"
     checksum: "sha256:{{ starship_checksum.content }}"
@@ -15,7 +15,7 @@
   become: true
   register: starship_archive
 
-- name: "[{{ installer_package }}] Extract archive"
+- name: "[{{ _package }}] Extract archive"
   ansible.builtin.unarchive:
     src: /tmp/starship.tar.gz
     dest: /usr/local/bin
@@ -26,7 +26,7 @@
   become: true
   when: starship_archive.changed # noqa no-handler
 
-- name: "[{{ installer_package }}] Add configuration to .bashrc for user {{ ansible_user }}"
+- name: "[{{ _package }}] Add configuration to .bashrc for user {{ ansible_user }}"
   ansible.builtin.lineinfile:
     dest: "{{ ansible_user_dir }}/.bashrc"
     create: true

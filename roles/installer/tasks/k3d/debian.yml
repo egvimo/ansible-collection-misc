@@ -1,19 +1,19 @@
 ---
 - block:
-    - name: "[{{ installer_package }}] Get checksums for archive"
+    - name: "[{{ _package }}] Get checksums for archive"
       ansible.builtin.uri:
         url: "{{ k3d_releases_url }}/sha256sum.txt"
         return_content: true
       check_mode: false
       register: k3d_checksums
 
-    - name: "[{{ installer_package }}] Extract checksum for archive"
+    - name: "[{{ _package }}] Extract checksum for archive"
       ansible.builtin.set_fact:
         k3d_checksum: "{{ k3d_checksums.content | regex_search(k3d_checksum_regex, '\\1', multiline=true) }}"
       vars:
         k3d_checksum_regex: "^([a-z0-9]+).+?{{ k3d_binary }}$"
 
-    - name: "[{{ installer_package }}] Download binary"
+    - name: "[{{ _package }}] Download binary"
       ansible.builtin.get_url:
         url: "{{ k3d_releases_url }}/{{ k3d_binary }}"
         checksum: "sha256:{{ k3d_checksum }}"

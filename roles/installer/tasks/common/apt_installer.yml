@@ -1,5 +1,5 @@
 ---
-- name: "[{{ installer_package }}] Ensure gpg is installed"
+- name: "[{{ _package }}] Ensure gpg is installed"
   ansible.builtin.apt:
     name: gnupg
     state: present
@@ -7,20 +7,20 @@
     cache_valid_time: 3600
   become: true
 
-- name: "[{{ installer_package }}] Add key"
+- name: "[{{ _package }}] Add key"
   ansible.builtin.apt_key:
     url: "{{ apt_key_url }}"
     state: present
   become: true
 
-- name: "[{{ installer_package }}] Add repository"
+- name: "[{{ _package }}] Add repository"
   ansible.builtin.apt_repository:
     repo: "{{ apt_repository }}"
     filename: "{{ apt_repository_name }}"
     state: present
   become: true
 
-- name: "[{{ installer_package }}] Install"
+- name: "[{{ _package }}] Install"
   ansible.builtin.apt:
     name: "{{ apt_package_name }}"
     state: present
@@ -28,7 +28,7 @@
   become: true
   when: apt_install is defined and apt_install
 
-- name: "[{{ installer_package }}] Append to apt packages"
+- name: "[{{ _package }}] Append to apt packages"
   ansible.builtin.set_fact:
-    packages_to_be_installed_apt: "{{ packages_to_be_installed_apt + [apt_package_name] }}"
+    _packages_apt: "{{ _packages_apt + [apt_package_name] }}"
   when: apt_install is not defined or not apt_install

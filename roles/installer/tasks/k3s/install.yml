@@ -1,5 +1,5 @@
 ---
-- name: "[{{ installer_package }}] Download K3s binary"
+- name: "[{{ _package }}] Download K3s binary"
   ansible.builtin.get_url:
     url: "{{ k3s_releases_url }}/k3s{{ '-arm64' if ansible_architecture == 'aarch64' }}"
     checksum: "sha256:{{ k3s_releases_url }}/sha256sum-{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' }}.txt"
@@ -10,7 +10,7 @@
   vars:
     k3s_releases_url: "https://github.com/k3s-io/k3s/releases/{{ 'download/' + installer_k3s_version if installer_k3s_version is defined else 'latest/download' }}"
 
-- name: "[{{ installer_package }}] Copy K3s service file"
+- name: "[{{ _package }}] Copy K3s service file"
   ansible.builtin.template:
     src: k3s.service.j2
     dest: /etc/systemd/system/k3s.service
@@ -18,21 +18,21 @@
     group: root
     mode: "0644"
 
-- name: "[{{ installer_package }}] Enable and check K3s service"
+- name: "[{{ _package }}] Enable and check K3s service"
   ansible.builtin.systemd:
     name: k3s
     daemon_reload: yes
     state: restarted
     enabled: yes
 
-- name: "[{{ installer_package }}] Create directory .kube"
+- name: "[{{ _package }}] Create directory .kube"
   ansible.builtin.file:
     path: "/home/{{ ansible_user }}/.kube"
     state: directory
     owner: "{{ ansible_user }}"
     mode: "0750"
 
-- name: "[{{ installer_package }}] Copy config file to user home directory"
+- name: "[{{ _package }}] Copy config file to user home directory"
   ansible.builtin.copy:
     src: /etc/rancher/k3s/k3s.yaml
     dest: "/home/{{ ansible_user }}/.kube/config"

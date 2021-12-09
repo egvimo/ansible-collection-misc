@@ -1,9 +1,9 @@
 ---
-- name: "[{{ installer_package }}] Gather package facts"
+- name: "[{{ _package }}] Gather package facts"
   ansible.builtin.package_facts:
     manager: auto
 
-- name: "[{{ installer_package }}] Install"
+- name: "[{{ _package }}] Install"
   ansible.builtin.apt:
     deb: "https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.deb"
     update_cache: true
