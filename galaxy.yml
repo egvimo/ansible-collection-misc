@@ -10,12 +10,9 @@ readme: README.md
 license_file: LICENSE
 
 tags:
-  - git_server
-  - gitea
-  - jdownloader
-  - k3s
-  - minidlna
-  - pi_hole
+  - dotfiles
+  - gnome
+  - installer
   - raspberry
   - system
 
