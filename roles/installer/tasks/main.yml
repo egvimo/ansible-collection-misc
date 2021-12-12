@@ -1,7 +1,7 @@
 ---
 - block:
-    - name: Prepare packages lists
-      set_fact:
+    - name: Prepare package lists
+      ansible.builtin.set_fact:
         _packages: "{{ installer_packages.split(',') if installer_packages is string else installer_packages | default([]) }}"
         _packages_custom: []
         _packages_apt: "{{ installer_packages_apt.split(',') if installer_packages_apt is string else installer_packages_apt | default([]) }}"
@@ -16,7 +16,7 @@
       loop_control:
         loop_var: _package
 
-    - name: Install custom packages
+    - name: Include custom package installer
       include_tasks:
         file: "{{ _package }}/{{ ansible_os_family | lower }}.yml"
         apply:
@@ -26,38 +26,10 @@
         loop_var: _package
       when: _packages_custom | length
 
-    - name: Update apt cache
-      ansible.builtin.apt:
-        update_cache: yes
-      become: true
-      when: _packages_apt | length
-
-    - name: "Install via apt"
-      ansible.builtin.apt:
-        name: "{{ _package }}"
-        state: present
-      loop: "{{ _packages_apt }}"
-      loop_control:
-        loop_var: _package
-      become: true
-      when: _packages_apt | length
-
-    - name: Prepare Scoop buckets
-      community.windows.win_scoop_bucket:
-        name: "{{ item }}"
-        state: present
-      loop:
-        - extras
-        - java
-      when: _packages_scoop | length
-
-    - name: "Install via Scoop"
-      community.windows.win_scoop:
-        name: "{{ _package }}"
-        state: present
-      loop: "{{ _packages_scoop }}"
-      loop_control:
-        loop_var: _package
-      when: _packages_scoop | length
+    - name: Include OS specific installer
+      include_tasks:
+        file: "{{ ansible_os_family | lower }}.yml"
+        apply:
+          tags: installer
 
   tags: installer

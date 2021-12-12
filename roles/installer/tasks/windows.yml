@@ -1,0 +1,16 @@
+---
+- name: Prepare Scoop buckets
+  community.windows.win_scoop_bucket:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - extras
+    - java
+  when: _packages_scoop | length
+
+- name: "Install via Scoop"
+  community.windows.win_scoop:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ _packages_scoop }}"
+  when: _packages_scoop | length
