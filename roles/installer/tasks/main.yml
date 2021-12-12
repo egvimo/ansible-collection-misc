@@ -9,7 +9,7 @@
 
     - name: Sort packages
       include_tasks:
-        file: sort_package.yml
+        file: sort/main.yml
         apply:
           tags: installer
       loop: "{{ _packages }}"

@@ -1,0 +1,18 @@
+---
+- name: "[{{ _package }}] Check for separate tasks"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ _package }}/{{ ansible_os_family | lower }}.yml"
+  delegate_to: localhost
+  register: _task_path
+
+- name: "[{{ _package }}] Append to custom packages"
+  ansible.builtin.set_fact:
+    _packages_custom: "{{ _packages_custom + [_package] }}"
+  when: _task_path.stat.exists
+
+- name: "[{{ _package }}] Include OS specific sorter"
+  include_tasks:
+    file: "sort/{{ ansible_os_family | lower }}.yml"
+    apply:
+      tags: installer
+  when: not _task_path.stat.exists

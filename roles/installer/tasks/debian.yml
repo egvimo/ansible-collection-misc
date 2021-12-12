@@ -1,13 +1,8 @@
 ---
-- name: Update apt cache
-  ansible.builtin.apt:
-    update_cache: yes
-  become: true
-  when: _packages_apt | length
-
 - name: Install via apt
   ansible.builtin.apt:
     name: "{{ item }}"
+    update_cache: yes
     state: present
   loop: "{{ _packages_apt }}"
   become: true
