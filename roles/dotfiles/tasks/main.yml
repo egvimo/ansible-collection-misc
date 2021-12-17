@@ -7,5 +7,5 @@
           tags: dotfiles
       loop: "{{ dotfiles }}"
       loop_control:
-        loop_var: dotfile
+        loop_var: _dotfile
   tags: dotfiles

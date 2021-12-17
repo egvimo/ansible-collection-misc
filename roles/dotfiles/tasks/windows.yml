@@ -1,23 +1,23 @@
 ---
-- name: "[{{ dotfile }}] Check if destination directory exists"
+- name: "[{{ _dotfile }}] Check if destination directory exists"
   ansible.builtin.win_stat:
-    path: "{{ dotfile_config.destination | dirname }}"
-  register: destination_directory
+    path: "{{ _dotfile_config.destination | dirname }}"
+  register: _destination_directory
 
-- name: "[{{ dotfile }}] Create directory if missing"
+- name: "[{{ _dotfile }}] Create directory if missing"
   ansible.builtin.win_file:
-    path: "{{ dotfile_config.destination | dirname }}"
+    path: "{{ _dotfile_config.destination | dirname }}"
     state: directory
-  when: not destination_directory.stat.exists
+  when: not _destination_directory.stat.exists
 
-- name: "[{{ dotfile }}] Template dotfile"
+- name: "[{{ _dotfile }}] Template dotfile"
   ansible.builtin.win_template:
-    src: "{{ dotfile_config.filename }}"
-    dest: "{{ dotfile_config.destination }}"
-  when: dotfile_config.filename.endswith('.j2')
+    src: "{{ _dotfile_config.filename }}"
+    dest: "{{ _dotfile_config.destination }}"
+  when: _dotfile_config.filename.endswith('.j2')
 
-- name: "[{{ dotfile }}] Copy dotfile"
+- name: "[{{ _dotfile }}] Copy dotfile"
   ansible.builtin.win_copy:
-    src: "{{ dotfile_config.filename }}"
-    dest: "{{ dotfile_config.destination }}"
-  when: not dotfile_config.filename.endswith('.j2')
+    src: "{{ _dotfile_config.filename }}"
+    dest: "{{ _dotfile_config.destination }}"
+  when: not _dotfile_config.filename.endswith('.j2')

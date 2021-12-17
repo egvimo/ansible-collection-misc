@@ -1,7 +1,7 @@
 ---
-- name: "[{{ dotfile }}] Get dotfile configuration"
+- name: "[{{ _dotfile }}] Get dotfile configuration"
   set_fact:
-    dotfile_config: "{{ dotfiles_configuration[dotfile] }}"
+    _dotfile_config: "{{ dotfiles_configuration[_dotfile] }}"
 
-- name: "[{{ dotfile }}] Include OS specific tasks"
+- name: "[{{ _dotfile }}] Include OS specific tasks"
   include_tasks: "{{ ansible_os_family | lower }}.yml"

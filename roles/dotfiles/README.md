@@ -22,8 +22,9 @@ This role contains the following dotfiles:
 
 ## Role Variables
 
-| Variable                    | Default value | Description          |
-| --------------------------- | ------------- | -------------------- |
-| dotfiles_starship_cpu_temp  | false         | Enable custom module |
-| dotfiles_starship_git_email | false         | Enable custom module |
-| dotfiles_starship_screen    | false         | Enable custom module |
+| Variable                     | Default value | Description              |
+| ---------------------------- | ------------- | ------------------------ |
+| dotfiles_starship_cpu_temp   | false         | Enable custom module     |
+| dotfiles_starship_git_email  | false         | Enable custom module     |
+| dotfiles_starship_kubernetes | false         | Enable kubernetes module |
+| dotfiles_starship_screen     | false         | Enable custom module     |
