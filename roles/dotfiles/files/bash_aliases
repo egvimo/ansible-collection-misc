@@ -1,4 +1,36 @@
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
 alias ll='ls -alh'
+alias l.='ls -d .*'
+
+alias df='df -h'
+alias du='du -ch'
+
+alias rm='rm --preserve-root'
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
 alias ..='cd ..'
 alias ...='cd ../..'
-alias bat='batcat'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+if [ -d /mnt/media/downloads ]; then alias cdd='cd /mnt/media/downloads'; fi
+if [ -d /mnt/media/sync ]; then alias cds='cd /mnt/media/sync'; fi
+if [ -d /mnt/media/video ]; then alias cdv='cd /mnt/media/video'; fi
+
+type vim >/dev/null 2>&1 && alias vi='vim'
+type batcat >/dev/null 2>&1 && alias bat='batcat'
+alias edit='vim'
+alias svim='sudo vim'
+
+alias path='echo -e ${PATH//:/\\n}'
+
+alias supdate='sudo apt update && sudo apt upgrade'
+alias sreboot='sudo shutdown -r now'
+alias sshutdown='sudo shutdown -h now'
+
+alias please='sudo $(fc -ln -1)'
