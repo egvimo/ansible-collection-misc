@@ -1,6 +1,6 @@
 ---
 - name: "[{{ _dotfile }}] Get dotfile configuration"
-  set_fact:
+  ansible.builtin.set_fact:
     _dotfile_config: "{{ dotfiles_configuration[_dotfile] }}"
 
 - name: "[{{ _dotfile }}] Include OS specific tasks"

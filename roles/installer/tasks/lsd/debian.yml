@@ -3,13 +3,12 @@
   ansible.builtin.package_facts:
     manager: auto
 
-# TODO Migrate to APT repository, when available
 - name: "[{{ _package }}] Install"
   ansible.builtin.apt:
-    deb: "https://github.com/sharkdp/bat/releases/download/v{{ version }}/bat_{{ version }}_{{ architecture }}.deb"
+    deb: "https://github.com/Peltoche/lsd/releases/download/{{ version }}/lsd_{{ version }}_{{ architecture }}.deb"
     update_cache: true
   become: true
-  when: "'bat' not in ansible_facts.packages"
+  when: "'lsd' not in ansible_facts.packages"
   vars:
     architecture: "{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' if ansible_architecture == 'x86_64' else ansible_architecture }}"
-    version: "0.18.3"
+    version: "0.20.1"

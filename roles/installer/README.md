@@ -13,6 +13,7 @@ This role contains the following custom install tasks:
 - K3s
 - K9s
 - kubectl
+- lsd
 - Starship
 - Syncthing
 - Vagrant

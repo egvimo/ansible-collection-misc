@@ -17,6 +17,7 @@
           #- k3s
           - k9s
           - kubectl
+          - lsd
           - screen
           - starship
           - syncthing

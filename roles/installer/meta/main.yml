@@ -32,6 +32,7 @@ galaxy_info:
     - k3s
     - k9s
     - kubectl
+    - lsd
     - starship
     - syncthing
     - vagrant
