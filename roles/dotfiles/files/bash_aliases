@@ -3,16 +3,21 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-alias ll='ls -alh'
-alias l.='ls -d .*'
-
-alias df='df -h'
-alias du='du -ch'
-
 alias rm='rm --preserve-root'
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
+
+type lsd >/dev/null 2>&1 && alias ls='lsd'
+type lsd >/dev/null 2>&1 && alias tree='lsd --tree'
+alias ll='ls -alh'
+
+alias df='df -h'
+alias du='du -ch'
+
+alias wcl='wc -l'
+
+alias count='find . -type f | wc -l'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -34,3 +39,28 @@ alias sreboot='sudo shutdown -r now'
 alias sshutdown='sudo shutdown -h now'
 
 alias please='sudo $(fc -ln -1)'
+
+up()
+{
+  dir=""
+  if [ -z "$1" ]; then
+    dir=..
+  elif [[ $1 =~ ^[0-9]+$ ]]; then
+    x=0
+    while [ $x -lt ${1:-1} ]; do
+      dir=${dir}../
+      x=$(($x+1))
+    done
+  else
+    dir=${PWD%/$1/*}/$1
+  fi
+  cd "$dir";
+}
+
+find() {
+  if [ $# = 1 ]; then
+    command find . -iname "*$@*"
+  else
+    command find "$@"
+  fi
+}
