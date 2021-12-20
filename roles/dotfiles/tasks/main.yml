@@ -3,8 +3,6 @@
     - name: Copy dotfiles
       include_tasks:
         file: copy_dotfile.yml
-        apply:
-          tags: dotfiles
       loop: "{{ dotfiles }}"
       loop_control:
         loop_var: _dotfile

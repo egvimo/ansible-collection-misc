@@ -10,8 +10,6 @@
     - name: Sort packages
       include_tasks:
         file: sort/main.yml
-        apply:
-          tags: installer
       loop: "{{ _packages }}"
       loop_control:
         loop_var: _package
@@ -19,17 +17,11 @@
     - name: Include custom package installer
       include_tasks:
         file: "{{ _package }}/{{ ansible_os_family | lower }}.yml"
-        apply:
-          tags: installer
       loop: "{{ _packages_custom }}"
       loop_control:
         loop_var: _package
       when: _packages_custom | length
 
     - name: Include OS specific installer
-      include_tasks:
-        file: "{{ ansible_os_family | lower }}.yml"
-        apply:
-          tags: installer
-
+      include_tasks: "{{ ansible_os_family | lower }}.yml"
   tags: installer
