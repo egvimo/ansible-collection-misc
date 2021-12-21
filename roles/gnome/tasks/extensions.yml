@@ -1,0 +1,27 @@
+---
+- block:
+    - name: "[Extensions] Ensure required packages are installed"
+      ansible.builtin.apt:
+        name: gnome-shell
+        update_cache: true
+        cache_valid_time: 3600
+        state: present
+      become: true
+
+    - name: "[Extensions] Get Gnome Shell version"
+      ansible.builtin.command: gnome-shell --version
+      changed_when: false
+      register: _gnome_shell_version_command
+
+    - name: "[Extensions] Set Gnome Shell variables"
+      ansible.builtin.set_fact:
+        _gnome_shell_version: "{{ _gnome_shell_version_command.stdout | regex_search('\\d+\\.\\d+\\.*\\d*') }}"
+        _gnome_shell_extensions_dir: "/home/{{ ansible_user }}/.local/share/gnome-shell/extensions"
+
+    - name: "[Extensions] Include installer"
+      include_tasks: install_extension.yml
+      loop: "{{ gnome_extensions }}"
+      loop_control:
+        loop_var: _extension
+  when: gnome_extensions is defined and gnome_extensions | length
+  tags: gnome_extensions
