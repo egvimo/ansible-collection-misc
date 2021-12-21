@@ -1,0 +1,11 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: Include role
+      include_role:
+        name: gnome
+      vars:
+        ansible_user: root
+        gnome_extensions:
+          - 104
