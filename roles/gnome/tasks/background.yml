@@ -2,7 +2,9 @@
 - block:
     - name: "[Background] Ensure required packages for dconf module are installed"
       ansible.builtin.apt:
-        name: python3-psutil
+        pkg:
+          - dconf-cli
+          - python3-psutil
         update_cache: true
         cache_valid_time: 3600
         state: present
