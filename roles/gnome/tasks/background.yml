@@ -8,7 +8,15 @@
         state: present
       become: true
 
-    - name: "[Background] Copy picture to background directory"
+    - name: "[Background] Ensure directory exists"
+      ansible.builtin.file:
+        path: /usr/share/backgrounds
+        owner: root
+        group: root
+        mode: "0755"
+        state: directory
+
+    - name: "[Background] Copy picture"
       ansible.builtin.copy:
         src: wood.png
         dest: /usr/share/backgrounds/wood.png
@@ -17,7 +25,7 @@
         mode: "0644"
       become: true
 
-    - name: "[Background] Set background picture"
+    - name: "[Background] Set picture"
       community.general.dconf:
         key: "/org/gnome/desktop/background/picture-uri"
         value: "'file:///usr/share/backgrounds/wood.png'"
