@@ -3,6 +3,7 @@
   ansible.builtin.user:
     name: "{{ helper_user_id }}"
     comment: "{{ helper_user_name | default(omit) }}"
+    create_home: no
   become: yes
 
 - name: "[{{ helper_user_id }}] Get user info"
