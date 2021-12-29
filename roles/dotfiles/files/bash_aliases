@@ -8,11 +8,11 @@ alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
-type lsd >/dev/null 2>&1 && alias ls='lsd'
-type lsd >/dev/null 2>&1 && alias tree='lsd --tree'
+type lsd >/dev/null 2>&1 && alias ls='lsd -1 --group-dirs first'
+type lsd >/dev/null 2>&1 && alias tree='lsd --tree --group-dirs first'
 alias ll='ls -alh'
 
-alias df='df -h'
+alias df='df -h --exclude-type=tmpfs'
 alias du='du -ch'
 
 alias wcl='wc -l'
@@ -23,8 +23,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+if [ -d /mnt/data/sync ]; then alias cds='cd /mnt/data/sync'; fi
 if [ -d /mnt/media/downloads ]; then alias cdd='cd /mnt/media/downloads'; fi
-if [ -d /mnt/media/sync ]; then alias cds='cd /mnt/media/sync'; fi
 if [ -d /mnt/media/video ]; then alias cdv='cd /mnt/media/video'; fi
 
 type vim >/dev/null 2>&1 && alias vi='vim'
