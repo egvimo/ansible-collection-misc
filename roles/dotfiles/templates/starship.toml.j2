@@ -10,7 +10,17 @@ when = "test -f /usr/bin/vcgencmd"
 shell = ["bash", "--noprofile", "--norc"]
 symbol = "🌡"
 format = "[$symbol ($output)]($style) "
+style = "bright-yellow"
 disabled = {{ 'false' if (dotfiles_starship_cpu_temp is defined and dotfiles_starship_cpu_temp) else 'true' }}
+
+[custom.df]
+command = 'df -h --output=avail "$PWD" | tail -n 1'
+when = "true"
+shell = ["bash", "--noprofile", "--norc"]
+symbol = ""
+format = "[$symbol ($output)]($style) "
+style = "bright-blue"
+disabled = {{ 'false' if (dotfiles_starship_df is defined and dotfiles_starship_df) else 'true' }}
 
 [custom.screen]
 command = 'echo "$STY"'
@@ -34,3 +44,11 @@ disabled = {{ 'false' if (dotfiles_starship_git_email is defined and dotfiles_st
 
 [directory.substitutions]
 "~/Repositories" = "⛕"
+"~/Repos" = "⛕"
+"~/Documents" = "📄"
+"~/Downloads" = "⬇️"
+"~/Desktop" = "🖥️"
+"~" = "🏠"
+"/mnt/data/sync" = "🔄"
+"/mnt/media/downloads" = "⬇️"
+"/mnt/media/video" = "🎥"
