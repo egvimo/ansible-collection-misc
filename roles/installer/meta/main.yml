@@ -27,6 +27,7 @@ galaxy_info:
     - brave
     - chrome
     - docker
+    - gotifycli
     - helm
     - k3d
     - k3s

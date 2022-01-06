@@ -1,0 +1,11 @@
+---
+# TODO: Add checksums when available (and remove force flag)
+- name: "[{{ _package }}] Download binary"
+  ansible.builtin.get_url:
+    url: "https://github.com/gotify/cli/releases/latest/download/gotify-cli-linux-{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' }}"
+    dest: /usr/local/bin/gotify
+    force: false
+    owner: root
+    group: root
+    mode: "0755"
+  become: true

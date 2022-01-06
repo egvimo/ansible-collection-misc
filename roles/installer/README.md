@@ -8,6 +8,7 @@ This role contains the following custom install tasks:
 - Brave Browser
 - Google Chrome
 - Docker
+- Gotify CLI
 - Helm
 - K3d
 - K3s
