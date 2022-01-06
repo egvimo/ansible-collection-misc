@@ -29,7 +29,6 @@ galaxy_info:
     - docker
     - gotifycli
     - helm
-    - k3d
     - k3s
     - k9s
     - kubectl

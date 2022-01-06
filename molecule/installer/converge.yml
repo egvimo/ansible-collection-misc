@@ -14,7 +14,6 @@
           - docker
           - gotify-cli
           - helm
-          - k3d
           #- k3s
           - k9s
           - kubectl
