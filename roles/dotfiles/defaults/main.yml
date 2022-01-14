@@ -3,6 +3,9 @@ dotfiles_configuration:
   aliases:
     filename: bash_aliases
     destination: ~/.bash_aliases
+  gotify_cli:
+    filename: gotify_cli.json.j2
+    destination: ~/.gotify/cli.json
   inputrc:
     filename: inputrc
     destination: ~/.inputrc
