@@ -8,5 +8,7 @@
       vars:
         ansible_user: root
         dotfiles:
+          - aliases
+          - gotify_cli
           - inputrc
           - starship
