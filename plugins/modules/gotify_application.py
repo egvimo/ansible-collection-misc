@@ -108,7 +108,9 @@ class Gotify():
         }
         result = self._send_request(self.application_url, method='post', data=json.dumps(application))
 
-        return self.set_application_image(result['id'], image)
+        # TODO Image
+
+        return result
 
     def update_application(self, application_id, name, description=None):
         application = {
