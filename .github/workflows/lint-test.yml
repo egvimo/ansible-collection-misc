@@ -11,8 +11,14 @@ env:
   ANSIBLE_FORCE_COLOR: 1
 
 jobs:
-  lint:
+  lint-test:
+    name: Lint & Test
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        run: [ 'ansible-lint', 'molecule test --all' ]
+
     steps:
       - uses: actions/checkout@v2
 
@@ -34,31 +40,5 @@ jobs:
       - name: Install dependencies
         run: pipenv install --dev
 
-      - name: Run Ansible lint
-        run: pipenv run ansible-lint
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Python 3
-        id: setup-python
-        uses: actions/setup-python@v2
-        with:
-          python-version: "3.x"
-
-      - name: Install pipenv
-        run: sudo apt install pipenv
-
-      - name: Cache virtual environment
-        uses: actions/cache@v2
-        with:
-          path: ~/.local/share/virtualenvs
-          key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-pipenv-${{ hashFiles('Pipfile.lock') }}
-
-      - name: Install dependencies
-        run: pipenv install --dev
-
-      - name: Run molecule tests
-        run: pipenv molecule test --all
+      - name: Run ${{ matrix.run }}
+        run: pipenv run ${{ matrix.run }}
