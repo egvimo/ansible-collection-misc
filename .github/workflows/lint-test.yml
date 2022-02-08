@@ -17,10 +17,17 @@ jobs:
 
     strategy:
       matrix:
-        run: [ 'ansible-lint', 'molecule test --all' ]
+        run:
+          - 'ansible-lint'
+          - 'molecule test --scenario-name dotfiles'
+          - 'molecule test --scenario-name gnome'
+          - 'molecule test --scenario-name helper'
+          - 'molecule test --scenario-name installer'
+          - 'molecule test --scenario-name system'
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       - name: Set up Python 3
         id: setup-python
@@ -40,5 +47,5 @@ jobs:
       - name: Install dependencies
         run: pipenv install --dev
 
-      - name: Run ${{ matrix.run }}
-        run: pipenv run ${{ matrix.run }}
+      - name: Run ${{ matrix.run.name }}
+        run: pipenv run ${{ matrix.run.command }}
