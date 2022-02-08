@@ -5,23 +5,34 @@ on:
     tags:
       - '*'
 
+env:
+  ANSIBLE_FORCE_COLOR: 1
+
 jobs:
   release:
+    name: Release
     runs-on: ubuntu-latest
-
-    env:
-      ANSIBLE_FORCE_COLOR: 1
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Set up Python 3
+        id: setup-python
         uses: actions/setup-python@v2
         with:
           python-version: "3.x"
 
+      - name: Install pipenv
+        run: sudo apt install pipenv
+
+      - name: Cache virtual environment
+        uses: actions/cache@v2
+        with:
+          path: ~/.local/share/virtualenvs
+          key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-pipenv-${{ hashFiles('Pipfile.lock') }}
+
       - name: Install dependencies
-        run: pip3 install -r requirements.txt
+        run: pipenv install --dev
 
       - name: Get the version
         id: get_version
