@@ -14,11 +14,15 @@ jobs:
   lint-test:
     name: Lint & Test
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ansible_collections/egvimo/misc
 
     strategy:
       matrix:
         run:
           - 'ansible-lint'
+          - 'ansible-test integration --docker ubuntu2004'
           - 'molecule test --scenario-name dotfiles'
           - 'molecule test --scenario-name gnome'
           - 'molecule test --scenario-name helper'
@@ -28,6 +32,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          path: ansible_collections/egvimo/misc
 
       - name: Set up Python 3
         id: setup-python
@@ -47,5 +53,5 @@ jobs:
       - name: Install dependencies
         run: pipenv install --dev
 
-      - name: Run ${{ matrix.run.name }}
-        run: pipenv run ${{ matrix.run.command }}
+      - name: Run command
+        run: pipenv run ${{ matrix.run }}

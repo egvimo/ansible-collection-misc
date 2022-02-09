@@ -34,4 +34,4 @@
     regexp: '^eval "$(starship init bash)"'
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
-    mode: "644"
+    mode: "0644"

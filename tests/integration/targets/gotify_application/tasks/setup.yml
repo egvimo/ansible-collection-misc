@@ -1,0 +1,39 @@
+---
+- block:
+    - name: Create directory
+      ansible.builtin.file:
+        path: "{{ gotify_dir }}"
+        mode: "0755"
+        state: directory
+
+    - name: Download Gotify
+      ansible.builtin.get_url:
+        url: https://github.com/gotify/server/releases/latest/download/gotify-linux-amd64.zip
+        dest: "{{ gotify_dir }}/gotify.zip"
+
+    - name: Extract archive
+      ansible.builtin.unarchive:
+        src: "{{ gotify_dir }}/gotify.zip"
+        dest: "{{ gotify_dir }}"
+        remote_src: true
+
+    - name: Start Gotify server
+      ansible.builtin.shell: 'GOTIFY_SERVER_PORT=8080 ./gotify-linux-amd64 >log.txt 2>&1 &'
+      args:
+        chdir: "{{ gotify_dir }}"
+        creates: "{{ gotify_dir }}/data/gotify.db"
+
+    - name: Wait for startup
+      ansible.builtin.wait_for:
+        port: 8080
+  always:
+    - name: Get server log
+      ansible.builtin.slurp:
+        src: "{{ gotify_dir }}/log.txt"
+      register: log
+
+    - name: Print server log
+      ansible.builtin.debug:
+        msg: "{{ log['content'] | b64decode }}"
+  vars:
+    gotify_dir: /gotify

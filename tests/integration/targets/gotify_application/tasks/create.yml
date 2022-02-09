@@ -1,0 +1,19 @@
+---
+- name: Add Gotify application
+  egvimo.misc.gotify_application:
+    url: http://localhost:8080
+    validate_certs: false
+    username: admin
+    password: admin
+    name: Test
+  register: gotify_application_result
+
+- name: Print server log
+  ansible.builtin.debug:
+    var: gotify_application_result
+
+- name: Assert application was created
+  ansible.builtin.assert:
+    that:
+      - "'changed' in gotify_application_result"
+      - "gotify_application_result.changed == true"
