@@ -8,7 +8,7 @@
   notify: Reboot
 
 - name: "[{{ _package }}] Flush handlers"
-  meta: flush_handlers
+  ansible.builtin.meta: flush_handlers
 
 - name: "[{{ _package }}] Enable IPv4 forwarding"
   ansible.builtin.sysctl:

@@ -3,20 +3,20 @@
   hosts: all
   tasks:
     - name: Include role
-      include_role:
+      ansible.builtin.include_role:
         name: helper
         tasks_from: create_user
       vars:
         helper_user_id: alice
         helper_user_name: Alice
     - name: Include role
-      include_role:
+      ansible.builtin.include_role:
         name: helper
         tasks_from: create_user
       vars:
         helper_user_id: bob
     - name: Include role
-      include_role:
+      ansible.builtin.include_role:
         name: helper
         tasks_from: create_user
       vars:

@@ -3,7 +3,7 @@
   hosts: all
   tasks:
     - name: Include role
-      include_role:
+      ansible.builtin.include_role:
         name: dotfiles
       vars:
         ansible_user: root

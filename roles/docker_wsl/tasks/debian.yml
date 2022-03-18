@@ -1,6 +1,6 @@
 ---
 - name: Install Docker
-  import_role:
+  ansible.builtin.import_role:
     name: egvimo.misc.installer
   vars:
     installer_packages:
