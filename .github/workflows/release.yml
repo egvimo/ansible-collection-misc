@@ -24,7 +24,7 @@ jobs:
           python-version: "3.x"
 
       - name: Install pipenv
-        run: sudo apt install pipenv
+        run: pip3 install pipenv
 
       - name: Cache virtual environment
         uses: actions/cache@v3
