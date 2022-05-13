@@ -7,6 +7,6 @@ name = "pypi"
 ansible = "==5.7.1"
 
 [dev-packages]
-ansible-lint = "==5.4.0"
+ansible-lint = "==6.1.0"
 molecule = "==3.6.1"
 molecule-docker = "==1.1.0"
