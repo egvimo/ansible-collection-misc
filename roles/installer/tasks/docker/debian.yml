@@ -1,5 +1,6 @@
 ---
-- block:
+- name: Install Docker
+  block:
     - name: "[{{ _package }}] Install"
       ansible.builtin.apt:
         name: docker.io

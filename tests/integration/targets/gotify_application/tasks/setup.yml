@@ -1,5 +1,6 @@
 ---
-- block:
+- name: Setup Gotify
+  block:
     - name: Create directory
       ansible.builtin.file:
         path: "{{ gotify_dir }}"

@@ -1,5 +1,6 @@
 ---
-- block:
+- name: Update system
+  block:
     - name: Run 'apt update'
       ansible.builtin.apt:
         update_cache: yes

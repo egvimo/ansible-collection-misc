@@ -17,7 +17,8 @@
     path: "{{ _gnome_shell_extensions_dir }}/{{ _extension_uuid }}/metadata.json"
   register: _extension_metadata
 
-- block:
+- name: Install extension
+  block:
     - name: "[{{ _extension_name }} ({{ _extension }})] Create temporary directory"
       ansible.builtin.tempfile:
         state: directory

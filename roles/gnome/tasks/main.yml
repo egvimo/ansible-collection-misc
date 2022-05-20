@@ -1,5 +1,6 @@
 ---
-- block:
+- name: Run Gnome tasks
+  block:
     - name: Include Gnome tasks
       include_tasks: "{{ _tasks }}.yml"
       loop:

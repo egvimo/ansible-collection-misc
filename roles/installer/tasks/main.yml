@@ -1,5 +1,6 @@
 ---
-- block:
+- name: Install packages
+  block:
     - name: Prepare package lists
       ansible.builtin.set_fact:
         _packages: "{{ installer_packages.split(',') if installer_packages is string else installer_packages | default([]) }}"

@@ -1,7 +1,8 @@
 ---
 # TODO: Add Molecule test
 
-- block:
+- name: Run Raspberry tasks
+  block:
     - import_tasks: raspi_config.yml
     - import_tasks: user.yml
     - import_tasks: password.yml

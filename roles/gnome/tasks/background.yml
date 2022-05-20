@@ -1,5 +1,6 @@
 ---
-- block:
+- name: Set background picture
+  block:
     - name: "[Background] Ensure required packages for dconf module are installed"
       ansible.builtin.apt:
         name: python3-psutil

@@ -1,5 +1,6 @@
 ---
-- block:
+- name: Copy dotfiles
+  block:
     - name: Copy dotfiles
       include_tasks: copy_dotfile.yml
       loop: "{{ dotfiles }}"

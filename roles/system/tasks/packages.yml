@@ -1,5 +1,6 @@
 ---
-- block:
+- name: Run packages tasks
+  block:
     - name: Remove packages
       ansible.builtin.apt:
         pkg: "{{ system_packages_to_remove }}"

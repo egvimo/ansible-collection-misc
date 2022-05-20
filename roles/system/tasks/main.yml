@@ -1,5 +1,6 @@
 ---
-- block:
+- name: Run system tasks
+  block:
     - import_tasks: update.yml
     - import_tasks: packages.yml
   tags: system

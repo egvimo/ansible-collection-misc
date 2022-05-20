@@ -1,7 +1,8 @@
 ---
 # TODO: Add Molecule test
 
-- block:
+- name: Install K3s
+  block:
     - include_tasks: prerequisites.yml
     - include_tasks: install.yml
   become: yes

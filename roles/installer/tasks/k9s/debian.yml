@@ -1,5 +1,6 @@
 ---
-- block:
+- name: Install K9s
+  block:
     - name: "[{{ _package }}] Get checksums for archive"
       ansible.builtin.uri:
         url: "{{ k9s_releases_url }}/checksums.txt"

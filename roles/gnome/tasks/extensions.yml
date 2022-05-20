@@ -1,5 +1,6 @@
 ---
-- block:
+- name: Install Gnome extensions
+  block:
     - name: "[Extensions] Ensure required packages are installed"
       ansible.builtin.apt:
         name: gnome-shell

@@ -1,5 +1,6 @@
 ---
-- block:
+- name: Run raspi-config
+  block:
     - name: Update raspi-config to latest version
       ansible.builtin.apt:
         name: raspi-config
