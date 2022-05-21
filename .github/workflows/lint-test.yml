@@ -37,7 +37,6 @@ jobs:
           path: ansible_collections/egvimo/misc
 
       - name: Set up Python 3
-        id: setup-python
         uses: actions/setup-python@v3
         with:
           python-version: "3.x"
@@ -45,14 +44,11 @@ jobs:
       - name: Install pipenv
         run: pip3 install pipenv
 
-      - name: Cache virtual environment
-        uses: actions/cache@v3
-        with:
-          path: ~/.local/share/virtualenvs
-          key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-pipenv-${{ hashFiles('Pipfile.lock') }}
-
       - name: Install dependencies
         run: pipenv install --dev
+
+      - name: Run command
+        run: rm -rf /home/runner/.cache/
 
       - name: Run command
         run: pipenv run ${{ matrix.run }}
