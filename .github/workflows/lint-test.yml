@@ -54,5 +54,9 @@ jobs:
       - name: Install dependencies
         run: pipenv install --dev
 
+      # TODO Workaround for Ansible lint; remove when fixed
+      - name: Remove galaxy.yml
+        run: rm galaxy.yml
+
       - name: Run command
         run: pipenv run ${{ matrix.run }}
