@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a431c1ab760421adc8577f1ac35fae65664a990f90c541d7112e27d0b651092c"
+            "sha256": "fa6f49d740bb9f105116be3b765d0f51dabfd35dac961e463f09357d2810d8cf"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -24,11 +24,11 @@
         },
         "ansible-core": {
             "hashes": [
-                "sha256:45d55e052bcea487366b0893b22f247e913a1f0948197658b7f3532a37ab6841",
-                "sha256:abd478ceff1a0aba95e94ceab8dc820f407bcc0f0033dc546840cddc29a36958"
+                "sha256:331b869cf3bf9bab875f62b9a8586257bbcfb95b1db6c8d43424d70804996143",
+                "sha256:b779d0e55a97717c0ee5e86b486aa67c07c2809ef477be2ac84ad091a8dd2ddb"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==2.13.1"
+            "version": "==2.13.2"
         },
         "cffi": {
             "hashes": [
@@ -262,11 +262,11 @@
         },
         "ansible-core": {
             "hashes": [
-                "sha256:45d55e052bcea487366b0893b22f247e913a1f0948197658b7f3532a37ab6841",
-                "sha256:abd478ceff1a0aba95e94ceab8dc820f407bcc0f0033dc546840cddc29a36958"
+                "sha256:331b869cf3bf9bab875f62b9a8586257bbcfb95b1db6c8d43424d70804996143",
+                "sha256:b779d0e55a97717c0ee5e86b486aa67c07c2809ef477be2ac84ad091a8dd2ddb"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==2.13.1"
+            "version": "==2.13.2"
         },
         "ansible-lint": {
             "hashes": [
@@ -575,11 +575,11 @@
         },
         "molecule": {
             "hashes": [
-                "sha256:27f03a90019c8dea77ca5b553552f0ea355fe44797f3533554a4d7fcce456754",
-                "sha256:31cbcdafb96a3e0df2a02ab49b4a4ce7d0c3129b34c351935612bf8097c999e2"
+                "sha256:dcf829a70fd987ad21d28d44820b05d7fc09250dc19a79572ca10669e27bd8be",
+                "sha256:ee10e5463bc9940f9afd9b85812c63eacefea889a99c21274f4054ebe248c3b9"
             ],
             "index": "pypi",
-            "version": "==4.0.0"
+            "version": "==4.0.1"
         },
         "molecule-docker": {
             "hashes": [
@@ -738,7 +738,7 @@
                 "sha256:7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983",
                 "sha256:8fefa2a1a1365bf5520aac41836fbee479da67864514bdb821f31ce07ce65349"
             ],
-            "markers": "python_version >= '3.7' and python_version < '4'",
+            "markers": "python_version >= '3.7' and python_full_version < '4.0.0'",
             "version": "==2.28.1"
         },
         "resolvelib": {
@@ -753,7 +753,7 @@
                 "sha256:2eb4e6894cde1e017976d2975ac210ef515d7548bc595ba20e195fb9628acdeb",
                 "sha256:63a5c5ce3673d3d5fbbf23cd87e11ab84b6b451436f1b7f19ec54b6bc36ed7ca"
             ],
-            "markers": "python_version < '4' and python_full_version >= '3.6.3'",
+            "markers": "python_full_version >= '3.6.3' and python_full_version < '4.0.0'",
             "version": "==12.5.1"
         },
         "ruamel.yaml": {
@@ -847,7 +847,7 @@
                 "sha256:8298d6d56d39be0e3bc13c1c97d133f9b45d797169a0e11cdd0e0489d786f7ec",
                 "sha256:879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5' and python_version < '4'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5' and python_full_version < '4.0.0'",
             "version": "==1.26.10"
         },
         "wcmatch": {
