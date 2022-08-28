@@ -8,6 +8,14 @@
         cache_valid_time: 3600
         state: present
       become: true
+      when: ansible_os_family == 'Debian'
+
+    - name: "[Background] Ensure required packages for dconf module are installed"
+      ansible.builtin.dnf:
+        name: python3-psutil
+        state: present
+      become: true
+      when: ansible_os_family == 'RedHat'
 
     - name: "[Background] Ensure directory exists"
       ansible.builtin.file:

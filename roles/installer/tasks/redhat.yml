@@ -1,0 +1,9 @@
+---
+- name: Install via dnf
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    update_cache: yes
+    state: present
+  loop: "{{ _packages_dnf }}"
+  become: true
+  when: _packages_dnf | length

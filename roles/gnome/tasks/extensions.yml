@@ -8,6 +8,14 @@
         cache_valid_time: 3600
         state: present
       become: true
+      when: ansible_os_family == 'Debian'
+
+    - name: "[Extensions] Ensure required packages are installed"
+      ansible.builtin.dnf:
+        name: gnome-shell
+        state: present
+      become: true
+      when: ansible_os_family == 'RedHat'
 
     - name: "[Extensions] Get Gnome Shell version"
       ansible.builtin.command: gnome-shell --version

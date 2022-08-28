@@ -6,6 +6,7 @@
         _packages: "{{ installer_packages.split(',') if installer_packages is string else installer_packages | default([]) }}"
         _packages_custom: []
         _packages_apt: "{{ installer_packages_apt.split(',') if installer_packages_apt is string else installer_packages_apt | default([]) }}"
+        _packages_dnf: "{{ installer_packages_dnf.split(',') if installer_packages_dnf is string else installer_packages_dnf | default([]) }}"
         _packages_scoop: "{{ installer_packages_scoop.split(',') if installer_packages_scoop is string else installer_packages_scoop | default([]) }}"
 
     - name: Sort packages
