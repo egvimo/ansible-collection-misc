@@ -1,0 +1,20 @@
+---
+- name: "[{{ _package }}] Add Kubernetes repository"
+  ansible.builtin.yum_repository:
+    name: kubernetes
+    description: Kubernetes repository
+    baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+    gpgkey:
+      - https://packages.cloud.google.com/yum/doc/yum-key.gpg
+      - https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+    gpgcheck: true
+    repo_gpgcheck: true
+    enabled: true
+  become: true
+
+- name: "[{{ _package }}] Install"
+  ansible.builtin.dnf:
+    name: kubectl
+    update_cache: yes
+    state: present
+  become: true
