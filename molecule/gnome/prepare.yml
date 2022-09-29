@@ -4,9 +4,9 @@
   gather_facts: False
   tasks:
     - name: Install dependencies
-      ansible.builtin.apt:
-        pkg:
+      ansible.builtin.dnf:
+        name:
           - dbus
-          - dconf-cli
-        update_cache: yes
+          - dconf
         state: present
+      become: true

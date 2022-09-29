@@ -4,8 +4,11 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: instance
-    image: geerlingguy/docker-ubuntu2004-ansible:latest
+  - name: debian
+    image: geerlingguy/docker-debian10-ansible:latest
+    pre_build_image: true
+  - name: fedora
+    image: geerlingguy/docker-fedora36-ansible:latest
     pre_build_image: true
 provisioner:
   name: ansible
