@@ -23,8 +23,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-if [ -d /mnt/data/sync ]; then alias cds='cd /mnt/data/sync'; fi
-if [ -d /mnt/nas/downloads ]; then alias cdd='cd /mnt/nas/downloads'; fi
+if [ -d /mnt/nas ]; then alias cdn='cd /mnt/nas'; fi
+if [ -d /mnt/nas/sync ]; then alias cds='cd /mnt/nas/sync'; fi
+if [ -d /mnt/media/downloads ]; then alias cdd='cd /mnt/media/downloads'; fi
 if [ -d /mnt/nas/videos ]; then alias cdv='cd /mnt/nas/videos'; fi
 
 type vim >/dev/null 2>&1 && alias vi='vim'
