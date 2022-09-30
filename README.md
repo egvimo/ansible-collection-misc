@@ -10,12 +10,10 @@ This collection contains the following roles.
 
 | Name                                     | Description                                                      |
 | ---------------------------------------- | ---------------------------------------------------------------- |
-| [docker_wsl](roles/docker_wsl/README.md) | Install and configure Docker inside WSL2 to use it under Windows |
 | [dotfiles](roles/dotfiles/README.md)     | Dynamically install various dotfiles                             |
 | [gnome](roles/gnome/README.md)           | Configure Gnome                                                  |
 | [installer](roles/installer/README.md)   | Dynamically install different software from different sources    |
 | [raspberry](roles/raspberry/README.md)   | Configure a Raspberry Pi via `raspi-config`                      |
-| [system](roles/system/README.md)         | Perform general system related tasks                             |
 
 ## Installation
 

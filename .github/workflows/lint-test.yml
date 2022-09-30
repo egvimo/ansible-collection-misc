@@ -23,13 +23,11 @@ jobs:
         run:
           - 'ansible-lint'
           - 'ansible-test integration --docker ubuntu2004'
-          - 'molecule test --scenario-name docker_wsl'
           - 'molecule test --scenario-name dotfiles'
           # TODO Fix test
           #- 'molecule test --scenario-name gnome'
           - 'molecule test --scenario-name helper'
           - 'molecule test --scenario-name installer'
-          - 'molecule test --scenario-name system'
 
     steps:
       - name: Checkout repository

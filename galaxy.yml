@@ -10,12 +10,10 @@ readme: README.md
 license_file: LICENSE
 
 tags:
-  - dockerwsl
   - dotfiles
   - gnome
   - installer
   - raspberry
-  - system
 
 repository: https://github.com/egvimo/ansible-collection-misc
 documentation: https://github.com/egvimo/ansible-collection-misc

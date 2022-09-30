@@ -1,9 +1,0 @@
----
-- name: Converge
-  hosts: all
-  tasks:
-    - name: Include role
-      ansible.builtin.include_role:
-        name: docker_wsl
-      vars:
-        ansible_user: root
