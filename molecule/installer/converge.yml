@@ -9,9 +9,7 @@
         ansible_user: root
         installer_packages:
           - bat
-          - brave
-          - chrome
-          - docker
+          #- brave
           - gotify-cli
           - helm
           #- k3s
@@ -22,5 +20,4 @@
           - screen
           - starship
           - syncthing
-          - vagrant
-          - vscode
+          #- vscode

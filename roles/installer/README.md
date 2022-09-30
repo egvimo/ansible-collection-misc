@@ -6,8 +6,6 @@ This role contains the following custom install tasks:
 
 - bat
 - Brave Browser
-- Google Chrome
-- Docker
 - Gotify CLI
 - Helm
 - K3s
@@ -16,10 +14,9 @@ This role contains the following custom install tasks:
 - lsd
 - Starship
 - Syncthing
-- Vagrant
 - Visual Studio Code
 
-If the package is not one of the above, then the `apt` package manager (`scoop` for Windows hosts) is used to install the package.
+If the package is not one of the above, then the `apt` or `dnf` package manager (`scoop` for Windows hosts) is used to install the package.
 
 ## Usage
 
