@@ -1,5 +1,5 @@
 ---
-- name: "Add new user {{ raspberry_new_user }} with same privileges as pi"
+- name: "Add new user with same privileges as pi - {{ raspberry_new_user }}"
   ansible.builtin.user:
     name: "{{ raspberry_new_user }}"
     comment: "{{ raspberry_new_user_name }}"

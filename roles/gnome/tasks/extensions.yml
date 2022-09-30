@@ -1,7 +1,9 @@
 ---
 - name: Install Gnome extensions
+  when: gnome_extensions is defined and gnome_extensions | length
+  tags: gnome_extensions
   block:
-    - name: "[Extensions] Ensure required packages are installed"
+    - name: "Ensure required packages are installed - extensions"
       ansible.builtin.apt:
         name: gnome-shell
         update_cache: true
@@ -10,27 +12,25 @@
       become: true
       when: ansible_os_family == 'Debian'
 
-    - name: "[Extensions] Ensure required packages are installed"
+    - name: "Ensure required packages are installed - extensions"
       ansible.builtin.dnf:
         name: gnome-shell
         state: present
       become: true
       when: ansible_os_family == 'RedHat'
 
-    - name: "[Extensions] Get Gnome Shell version"
+    - name: "Get Gnome Shell version - extensions"
       ansible.builtin.command: gnome-shell --version
       changed_when: false
       register: _gnome_shell_version_command
 
-    - name: "[Extensions] Set Gnome Shell variables"
+    - name: "Set Gnome Shell variables - extensions"
       ansible.builtin.set_fact:
         _gnome_shell_version: "{{ _gnome_shell_version_command.stdout | regex_search('\\d+\\.\\d+\\.*\\d*') }}"
         _gnome_shell_extensions_dir: "{{ ansible_user_dir }}/.local/share/gnome-shell/extensions"
 
-    - name: "[Extensions] Include installer"
+    - name: "Include installer - extensions"
       include_tasks: install_extension.yml
       loop: "{{ gnome_extensions }}"
       loop_control:
         loop_var: _extension
-  when: gnome_extensions is defined and gnome_extensions | length
-  tags: gnome_extensions

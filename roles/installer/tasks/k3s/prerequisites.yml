@@ -1,5 +1,5 @@
 ---
-- name: "[{{ _package }}] Activating cgroup support"
+- name: "Activating cgroup support - {{ _package }}"
   ansible.builtin.lineinfile:
     path: /boot/cmdline.txt
     regexp: '^((?!.*\bcgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory\b).*)$'
@@ -7,35 +7,35 @@
     backrefs: true
   notify: Reboot
 
-- name: "[{{ _package }}] Flush handlers"
+- name: "Flush handlers - {{ _package }}"
   ansible.builtin.meta: flush_handlers
 
-- name: "[{{ _package }}] Enable IPv4 forwarding"
+- name: "Enable IPv4 forwarding - {{ _package }}"
   ansible.builtin.sysctl:
     name: net.ipv4.ip_forward
     value: "1"
     reload: yes
     state: present
 
-- name: "[{{ _package }}] Enable IPv6 forwarding"
+- name: "Enable IPv6 forwarding - {{ _package }}"
   ansible.builtin.sysctl:
     name: net.ipv6.conf.all.forwarding
     value: "1"
     reload: yes
     state: present
 
-- name: "[{{ _package }}] Flush iptables before changing to iptables-legacy"
+- name: "Flush iptables before changing to iptables-legacy - {{ _package }}"
   ansible.builtin.iptables:
     flush: true
   changed_when: false
 
-- name: "[{{ _package }}] Changing to iptables-legacy"
+- name: "Changing to iptables-legacy - {{ _package }}"
   ansible.builtin.alternatives:
     path: /usr/sbin/iptables-legacy
     name: iptables
   register: ip4_legacy
 
-- name: "[{{ _package }}] Changing to ip6tables-legacy"
+- name: "Changing to ip6tables-legacy - {{ _package }}"
   ansible.builtin.alternatives:
     path: /usr/sbin/ip6tables-legacy
     name: ip6tables

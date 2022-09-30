@@ -1,26 +1,26 @@
 ---
-- name: "[{{ helper_user_id }}] Add user"
+- name: "Add user {{ helper_user_id }}"
   ansible.builtin.user:
     name: "{{ helper_user_id }}"
     comment: "{{ helper_user_name | default(omit) }}"
     create_home: no
-  become: yes
+  become: True
 
-- name: "[{{ helper_user_id }}] Get user info"
+- name: "Get user info - {{ helper_user_id }}"
   ansible.builtin.getent:
     database: passwd
     key: "{{ helper_user_id }}"
 
-- name: "[{{ helper_user_id }}] Set uid, gid and home variables"
+- name: "Set uid, gid and home variables - {{ helper_user_id }}"
   ansible.builtin.set_fact:
     user_uid: "{{ getent_passwd[helper_user_id].1 }}"
     user_gid: "{{ getent_passwd[helper_user_id].2 }}"
     user_home: "{{ getent_passwd[helper_user_id].4 }}"
 
-- name: "[{{ helper_user_id }}] Add user 'helper_add_group_to' to group"
+- name: "Add user 'helper_add_group_to' to group - {{ helper_user_id }}"
   ansible.builtin.user:
     name: "{{ helper_add_group_to }}"
     groups: "{{ helper_user_id }}"
     append: yes
-  become: yes
+  become: True
   when: helper_add_group_to is defined and helper_add_group_to | length > 0

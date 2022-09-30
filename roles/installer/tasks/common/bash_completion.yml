@@ -1,7 +1,9 @@
 ---
 - name: Install bash completion
+  vars:
+    completion_dir: /etc/bash_completion.d
   block:
-    - name: "[{{ _package }}] Ensure bash-completion is installed"
+    - name: "Ensure bash-completion is installed - {{ _package }}"
       ansible.builtin.apt:
         name: bash-completion
         update_cache: true
@@ -9,7 +11,7 @@
         state: present
       become: true
 
-    - name: "[{{ _package }}] Ensure bash-completion directory exists"
+    - name: "Ensure bash-completion directory exists - {{ _package }}"
       ansible.builtin.file:
         path: "{{ completion_dir }}"
         state: directory
@@ -18,11 +20,9 @@
         mode: "0755"
       become: true
 
-    - name: "[{{ _package }}] Create {{ name }} completion file"
+    - name: "Create {{ name }} completion file - {{ _package }}" # noqa name
       ansible.builtin.shell: "{{ command }} > {{ name }}"
       args:
         chdir: "{{ completion_dir }}"
         creates: "{{ completion_dir }}/{{ name }}"
       become: true
-  vars:
-    completion_dir: /etc/bash_completion.d

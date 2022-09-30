@@ -1,31 +1,32 @@
 ---
-- name: "[{{ _extension }}] Get extension info"
+- name: "Get extension info - {{ _extension }}"
   ansible.builtin.uri:
     url: "https://extensions.gnome.org/extension-info/?pk={{ _extension }}&shell_version={{ _gnome_shell_version }}"
     return_content: true
   check_mode: false
   register: _extension_info
 
-- name: "[{{ _extension }}] Set variables"
+- name: "Set variables - {{ _extension }}"
   ansible.builtin.set_fact:
     _extension_uuid: "{{ _extension_info.json.uuid }}"
     _extension_name: "{{ _extension_info.json.name }}"
     _extension_url: "{{ _extension_info.json.download_url }}"
 
-- name: "[{{ _extension_name }} ({{ _extension }})] Check if extension is installed"
+- name: "Check if extension is installed - {{ _extension_name }}"
   ansible.builtin.stat:
     path: "{{ _gnome_shell_extensions_dir }}/{{ _extension_uuid }}/metadata.json"
   register: _extension_metadata
 
 - name: Install extension
+  when: not _extension_metadata.stat.exists
   block:
-    - name: "[{{ _extension_name }} ({{ _extension }})] Create temporary directory"
+    - name: "Create temporary directory - {{ _extension_name }}"
       ansible.builtin.tempfile:
         state: directory
         suffix: gnome_extension
       register: _gnome_extension_temp_dir
 
-    - name: "[{{ _extension_name }} ({{ _extension }})] Download"
+    - name: "Download {{ _extension_name }}"
       ansible.builtin.get_url:
         url: "https://extensions.gnome.org{{ _extension_url }}"
         dest: "{{ _gnome_extension_temp_dir.path }}/{{ _extension_uuid }}.zip"
@@ -33,7 +34,7 @@
         group: "{{ ansible_user }}"
         mode: "0644"
 
-    - name: "[{{ _extension_name }} ({{ _extension }})] Create extension directory"
+    - name: "Create extension directory - {{ _extension_name }}"
       ansible.builtin.file:
         path: "{{ _gnome_shell_extensions_dir }}/{{ _extension_uuid }}"
         owner: "{{ ansible_user }}"
@@ -41,7 +42,7 @@
         mode: "0755"
         state: directory
 
-    - name: "[[{{ _extension_name }} ({{ _extension }})] Extract archive"
+    - name: "Extract archive - {{ _extension_name }}"
       ansible.builtin.unarchive:
         src: "{{ _gnome_extension_temp_dir.path }}/{{ _extension_uuid }}.zip"
         dest: "{{ _gnome_shell_extensions_dir }}/{{ _extension_uuid }}"
@@ -51,8 +52,7 @@
 
     # TODO Enable extension
   always:
-    - name: "[{{ _extension_name }} ({{ _extension }})] Delete temporary directory"
+    - name: "Delete temporary directory - {{ _extension_name }}"
       ansible.builtin.file:
         path: "{{ _gnome_extension_temp_dir.path }}"
         state: absent
-  when: not _extension_metadata.stat.exists

@@ -1,9 +1,9 @@
 ---
 - name: Copy dotfiles
+  tags: dotfiles
   block:
     - name: Copy dotfiles
       include_tasks: copy_dotfile.yml
       loop: "{{ dotfiles }}"
       loop_control:
         loop_var: _dotfile
-  tags: dotfiles

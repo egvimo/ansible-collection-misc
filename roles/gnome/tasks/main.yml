@@ -1,5 +1,6 @@
 ---
 - name: Run Gnome tasks
+  tags: gnome
   block:
     - name: Include Gnome tasks
       include_tasks: "{{ _tasks }}.yml"
@@ -8,4 +9,3 @@
         - extensions
       loop_control:
         loop_var: _tasks
-  tags: gnome

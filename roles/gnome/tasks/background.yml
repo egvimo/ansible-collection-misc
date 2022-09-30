@@ -1,7 +1,8 @@
 ---
 - name: Set background picture
+  tags: gnome_background
   block:
-    - name: "[Background] Ensure required packages for dconf module are installed"
+    - name: "Ensure required packages for dconf module are installed - background"
       ansible.builtin.apt:
         name: python3-psutil
         update_cache: true
@@ -10,14 +11,14 @@
       become: true
       when: ansible_os_family == 'Debian'
 
-    - name: "[Background] Ensure required packages for dconf module are installed"
+    - name: "Ensure required packages for dconf module are installed - background"
       ansible.builtin.dnf:
         name: python3-psutil
         state: present
       become: true
       when: ansible_os_family == 'RedHat'
 
-    - name: "[Background] Ensure directory exists"
+    - name: "Ensure directory exists - background"
       ansible.builtin.file:
         path: /usr/share/backgrounds
         owner: root
@@ -25,7 +26,7 @@
         mode: "0755"
         state: directory
 
-    - name: "[Background] Copy picture"
+    - name: "Copy picture - background"
       ansible.builtin.copy:
         src: wood.png
         dest: /usr/share/backgrounds/wood.png
@@ -34,9 +35,8 @@
         mode: "0644"
       become: true
 
-    - name: "[Background] Set picture"
+    - name: "Set picture - background"
       community.general.dconf:
         key: "/org/gnome/desktop/background/picture-uri"
         value: "'file:///usr/share/backgrounds/wood.png'"
         state: present
-  tags: gnome_background

@@ -1,5 +1,7 @@
 ---
 - name: Run raspi-config
+  become: yes
+  tags: [raspberry_raspi_config, never]
   block:
     - name: Update raspi-config to latest version
       ansible.builtin.apt:
@@ -29,5 +31,3 @@
       ansible.builtin.command: raspi-config nonint do_expand_rootfs
       when: can_expand_fs.stdout == '0'
       notify: Reboot
-  become: yes
-  tags: [raspberry_raspi_config, never]

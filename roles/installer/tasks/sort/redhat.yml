@@ -1,4 +1,4 @@
 ---
-- name: "[{{ _package }}] Append to dnf packages"
+- name: "Append to dnf packages - {{ _package }}"
   ansible.builtin.set_fact:
     _packages_dnf: "{{ _packages_dnf + [_package] }}"

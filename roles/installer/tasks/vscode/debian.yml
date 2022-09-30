@@ -1,9 +1,9 @@
 ---
-- name: "[{{ _package }}] Gather package facts"
+- name: "Gather package facts - {{ _package }}"
   ansible.builtin.package_facts:
     manager: auto
 
-- name: "[{{ _package }}] Install"
+- name: "Install {{ _package }}"
   ansible.builtin.apt:
     deb: https://go.microsoft.com/fwlink/?LinkID=760868
     update_cache: true

@@ -2,8 +2,8 @@
 # TODO: Add Molecule test
 
 - name: Run Raspberry tasks
+  tags: [raspberry, never]
   block:
     - import_tasks: raspi_config.yml
     - import_tasks: user.yml
     - import_tasks: password.yml
-  tags: [raspberry, never]

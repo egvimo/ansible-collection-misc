@@ -1,5 +1,7 @@
 ---
 - name: Setup Gotify
+  vars:
+    gotify_dir: /gotify
   block:
     - name: Create directory
       ansible.builtin.file:
@@ -37,5 +39,3 @@
     - name: Print server log
       ansible.builtin.debug:
         msg: "{{ log['content'] | b64decode }}"
-  vars:
-    gotify_dir: /gotify

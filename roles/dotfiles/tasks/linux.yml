@@ -1,17 +1,17 @@
 ---
-- name: "[{{ _dotfile }}] Check if destination directory exists"
+- name: "Check if destination directory exists - {{ _dotfile }}"
   ansible.builtin.stat:
     path: "{{ _dotfile_config.destination | dirname }}"
   register: _destination_directory
 
-- name: "[{{ _dotfile }}] Create directory if missing"
+- name: "Create directory if missing - {{ _dotfile }}"
   ansible.builtin.file:
     path: "{{ _dotfile_config.destination | dirname }}"
     mode: "{{ _dotfile_config.directory_mode | default(omit) }}"
     state: directory
   when: not _destination_directory.stat.exists
 
-- name: "[{{ _dotfile }}] Template dotfile"
+- name: "Template dotfile - {{ _dotfile }}"
   ansible.builtin.template:
     src: "{{ _dotfile_config.filename }}"
     dest: "{{ _dotfile_config.destination }}"
@@ -19,7 +19,7 @@
     mode: "{{ _dotfile_config.mode | default(omit) }}"
   when: _dotfile_config.filename.endswith('.j2')
 
-- name: "[{{ _dotfile }}] Copy dotfile"
+- name: "Copy dotfile - {{ _dotfile }}"
   ansible.builtin.copy:
     src: "{{ _dotfile_config.filename }}"
     dest: "{{ _dotfile_config.destination }}"

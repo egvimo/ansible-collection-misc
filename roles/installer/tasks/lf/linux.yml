@@ -1,5 +1,5 @@
 ---
-- name: "[{{ _package }}] Download and extract archive"
+- name: "Download and extract archive - {{ _package }}"
   ansible.builtin.unarchive:
     src: "{{ lf_releases_url }}/{{ lf_archive_name }}"
     dest: /usr/local/bin

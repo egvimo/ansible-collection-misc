@@ -1,5 +1,5 @@
 ---
-- name: "[{{ _package }}] Include APT installer helper"
+- name: "Include APT installer helper - {{ _package }}"
   include_tasks: common/apt_installer.yml
   vars:
     apt_key_url: https://syncthing.net/release-key.txt

@@ -1,5 +1,6 @@
 ---
 - name: Install packages
+  tags: installer
   block:
     - name: Prepare package lists
       ansible.builtin.set_fact:
@@ -24,4 +25,3 @@
 
     - name: Include OS specific installer
       include_tasks: "{{ ansible_os_family | lower }}.yml"
-  tags: installer

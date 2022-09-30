@@ -1,4 +1,4 @@
 ---
-- name: "[{{ _package }}] Append to apt packages"
+- name: "Append to apt packages - {{ _package }}"
   ansible.builtin.set_fact:
     _packages_apt: "{{ _packages_apt + [_package] }}"

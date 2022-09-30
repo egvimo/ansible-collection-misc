@@ -1,10 +1,10 @@
 ---
-- name: "[{{ _package }}] Gather package facts"
+- name: "Gather package facts - {{ _package }}"
   ansible.builtin.package_facts:
     manager: auto
 
 # TODO Migrate to APT repository, when available
-- name: "[{{ _package }}] Install"
+- name: "Install {{ _package }}"
   ansible.builtin.apt:
     deb: "https://github.com/sharkdp/bat/releases/download/v{{ version }}/bat_{{ version }}_{{ architecture }}.deb"
     update_cache: true

@@ -1,4 +1,4 @@
 ---
-- name: "[{{ _package }}] Append to scoop packages"
+- name: "Append to scoop packages - {{ _package }}"
   ansible.builtin.set_fact:
     _packages_scoop: "{{ _packages_scoop + [_package] }}"

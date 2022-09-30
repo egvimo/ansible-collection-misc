@@ -1,5 +1,5 @@
 ---
-- name: "[{{ _package }}] Add Kubernetes repository"
+- name: "Add Kubernetes repository - {{ _package }}"
   ansible.builtin.yum_repository:
     name: kubernetes
     description: Kubernetes repository
@@ -12,7 +12,7 @@
     enabled: true
   become: true
 
-- name: "[{{ _package }}] Install"
+- name: "Install {{ _package }}"
   ansible.builtin.dnf:
     name: kubectl
     update_cache: yes

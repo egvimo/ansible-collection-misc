@@ -1,9 +1,9 @@
 ---
-- name: "[{{ _package }}] Gather package facts"
+- name: "Gather package facts - {{ _package }}"
   ansible.builtin.package_facts:
     manager: auto
 
-- name: "[{{ _package }}] Install"
+- name: "Install {{ _package }}"
   ansible.builtin.apt:
     deb: "https://github.com/Peltoche/lsd/releases/download/{{ version }}/lsd_{{ version }}_{{ architecture }}.deb"
     update_cache: true

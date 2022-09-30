@@ -1,20 +1,23 @@
 ---
 - name: Install K9s
+  vars:
+    k9s_releases_url: https://github.com/derailed/k9s/releases/latest/download/
+    k9s_archive_name: "k9s_Linux_{{ 'arm64' if ansible_architecture == 'aarch64' else 'x86_64' }}"
   block:
-    - name: "[{{ _package }}] Get checksums for archive"
+    - name: "Get checksums for archive - {{ _package }}"
       ansible.builtin.uri:
         url: "{{ k9s_releases_url }}/checksums.txt"
         return_content: true
       check_mode: false
       register: k9s_checksums
 
-    - name: "[{{ _package }}] Extract checksum for archive"
+    - name: "Extract checksum for archive - {{ _package }}"
       ansible.builtin.set_fact:
         k9s_checksum: "{{ k9s_checksums.content | regex_search(k9s_checksum_regex, '\\1', multiline=true) }}"
       vars:
         k9s_checksum_regex: "^([a-z0-9]+).+?{{ k9s_archive_name }}\\.tar\\.gz$"
 
-    - name: "[{{ _package }}] Download archive"
+    - name: "Download archive - {{ _package }}"
       ansible.builtin.get_url:
         url: "{{ k9s_releases_url }}/{{ k9s_archive_name }}.tar.gz"
         checksum: "sha256:{{ k9s_checksum }}"
@@ -22,11 +25,8 @@
         mode: "0666"
       become: true
       register: k9s_archive
-  vars:
-    k9s_releases_url: https://github.com/derailed/k9s/releases/latest/download/
-    k9s_archive_name: "k9s_Linux_{{ 'arm64' if ansible_architecture == 'aarch64' else 'x86_64' }}"
 
-- name: "[{{ _package }}] Extract archive"
+- name: "Extract archive - {{ _package }}"
   ansible.builtin.unarchive:
     src: /tmp/k9s.tar.gz
     dest: /usr/local/bin
