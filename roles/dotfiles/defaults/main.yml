@@ -6,6 +6,9 @@ dotfiles_configuration:
   inputrc:
     filename: inputrc
     destination: ~/.inputrc
+  lfrc:
+    filename: lfrc
+    destination: ~/.config/lf/lfrc
   starship:
     filename: starship.toml.j2
     destination: ~/.config/starship.toml
