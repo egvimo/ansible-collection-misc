@@ -17,6 +17,7 @@
           - kubectl
           - lf
           - lsd
+          #- restic
           - screen
           - starship
           - syncthing

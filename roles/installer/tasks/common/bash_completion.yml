@@ -20,7 +20,7 @@
         mode: "0755"
       become: true
 
-    - name: "Create {{ name }} completion file - {{ _package }}" # noqa name
+    - name: "Create completion file - {{ _package }}"
       ansible.builtin.shell: "{{ command }} > {{ name }}"
       args:
         chdir: "{{ completion_dir }}"

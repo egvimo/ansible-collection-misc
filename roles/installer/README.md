@@ -12,6 +12,7 @@ This role contains the following custom install tasks:
 - K9s
 - kubectl
 - lsd
+- Restic
 - Starship
 - Syncthing
 - Visual Studio Code

@@ -22,18 +22,17 @@ galaxy_info:
   galaxy_tags:
     - installer
     - apt
+    - dnf
     - scoop
     - bat
     - brave
-    - chrome
-    - docker
     - gotifycli
     - helm
     - k3s
     - k9s
     - kubectl
     - lsd
+    - restic
     - starship
     - syncthing
-    - vagrant
     - vscode
