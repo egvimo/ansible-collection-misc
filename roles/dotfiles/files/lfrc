@@ -1,12 +1,12 @@
-cmd trash $IFS="$(printf '\n\t')"; trash-put $fx
+cmd trash %IFS="$(printf '\n\t')"; trash-put $fx
 map T trash
 
 cmd recol %{{
   w=$(tput cols)
   if [ $w -le 80 ]; then
-      lf -remote "send $id set ratios 1:2"
+    lf -remote "send $id :set nopreview; set ratios 1"
   else
-      lf -remote "send $id set ratios 1:2:3"
+    lf -remote "send $id :set ratios 1:2:3; set preview"
   fi
 }}
 recol
