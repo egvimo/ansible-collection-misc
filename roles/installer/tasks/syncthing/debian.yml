@@ -1,6 +1,6 @@
 ---
 - name: "Include APT installer helper - {{ _package }}"
-  include_tasks: common/apt_installer.yml
+  ansible.builtin.include_tasks: common/apt_installer.yml
   vars:
     apt_key_url: https://syncthing.net/release-key.txt
     apt_repository: deb https://apt.syncthing.net/ syncthing stable

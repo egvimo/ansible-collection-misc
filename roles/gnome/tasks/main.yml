@@ -3,7 +3,7 @@
   tags: gnome
   block:
     - name: Include Gnome tasks
-      include_tasks: "{{ _tasks }}.yml"
+      ansible.builtin.include_tasks: "{{ _tasks }}.yml"
       loop:
         - background
         - extensions

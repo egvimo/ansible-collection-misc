@@ -30,7 +30,7 @@
         _gnome_shell_extensions_dir: "{{ ansible_user_dir }}/.local/share/gnome-shell/extensions"
 
     - name: "Include installer - extensions"
-      include_tasks: install_extension.yml
+      ansible.builtin.include_tasks: install_extension.yml
       loop: "{{ gnome_extensions }}"
       loop_control:
         loop_var: _extension

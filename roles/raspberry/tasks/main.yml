@@ -4,6 +4,9 @@
 - name: Run Raspberry tasks
   tags: [raspberry, never]
   block:
-    - import_tasks: raspi_config.yml
-    - import_tasks: user.yml
-    - import_tasks: password.yml
+    - name: Import raspi-config tasks
+      ansible.builtin.import_tasks: raspi_config.yml
+    - name: Import user tasks
+      ansible.builtin.import_tasks: user.yml
+    - name: Import password tasks
+      ansible.builtin.import_tasks: password.yml

@@ -11,5 +11,5 @@
   when: _task_path.stat.exists
 
 - name: "Include OS specific sorter - {{ _package }}"
-  include_tasks: "sort/{{ ansible_os_family | lower }}.yml"
+  ansible.builtin.include_tasks: "sort/{{ ansible_os_family | lower }}.yml"
   when: not _task_path.stat.exists

@@ -4,4 +4,4 @@
     _dotfile_config: "{{ dotfiles_configuration[_dotfile] }}"
 
 - name: "Include OS specific tasks - {{ _dotfile }}"
-  include_tasks: "{{ ansible_os_family | lower }}.yml"
+  ansible.builtin.include_tasks: "{{ ansible_os_family | lower }}.yml"

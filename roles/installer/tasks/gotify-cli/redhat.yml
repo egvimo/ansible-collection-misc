@@ -1,2 +1,2 @@
 - name: Include common Linux tasks
-  include_tasks: linux.yml
+  ansible.builtin.include_tasks: linux.yml

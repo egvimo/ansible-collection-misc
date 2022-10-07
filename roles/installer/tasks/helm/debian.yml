@@ -1,6 +1,6 @@
 ---
 - name: "Include APT installer helper - {{ _package }}"
-  include_tasks: common/apt_installer.yml
+  ansible.builtin.include_tasks: common/apt_installer.yml
   vars:
     apt_key_url: https://baltocdn.com/helm/signing.asc
     apt_repository: deb https://baltocdn.com/helm/stable/debian/ all main
@@ -9,7 +9,7 @@
     apt_install: true
 
 - name: "Include bash completion helper - {{ _package }}"
-  include_tasks: common/bash_completion.yml
+  ansible.builtin.include_tasks: common/bash_completion.yml
   vars:
     name: helm
     command: helm completion bash

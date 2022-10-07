@@ -4,5 +4,7 @@
 - name: Install K3s
   become: yes
   block:
-    - include_tasks: prerequisites.yml
-    - include_tasks: install.yml
+    - name: Import prerequisites tasks
+      ansible.builtin.include_tasks: prerequisites.yml
+    - name: Import install tasks
+      ansible.builtin.include_tasks: install.yml

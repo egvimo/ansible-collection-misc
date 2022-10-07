@@ -1,6 +1,6 @@
 ---
 - name: "Include APT installer helper - {{ _package }}"
-  include_tasks: common/apt_installer.yml
+  ansible.builtin.include_tasks: common/apt_installer.yml
   vars:
     apt_key_url: https://brave-browser-apt-release.s3.brave.com/brave-core.asc
     apt_repository: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main

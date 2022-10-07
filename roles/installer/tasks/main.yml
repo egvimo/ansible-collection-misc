@@ -11,17 +11,17 @@
         _packages_scoop: "{{ installer_packages_scoop.split(',') if installer_packages_scoop is string else installer_packages_scoop | default([]) }}"
 
     - name: Sort packages
-      include_tasks: sort/main.yml
+      ansible.builtin.include_tasks: sort/main.yml
       loop: "{{ _packages }}"
       loop_control:
         loop_var: _package
 
     - name: Include custom package installer
-      include_tasks: "{{ _package }}/{{ ansible_os_family | lower }}.yml"
+      ansible.builtin.include_tasks: "{{ _package }}/{{ ansible_os_family | lower }}.yml"
       loop: "{{ _packages_custom }}"
       loop_control:
         loop_var: _package
       when: _packages_custom | length
 
     - name: Include OS specific installer
-      include_tasks: "{{ ansible_os_family | lower }}.yml"
+      ansible.builtin.include_tasks: "{{ ansible_os_family | lower }}.yml"
