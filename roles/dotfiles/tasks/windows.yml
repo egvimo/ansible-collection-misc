@@ -1,23 +1,23 @@
 ---
 - name: "Check if destination directory exists - {{ _dotfile }}"
-  ansible.builtin.win_stat:
+  ansible.windows.win_stat:
     path: "{{ _dotfile_config.destination | dirname }}"
   register: _destination_directory
 
 - name: "Create directory if missing - {{ _dotfile }}"
-  ansible.builtin.win_file:
+  ansible.windows.win_file:
     path: "{{ _dotfile_config.destination | dirname }}"
     state: directory
   when: not _destination_directory.stat.exists
 
 - name: "Template dotfile - {{ _dotfile }}"
-  ansible.builtin.win_template:
+  ansible.windows.win_template:
     src: "{{ _dotfile_config.filename }}"
     dest: "{{ _dotfile_config.destination }}"
   when: _dotfile_config.filename.endswith('.j2')
 
 - name: "Copy dotfile - {{ _dotfile }}"
-  ansible.builtin.win_copy:
+  ansible.windows.win_copy:
     src: "{{ _dotfile_config.filename }}"
     dest: "{{ _dotfile_config.destination }}"
   when: not _dotfile_config.filename.endswith('.j2')

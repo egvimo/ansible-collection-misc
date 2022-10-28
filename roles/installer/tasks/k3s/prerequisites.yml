@@ -11,14 +11,14 @@
   ansible.builtin.meta: flush_handlers
 
 - name: "Enable IPv4 forwarding - {{ _package }}"
-  ansible.builtin.sysctl:
+  ansible.posix.sysctl:
     name: net.ipv4.ip_forward
     value: "1"
     reload: yes
     state: present
 
 - name: "Enable IPv6 forwarding - {{ _package }}"
-  ansible.builtin.sysctl:
+  ansible.posix.sysctl:
     name: net.ipv6.conf.all.forwarding
     value: "1"
     reload: yes
@@ -30,13 +30,13 @@
   changed_when: false
 
 - name: "Changing to iptables-legacy - {{ _package }}"
-  ansible.builtin.alternatives:
+  community.general.system.alternatives:
     path: /usr/sbin/iptables-legacy
     name: iptables
   register: ip4_legacy
 
 - name: "Changing to ip6tables-legacy - {{ _package }}"
-  ansible.builtin.alternatives:
+  community.general.system.alternatives:
     path: /usr/sbin/ip6tables-legacy
     name: ip6tables
   register: ip6_legacy
