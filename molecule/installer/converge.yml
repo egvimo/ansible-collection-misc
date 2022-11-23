@@ -17,6 +17,7 @@
           - kubectl
           - lf
           - lsd
+          - rclone
           #- restic
           - screen
           - starship

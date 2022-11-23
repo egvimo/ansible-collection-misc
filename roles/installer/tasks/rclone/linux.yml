@@ -1,0 +1,31 @@
+---
+- name: "Download and extract archive - {{ _package }}"
+  ansible.builtin.unarchive:
+    src: "https://downloads.rclone.org/rclone-current-linux-{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' }}.zip"
+    dest: /tmp
+    remote_src: true
+    owner: root
+    group: root
+    mode: "0755"
+  become: true
+  register: rclone_archive
+
+- name: "Get binary archive - {{ _package }}"
+  ansible.builtin.find:
+    paths: /tmp
+    patterns: '^rclone$'
+    file_type: file
+    recurse: true
+    use_regex: true
+  register: rclone_binary
+
+- name: "Extract archive - {{ _package }}"
+  ansible.builtin.copy:
+    src: "{{ rclone_binary.files[0].path }}"
+    dest: /usr/local/bin
+    remote_src: true
+    owner: root
+    group: root
+    mode: "0755"
+  become: true
+  when: rclone_archive.changed # noqa no-handler
