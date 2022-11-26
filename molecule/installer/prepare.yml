@@ -1,0 +1,21 @@
+---
+- name: Prepare
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Install dependencies
+      ansible.builtin.apt:
+        name: unzip
+        update_cache: true
+        cache_valid_time: 3600
+        state: present
+      become: true
+      when: ansible_os_family == 'Debian'
+
+    - name: Install dependencies
+      ansible.builtin.dnf:
+        name:
+          - unzip
+        state: present
+      become: true
+      when: ansible_os_family == 'RedHat'
