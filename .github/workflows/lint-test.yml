@@ -22,7 +22,7 @@ jobs:
       matrix:
         run:
           - 'ansible-lint'
-          - 'ansible-test integration --docker ubuntu2004'
+          - 'ansible-test integration --docker ubuntu2204'
           - 'molecule test --scenario-name dotfiles'
           # TODO Fix test
           #- 'molecule test --scenario-name gnome'
