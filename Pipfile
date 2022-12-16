@@ -8,5 +8,5 @@ ansible = "==7.0.0"
 
 [dev-packages]
 ansible-lint = "==6.9.0"
-molecule = "==4.0.3"
+molecule = "==4.0.4"
 molecule-docker = "==2.1.0"
