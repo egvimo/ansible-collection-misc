@@ -28,6 +28,6 @@
       changed_when: False
 
     - name: Expand Filesystem
-      ansible.builtin.command: raspi-config nonint do_expand_rootfs
+      ansible.builtin.command: raspi-config nonint do_expand_rootfs  # noqa no-changed-when
       when: can_expand_fs.stdout == '0'
       notify: Reboot
