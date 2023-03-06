@@ -1,8 +1,8 @@
 ---
 - name: Install K9s
   vars:
-    k9s_releases_url: https://github.com/derailed/k9s/releases/latest/download/
-    k9s_archive_name: "k9s_Linux_{{ 'arm64' if ansible_architecture == 'aarch64' else 'x86_64' }}"
+    k9s_releases_url: https://github.com/derailed/k9s/releases/latest/download
+    k9s_archive_name: "k9s_Linux_{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' }}"
   block:
     - name: "Get checksums for archive - {{ _package }}"
       ansible.builtin.uri:
