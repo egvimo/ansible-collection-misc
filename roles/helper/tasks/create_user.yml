@@ -17,7 +17,7 @@
     user_gid: "{{ getent_passwd[helper_user_id].2 }}"
     user_home: "{{ getent_passwd[helper_user_id].4 }}"
 
-- name: "Add user 'helper_add_group_to' to group - {{ helper_user_id }}"
+- name: "Add user to group - {{ helper_user_id }}"
   ansible.builtin.user:
     name: "{{ helper_add_group_to }}"
     groups: "{{ helper_user_id }}"
