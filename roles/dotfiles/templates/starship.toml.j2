@@ -32,7 +32,8 @@ disabled = {{ 'false' if (dotfiles_starship_screen is defined and dotfiles_stars
 
 [custom.git_email]
 command = "git config user.email"
-detect_folders = ['.git']
+when = true
+require_repo = true
 {% if (ansible_os_family | lower) == 'windows' %}
 shell = ["C:\Program Files\Git\bin\sh.exe"]
 {% else %}
