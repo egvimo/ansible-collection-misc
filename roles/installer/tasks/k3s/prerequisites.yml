@@ -40,3 +40,15 @@
     path: /usr/sbin/ip6tables-legacy
     name: ip6tables
   register: ip6_legacy
+
+- name: "Add group - {{ _package }}"
+  ansible.builtin.group:
+    name: k3s
+    gid: 11319
+
+- name: "Add user - {{ _package }}"
+  ansible.builtin.user:
+    name: k3s
+    uid: 11319
+    group: k3s
+    create_home: false
