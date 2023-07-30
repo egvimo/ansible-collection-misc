@@ -12,7 +12,6 @@
           #- brave
           - gotify-cli
           - helm
-          #- k3s
           - k9s
           - kubectl
           - lf
