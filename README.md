@@ -13,7 +13,6 @@ This collection contains the following roles.
 | [dotfiles](roles/dotfiles/README.md)     | Dynamically install various dotfiles                             |
 | [gnome](roles/gnome/README.md)           | Configure Gnome                                                  |
 | [installer](roles/installer/README.md)   | Dynamically install different software from different sources    |
-| [raspberry](roles/raspberry/README.md)   | Configure a Raspberry Pi via `raspi-config`                      |
 
 ## Installation
 

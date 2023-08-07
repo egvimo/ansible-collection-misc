@@ -9,10 +9,10 @@ galaxy_info:
   min_ansible_version: "2.10"
 
   platforms:
-    - name: Ubuntu
+    - name: Debian
       versions:
         - all
-    - name: Debian
+    - name: Fedora
       versions:
         - all
     - name: GenericUNIX

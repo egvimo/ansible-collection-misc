@@ -8,17 +8,12 @@
       vars:
         ansible_user: root
         installer_packages:
-          - bat
           #- brave
           - gotify-cli
           - helm
           - k9s
           - kubectl
-          - lf
           - lsd
-          - rclone
-          #- restic
           - screen
           - starship
-          - syncthing
           #- vscode
