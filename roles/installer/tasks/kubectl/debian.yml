@@ -11,5 +11,5 @@
 - name: "Include bash completion helper - {{ _package }}"
   ansible.builtin.include_tasks: common/bash_completion.yml
   vars:
-    name: kubectl
+    completion_name: kubectl
     command: kubectl completion bash

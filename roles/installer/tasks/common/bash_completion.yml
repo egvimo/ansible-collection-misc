@@ -21,8 +21,8 @@
       become: true
 
     - name: "Create completion file - {{ _package }}"
-      ansible.builtin.shell: "{{ command }} > {{ name }}"
+      ansible.builtin.shell: "{{ command }} > {{ completion_name }}"
       args:
         chdir: "{{ completion_dir }}"
-        creates: "{{ completion_dir }}/{{ name }}"
+        creates: "{{ completion_dir }}/{{ completion_name }}"
       become: true

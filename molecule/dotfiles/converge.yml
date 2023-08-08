@@ -7,7 +7,7 @@
         name: dotfiles
       vars:
         ansible_user: root
-        dotfiles:
+        dotfiles:  # noqa var-naming[no-role-prefix]
           - aliases
           - inputrc
           - starship
