@@ -13,7 +13,5 @@
           - helm
           - k9s
           - kubectl
-          - lsd
           - screen
           - starship
-          #- vscode

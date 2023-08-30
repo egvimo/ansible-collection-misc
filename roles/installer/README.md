@@ -9,9 +9,7 @@ This role contains the following custom install tasks:
 - Helm
 - K9s
 - kubectl
-- lsd
 - Starship
-- Visual Studio Code
 
 If the package is not one of the above, then the `apt` or `dnf` package manager (`scoop` for Windows hosts) is used to install the package.
 

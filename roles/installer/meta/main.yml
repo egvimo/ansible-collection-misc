@@ -29,6 +29,4 @@ galaxy_info:
     - helm
     - k9s
     - kubectl
-    - lsd
     - starship
-    - vscode
