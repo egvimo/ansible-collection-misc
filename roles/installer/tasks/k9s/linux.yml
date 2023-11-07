@@ -6,7 +6,7 @@
   block:
     - name: "Get checksums for archive - {{ _package }}"
       ansible.builtin.uri:
-        url: "{{ k9s_releases_url }}/checksums.txt"
+        url: "{{ k9s_releases_url }}/checksums.sha256"
         return_content: true
       check_mode: false
       register: k9s_checksums
