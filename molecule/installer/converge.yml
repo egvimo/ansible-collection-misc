@@ -12,6 +12,6 @@
           - gotify-cli
           - helm
           - k9s
-          - kubectl
+          #- kubectl
           - screen
           - starship
