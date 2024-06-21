@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "26980f4b3d1cdb42b38196685db839cb485635e80796c1fd062a7fbb462df168"
+            "sha256": "dcd5768f069e35f2ab3200047f5dd66d3e7b532251bd8a3eb0e767a404894505"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -301,12 +301,12 @@
         },
         "ansible-lint": {
             "hashes": [
-                "sha256:21b66fc4e8c5ea4401dcc46523ae96076ff16d1c96437dd77480698500cc82e6",
-                "sha256:e849476e1502e37e5a46c2628c993260ce464bdf79751963735dccb68305197e"
+                "sha256:29896d6fcf5a648e79c4119e2789c5217fe1951f3c33384989920fbf523a3198",
+                "sha256:a86ed91dbdff567ad6a5b374dcb098d5758d4a069eb1d0742048112bb0ef2ef3"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==24.2.2"
+            "version": "==24.6.1"
         },
         "attrs": {
             "hashes": [
@@ -592,11 +592,11 @@
         },
         "filelock": {
             "hashes": [
-                "sha256:58a2549afdf9e02e10720eaa4d4470f56386d7a6f72edd7d0596337af8ed7ad8",
-                "sha256:71b3102950e91dfc1bb4209b64be4dc8854f40e5f534428d8684f953ac847fac"
+                "sha256:0151273e5b5d6cf753a61ec83b3a9b7d8821c39ae9af9d7ecf2f9e2f17404103",
+                "sha256:e1199bf5194a2277273dacd50269f0d87d0682088a3c561c15674ea9005d8635"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==3.15.1"
+            "version": "==3.15.3"
         },
         "idna": {
             "hashes": [
@@ -605,6 +605,14 @@
             ],
             "markers": "python_version >= '3.5'",
             "version": "==3.7"
+        },
+        "importlib-metadata": {
+            "hashes": [
+                "sha256:04e4aad329b8b948a5711d394fa8759cb80f009225441b4f2a02bd4d8e5f426c",
+                "sha256:3ff4519071ed42740522d494d04819b666541b9752c43012f85afb2cc220fcc6"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==7.2.0"
         },
         "jinja2": {
             "hashes": [
@@ -1083,6 +1091,14 @@
             ],
             "markers": "python_version >= '3.8'",
             "version": "==1.35.1"
+        },
+        "zipp": {
+            "hashes": [
+                "sha256:bf1dcf6450f873a13e952a29504887c89e6de7506209e5b1bcc3460135d4de19",
+                "sha256:f091755f667055f2d02b32c53771a7a6c8b47e1fdbc4b72a8b9072b3eef8015c"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==3.19.2"
         }
     }
 }
