@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "dbf15360a80c214eb15b6a27125b1ce03d408a6edb41c38b2814a75a7bfbaa99"
+            "sha256": "f2509796c280382b7361ef430ddd176dafcb91298e21f6002ff22d6e31297639"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -313,12 +313,12 @@
         },
         "ansible-lint": {
             "hashes": [
-                "sha256:21b66fc4e8c5ea4401dcc46523ae96076ff16d1c96437dd77480698500cc82e6",
-                "sha256:e849476e1502e37e5a46c2628c993260ce464bdf79751963735dccb68305197e"
+                "sha256:a2305f1d69a25be27810c64a32711d1d0463d2fda5b9308166362347aeda36e0",
+                "sha256:ca2edc7e4e80cf19df4b28cbf4c118f761ce6cdd6a5ef9c8561e454ed7af5a24"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==24.2.2"
+            "version": "==24.7.0"
         },
         "attrs": {
             "hashes": [
@@ -627,6 +627,14 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==3.8"
+        },
+        "importlib-metadata": {
+            "hashes": [
+                "sha256:66f342cc6ac9818fc6ff340576acd24d65ba0b3efabb2b4ac08b598965a4a2f1",
+                "sha256:9a547d3bc3608b025f93d403fdd1aae741c24fbb8314df4b155675742ce303c5"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==8.4.0"
         },
         "jinja2": {
             "hashes": [
@@ -1111,6 +1119,14 @@
             ],
             "markers": "python_version >= '3.8'",
             "version": "==1.35.1"
+        },
+        "zipp": {
+            "hashes": [
+                "sha256:9960cd8967c8f85a56f920d5d507274e74f9ff813a0ab8889a5b5be2daf44064",
+                "sha256:c22b14cc4763c5a5b04134207736c107db42e9d3ef2d9779d465f5f1bcba572b"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==3.20.1"
         }
     }
 }
