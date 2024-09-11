@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f2509796c280382b7361ef430ddd176dafcb91298e21f6002ff22d6e31297639"
+            "sha256": "8f65b56c9b6585d22d3cb884065c554c841c14db8a86f54f7ec0b98969d4b9f6"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -744,12 +744,12 @@
         },
         "molecule": {
             "hashes": [
-                "sha256:484764c8ae40c7918eb5e43b0bec0315e71f7ed82c36cc9b274f17e42ba00cc8",
-                "sha256:83522baa9b91560ea986273cab149c39156976e9d61245717226320935ad56e4"
+                "sha256:140738904e9f17815780568ac408c9f73bb9e2ac721e34685a359e6d3507e677",
+                "sha256:8e748ec0cf18e7ef718af2caf18e3ef77dff54f5be1ecee9ffaa93095f301cf5"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==24.2.1"
+            "version": "==24.8.0"
         },
         "molecule-plugins": {
             "extras": [
